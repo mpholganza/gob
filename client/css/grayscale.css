@@ -272,6 +272,7 @@ a:focus {
 @media(min-width:767px) {
     .content-section {
         padding-top: 250px;
+        padding-bottom: 250px;
     }
 
     .download-section {
@@ -429,6 +430,9 @@ body {
     font-size: 15px;
 }
 
-.footer {
+#footer {
   background-color:#000;
+  margin-left:0px;
+  margin-right:0px;
+  width:100%;
 }
