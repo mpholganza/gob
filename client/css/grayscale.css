@@ -272,6 +272,7 @@ a:focus {
 @media(min-width:767px) {
     .content-section {
         padding-top: 250px;
+        padding-bottom: 250px;
     }
 
     .download-section {
@@ -384,7 +385,7 @@ body {
     margin: 0px 0px 20px;
 }
 
-#mce-EMAIL {
+#mce-EMAIL, #emailInput {
     width: 90%;
     height: 48px;
     font-size: 20px;
@@ -394,7 +395,7 @@ body {
     border-radius: 0.25rem;
 }
 
-#mc-embedded-subscribe {
+#mc-embedded-subscribe, #emailSubmit {
     width: 90%;
     height: 48px;
     font-size: 20px;
@@ -405,12 +406,12 @@ body {
 }
 
 @media(min-width:767px) {
-    #mce-EMAIL {
+    #mce-EMAIL, #emailInput {
         width: 470px;
         display: inline;
     }
 
-    #mc-embedded-subscribe {
+    #mc-embedded-subscribe, #emailSubmit {
         width: auto;
         margin-left: 10px;
     }
@@ -424,11 +425,14 @@ body {
 }
 
 #copyright {
-    bottom: 0px;
     color: #fff;
     font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 15px;
-    position: absolute;
-    left: 0px;
-    right: 0px;
+}
+
+#footer {
+  background-color:#000;
+  margin-left:0px;
+  margin-right:0px;
+  width:100%;
 }
