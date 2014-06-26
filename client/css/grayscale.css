@@ -428,6 +428,10 @@ body {
     color: #fff;
     font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 15px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 
 #footer {
