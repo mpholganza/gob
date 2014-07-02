@@ -425,11 +425,9 @@ body {
 }
 
 #copyright {
-    color: #fff;
+    color: #999;
     font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 15px;
-    position: absolute;
-    bottom: 0px;
     left: 0px;
     right: 0px;
 }
@@ -439,4 +437,27 @@ body {
   margin-left:0px;
   margin-right:0px;
   width:100%;
+  padding:16px;
+}
+
+#footer a {
+  color:#999;
+}
+
+.signup-form {
+  background-color:rgba(0, 0, 0, 0.4);
+  padding:12px;
+  max-width:500px;
+  margin:auto;
+  border-radius:12px;
+  padding:24px;
+  overflow:auto;
+}
+
+.hidden {
+  display:none;
+}
+
+.signup-form-title {
+  margin-bottom:24px;
 }

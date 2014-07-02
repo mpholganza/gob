@@ -10,15 +10,10 @@
                     <h1 class="brand-heading">Take Out Made Easy</h1>
                     <p class="intro-text">Receive a text &nbsp; &sdot; &nbsp; Tap to order &nbsp; &sdot; &nbsp; Enjoy your meal</p>
                     <p class="intro-text">gob simplifies your day one meal at a time</p>
-                    <br>
-                    <br>
-                    <hr class="intro-divider">
-                    <br>
-                    <br>
                         
 <!-- Begin MailChimp Signup Form -->
 
-    <div id="mc_embed_signup">
+    <!--div id="mc_embed_signup">
         <form action="http://omgob.us8.list-manage.com/subscribe/post?u=0c6cb91f1bee42854108ff7f7&amp;id=16045ed2ee" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
             
             <p class="text">Join today to learn more about gob!</p>
@@ -33,74 +28,104 @@
             <div style="position: absolute; left: -5000px;"><input type="text" name="b_0c6cb91f1bee42854108ff7f7_16045ed2ee" tabindex="-1" value=""></div>
 
         </form>
-    </div>
+    </div-->
 
 <!-- End MailChimp Signup Form -->
-
-<div><p id="copyright">Copyright &copy; 2014 gob</p></div>
-
-		<!--form>
-			<p>Join today to learn more about gob!</p>
-      <input type="email" value="" class="form-control" name="email" id="emailInput" placeholder="Email Address">
-      <input type="submit" value="Join Now" id="emailSubmit" class="btn btn-primary">
-		</form-->
-
-                        <!--div class="page-scroll">
-                            <a href="#about" class="btn btn-circle">
-                                <i class="fa fa-angle-double-down animated"></i>
-                            </a>
-                        </div-->
+										{{#if currentUser}}
+										{{else}}
+								    <br>
+								    <br>
+								    <hr class="intro-divider">
+								    <br>
+								    <br>
+										<form>
+											<p>Join today to learn more about gob!</p>
+								      <input type="email" value="" class="form-control" name="email" id="emailInput" placeholder="Email Address">
+								      <input type="submit" value="Join Now" id="emailSubmit" class="btn btn-primary">
+										</form>
+										{{/if}}
+										<div class="page-scroll">
+											<a href="#how-it-works" class="btn btn-circle">
+												<i class="fa fa-angle-double-down animated"></i>
+											</a>
+										</div>
                 </div>
             </div>
         </div>
     </section>
 		
     <!-- About, Download, Contact -->
-    <!--section id="about" class="container content-section text-center">
-<div class="container">
-
-
-
-      <div class="row">
-        <div class="col-lg-12 overlay-text">
-          <h2>How it works</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-sm-4 text-center overlay-text icons">
-          <div class="icon-wrapper">
-            <i class="fa icon-large"></i>
-          </div>
-          <h3>Receive a text</h3>
-          <p>Each morning, we'll send you a text message with the dish of the day</p>
-        </div>
-        <div class="col-sm-4 text-center overlay-text icons">
-          <div class="icon-wrapper">
-            <i class="fa icon-large"></i>
-          </div>
-          <h3>Reply</h3>
-          <p>Text back YES to place your order</p>
-        </div>
-        <div class="col-sm-4 text-center overlay-text icons">
-          <div class="icon-wrapper">
-            <i class="fa icon-large"></i>
-          </div>
-          <h3>Eat</h3>
-          <p>Your meal will be delivered to your building</p>
-        </div>
-      </div>
-    </div>
+    <section id="how-it-works" class="container content-section text-center">
+			<div class="container">
+	      <div class="row">
+	        <div class="col-lg-12 overlay-text">
+	          <h2>How it works</h2>
+	        </div>
+	      </div>
+	      <div class="row">
+	        <div class="col-sm-4 text-center overlay-text icons">
+	          <div class="icon-wrapper">
+	            <i class="fa fa-mobile-phone icon-large"></i>
+	          </div>
+	          <h3>Receive a text</h3>
+	          <p>Each morning, we'll send you a text message with the dish of the day</p>
+	        </div>
+	        <div class="col-sm-4 text-center overlay-text icons">
+	          <div class="icon-wrapper">
+	            <i class="fa icon-large fa-mail-reply"></i>
+	          </div>
+	          <h3>Reply</h3>
+	          <p>Text back YES to place your order</p>
+	        </div>
+	        <div class="col-sm-4 text-center overlay-text icons">
+	          <div class="icon-wrapper">
+	            <i class="fa icon-large fa-smile-o"></i>
+	          </div>
+	          <h3>Eat</h3>
+	          <p>Your meal will be delivered to your building</p>
+	        </div>
+	      </div>
+	    </div>
+    </section>
 		
-    </section-->
+    <!-- About, Download, Contact -->
+    <section id="about-us" class="container content-section text-center">
+			<div class="container">
+	      <div class="row">
+	        <div class="col-lg-12 overlay-text">
+	          <h2>About Us</h2>
+						<p>Working in the consulting industry for several year in Toronto,
+I always had trouble finding the time to eat lunch.</p>
+						<p>And when I did find time, I spent half of it figuring out what to eat,
+walking to the restaurant, waiting in line, and walking back to the office.</p>
+						<p>Like most young professionals, I was busy trying to make my mark in the industry
+and didn’t have much time to enjoy my lunch.</p>
+						<p>Gob was created to provide a means to enjoy a convenient, affordable, and quality lunch
+from the best restaurants in Toronto.</p>
+	        </div>
+	      </div>
+			</div>
+    </section>
 		
-		<!--section id="footer" class="container content-section text-center footer">
+		<section id="footer" class="text-center footer-bottom">
 			<div class="container">
 				<div class="row">
-	    		<p id="copyright">Copyright &copy; 2014 gob</p>
+	    		<p class="pull-left" id="copyright">&copy; 2014 Gob</p>
+					<ul class="pull-right list-inline">
+						<li>
+							<small>
+								<a href="#">Terms of Service</a>
+							</small>
+						</li>
+						<li>
+							<small>
+								<a href="#">Privacy Policy</a>
+							</small>
+						</li>
+					</ul>
 				</div>
 			</div>
-		</section-->
+		</section>
 
     <!-- Google Analytics -->
 

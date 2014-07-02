@@ -1,0 +1,17 @@
+.login-buttons-dropdown-align- {
+  padding:15px;
+}
+
+.navbar-custom a, .navbar-custom a:hover {
+  color:#428bca;
+}
+
+@media (min-width:767px) {
+  .accounts-dialog {
+    padding:15px;
+    position:absolute;
+    top:60px;
+    left:-150px;
+    background-color:rgba(255,255,255,.2)
+  }
+}
