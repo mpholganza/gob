@@ -13,6 +13,7 @@
 									{{else}}
 									<form role="form" id="extendedSignup" class="signup-form">
 										<h3 class="signup-form-title">Sign Up</h3>
+										<small id="signup-errors" style="display:none">There was a problem with sign up.</small>
 										<div class="form-group col-xs-12">
 											<label for="email" class="hidden">Email:</label>
 											<input type="text" value="{{email}}" class="form-control" name="email" id="email" placeholder="Email">
@@ -42,7 +43,11 @@
 											</select>
 										</div>
 										<div class="form-group col-xs-12">
-											<small class="">By clicking Sign Up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a>
+											<label for="promo" class="hidden">Promo Code:</label>
+											<input type="text" class="form-control" name="promo" placeholder="Optional Promo Code">
+										</div>
+										<div class="form-group col-xs-12">
+											<small>By clicking Sign Up, you agree to our <a href="{{pathFor 'terms'}}">Terms</a> and <a href="{{pathFor 'privacy'}}">Privacy Policy</a>
 											</small>
 										</div>
 										<div class="form-group col-xs-12">

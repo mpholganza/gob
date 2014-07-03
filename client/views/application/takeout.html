@@ -43,6 +43,7 @@
 								      <input type="email" value="" class="form-control" name="email" id="emailInput" placeholder="Email Address">
 								      <input type="submit" value="Join Now" id="emailSubmit" class="btn btn-primary">
 										</form>
+										<small id="join-now-errors" style="display:none">Your email address is required</small>
 										{{/if}}
 										<div class="page-scroll">
 											<a href="#how-it-works" class="btn btn-circle">
@@ -114,12 +115,12 @@ from the best restaurants in Toronto.</p>
 					<ul class="pull-right list-inline">
 						<li>
 							<small>
-								<a href="#">Terms of Service</a>
+								<a id="terms-link">Terms of Service</a>
 							</small>
 						</li>
 						<li>
 							<small>
-								<a href="#">Privacy Policy</a>
+								<a id="privacy-link">Privacy Policy</a>
 							</small>
 						</li>
 					</ul>
