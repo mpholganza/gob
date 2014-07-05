@@ -454,10 +454,43 @@ body {
   overflow:auto;
 }
 
-.hidden {
-  display:none;
-}
-
 .signup-form-title {
   margin-bottom:24px;
+}
+
+#extendedSignup .text-left {
+  text-align: left;
+}
+
+#extendedSignup .form-group {
+  margin-bottom:24px;
+}
+
+#extendedSignup .form-control-feedback {
+  position:absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+}
+
+#extendedSignup .login-wrapper {
+  padding: 15px;
+}
+
+#extendedSignup .help-block {
+  position:absolute;
+  top:30px;
+  left:0;
+  right:0;
+  width:100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center;
+}
+
+#signup-link {
+  display: none;
+}
+
+#forgot-password-link {
+  display: none;
 }
