@@ -1,6 +1,8 @@
 body {
     width: 100%;
     height: 100%;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     color: #fff;
     background-color: #000;
 }
@@ -17,6 +19,7 @@ h4,
 h5,
 h6 {
     margin: 0 0 35px;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
     font-weight: 700;
     letter-spacing: 1px;
 }
@@ -43,6 +46,7 @@ a:focus {
     margin-bottom: 0;
     border-bottom: 1px solid rgba(255,255,255,.3);
     text-transform: uppercase;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     background-color: #000;
 }
@@ -117,6 +121,7 @@ a:focus {
     -o-background-size: cover;
     color: #fff;
     display: table;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     height: 100%;
     width: 100%;
     padding: 100px 0;
@@ -131,6 +136,7 @@ a:focus {
 
 .intro-heading {
     font-size: 30px;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     margin: 0 0 0px;
     margin-left: auto;
@@ -305,6 +311,7 @@ a:focus {
     background-size: cover;
     -o-background-size: cover;
     display: table;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     height: 100%;
     width: 100%;
     padding: 75px 0 100px;
@@ -352,6 +359,7 @@ a:focus {
 
 .icon-heading {
     font-size: 20px;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 300;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
     margin-left: auto;
@@ -378,6 +386,7 @@ a:focus {
     background-size: cover;
     -o-background-size: cover;
     display: table;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     height: 100%;
     width: 100%;
     padding: 100px 0;
@@ -434,7 +443,8 @@ a:focus {
 }*/
 
 .btn {
-    font-weight: 300;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
     -webkit-transition: all .3s ease-in-out;
     -moz-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
@@ -512,23 +522,24 @@ body {
 }
 
 #logo-top {
-    padding: 7px 0 0 15px;
+    padding: 11px 0 0 15px;
 }
 
 @media(min-width:768px) {
     #logo {
         width: 80px;
-        height: 46px;
+        height: 45.5px;
     }
 
     #logo-top {
-        padding: 3px 0 0 15px;
+        padding: 2px 0 0 15px;
     }
 }
 
 .text {
     font-size: 23px;
     font-weight: 300;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
     margin: 0px 0px 20px;
 }
@@ -551,6 +562,15 @@ body {
     margin-right: auto;
     margin-bottom: 10px;
     border-radius: 0.25rem;
+    background-color: #e31e26;
+    border-color: #bb171e;
+}
+
+#emailSubmit:hover{
+    border: 1px solid #960c11;
+    outline: 0;
+    color: #fff;
+    background-color: #bb171e;
 }
 
 @media(min-width:768px) {
@@ -569,6 +589,7 @@ body {
     font-size: 18px;
     font-style: italic;
     padding-top: 5px;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .credit-card-form {
@@ -634,28 +655,6 @@ body {
   text-align:center;
 }
 
-/*#extendedSignupSubmit {
-    width: 100%;
-    height: auto;
-    font-size: 16px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #e31e26;
-    border-color: #bb171e;
-}
-
-#extendedSignupSubmit:hover {
-    border: 1px solid #960c11;
-    color: #fff;
-    background-color: #bb171e;
-}
-
-@media(min-width:768px) {
-    #extendedSignupSubmit {
-        width: auto;
-    }
-}*/
-
 #signup-link {
   display: none;
 }
@@ -675,6 +674,7 @@ body {
     padding: 10px;
     text-align: center;
     display: table;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     position: relative;
 }
 
@@ -745,6 +745,7 @@ body {
 
 .terms-h2 h2 {
     font-size: 21px;
+    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 700;
     margin: 20px 0 10px;
     text-align: left;
