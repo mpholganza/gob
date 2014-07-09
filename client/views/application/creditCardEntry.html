@@ -1,0 +1,56 @@
+<template name="creditCardEntry">
+  <form role="form" id="payment-form" class="credit-card-form">
+		<i class="fa fa-credit-card fa-icon-large"></i>
+  	<p>To make payments as smooth as possible we need your credit card information.</p>
+    <p>You will only be charged when you place an order. You will not be charged now.</p>
+    <div class="form-group col-xs-12 col-sm-6">
+      <label class="hidden">Credit Card Number</label>
+      <input type="text" maxlength="20" size="20" data-stripe="number" class="form-control" placeholder="Credit Card Number"/>
+    </div>
+
+    <div class="form-group col-xs-12 col-sm-2">
+      <label class="hidden">CVC</label>
+      <input type="text" maxlength="4" size="4" data-stripe="cvc" class="form-control" placeholder="CVC"/>
+    </div>
+
+    <div class="form-group col-xs-12 col-sm-2">
+      <label class="hidden">Expiration (YYYY)</label>
+      <select data-stripe="exp-month" class="form-control">
+        <option value="1">01</option>
+        <option value="2">02</option>
+        <option value="3">03</option>
+        <option value="4">04</option>
+        <option value="5">05</option>
+        <option value="6">06</option>
+        <option value="7">07</option>
+        <option value="8">08</option>
+        <option value="9">09</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+    </div>
+    <div class="form-group col-xs-12 col-sm-2">
+      <label class="hidden">Expiration (YYYY)</label>
+      <select data-stripe="exp-year" class="form-control">
+        <option value="2014">2014</option>
+        <option value="2015">2015</option>
+        <option value="2016">2016</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+      </select>
+    </div>
+
+    <div id="payment-errors"></div>
+
+  	<div class="form-group col-xs-12">
+      <button type="submit" class="btn btn-primary">Save</button>
+  	</div>
+  </form>
+</template>

@@ -5,11 +5,15 @@
             <div class="container">
                 <div class="row">
 									{{#if currentUser}}
-									<div id="extendedSignupThankYou">
-										<h2>Thanks for signing up</h2>
-										<p>We'll send you our text offerings starting July 7th!</p>
-										<input type="button" class="btn btn-primary" value="Home" id="homeButton">
-									</div>
+                    {{#if currentUser.profile.hasCreditCard}}
+  									<div id="extendedSignupThankYou">
+  										<h2>Thanks for signing up</h2>
+  										<p>We'll send you our text offerings starting July 7th!</p>
+  										<input type="button" class="btn btn-primary" value="Home" id="homeButton">
+  									</div>
+                    {{else}}
+                      {{> creditCardEntry}}
+                    {{/if}}
 									{{else}}
 									<form role="form" id="extendedSignup" class="signup-form">
 										<h3 class="signup-form-title">Sign Up</h3>

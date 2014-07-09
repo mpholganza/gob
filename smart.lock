@@ -4,7 +4,8 @@
     "basePackages": {
       "iron-router": {},
       "accounts-ui-bootstrap-3": {},
-      "bootstrap-3": {}
+      "bootstrap-3": {},
+      "stripe": {}
     },
     "packages": {
       "iron-router": {
@@ -14,13 +15,18 @@
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.3.2",
-        "commit": "8686c0d3107cf48c72a5500b027f081c7e79dbbc"
+        "tag": "v0.3.3",
+        "commit": "2e50b605d8d5ed68e48c4529a65f13552d8af3f9"
       },
       "bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
         "tag": "v3.2.0-1",
         "commit": "17a63902fc6cf1096c5289d963c66cf28b474727"
+      },
+      "stripe": {
+        "git": "https://github.com/appleifreak/stripe-meteor.git",
+        "tag": "v1.5.5",
+        "commit": "30874f53c864c31ae1f8818e21ee113ea5c99099"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
