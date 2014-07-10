@@ -5,7 +5,11 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
           <i class="fa fa-bars"></i>
         </button>
-        <a id="logo-top" class="navbar-brand" href="{{pathFor 'takeout'}}"><img id="logo" src="/img/logo.png"></a>
+        {{#if showLogo}}
+          <a id="logo-top" class="navbar-brand" href="{{pathFor 'takeout'}}"><img id="logo" src="/img/logo.png"></a>
+        {{else}}
+          <a id="logo-top" class="navbar-brand"><img id="logo" src="/img/logo.png"></a>
+        {{/if}}
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,20 +20,20 @@
             <a href="#page-top"></a>
           </li>
           {{#if showHIW}}
-            <li class="page-scroll">
-              <a href="#hiw">How it works</a>
+            <li>
+              <a id="how-it-works" href="#hiw">How it works</a>
             </li>
           {{/if}}
           {{#if showAbout}}
-            <li class="page-scroll">
-              <a href="#about">About Us</a>
+            <li>
+              <a id="about-us" href="#about">About Us</a>
             </li>
           {{/if}}
-          <li class="page-scroll">
+          <li>
             <a class="hover" href="mailto:support@omgob.com">Contact</a>
           </li>
           {{#if showLoginButtons}}
-            <li class="page-scroll login-wrapper">
+            <li class="login-wrapper">
               {{> loginButtons}}
             </li>
           {{/if}}

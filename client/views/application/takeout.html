@@ -2,7 +2,7 @@
 <!-- id="page-top" data-spy="scroll" data-target=".navbar-custom"-->
   {{> header}}
 
-    <section class="intro">
+    <section id="top" class="intro">
       <div class="intro-body">
         <div class="container">
           <div class="row">
@@ -33,12 +33,12 @@
 
             {{#if currentUser}}
             {{else}}
-            <form>
-              <p class="join-text">Join today for <b>FREE</b> to get served by gob!</p>
-              <input type="email" value="" class="form-control" name="email" id="emailInput" placeholder="Email Address">
-              <input type="submit" value="Join Now" id="emailSubmit" class="btn btn-primary">
-            </form>
-            <!--small id="join-now-errors" style="display:none">Your email address is required</small-->
+              <form>
+                <p class="join-text">Join today for <b>FREE</b> to get served by gob!</p>
+                <input type="email" value="" class="form-control" name="email" id="emailInput" placeholder="Email Address">
+                <input type="submit" value="Join Now" id="emailSubmit" class="btn btn-primary">
+              </form>
+              <!--small id="join-now-errors" style="display:none">Your email address is required</small-->
             {{/if}}
 
             <div class="text-center">
@@ -68,7 +68,7 @@
       </div>
     </section>
 
-    <!-- About, Download, Contact -->
+    <!-- How it works -->
     <section id="hiw" class="hiw-section text-center">
       <div class="intro-body">
         <div class="container">
@@ -99,7 +99,7 @@
       </div>
     </section>
 
-    <!-- About, Download, Contact -->
+    <!-- About us -->
     <section id="about" class="about-section text-center">
       <div class="intro-body">
         <div class="container">

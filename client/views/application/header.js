@@ -6,6 +6,14 @@ UI.registerHelper('showLoginButtons', function() {
   return true;
 });
 
+UI.registerHelper('showLogo', function() {
+  if ('accountCreate' === Router.current().route.name) {
+    return false;
+  }
+  
+  return true;
+});
+
 UI.registerHelper('showHIW', function() {
   if ('accountCreate' === Router.current().route.name) {
     return false;
