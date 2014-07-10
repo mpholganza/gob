@@ -612,8 +612,6 @@ body {
 }
 
 .credit-card-form #payment-errors {
-  position:relative;
-  top: -24px;
 }
 
 
