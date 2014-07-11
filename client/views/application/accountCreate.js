@@ -12,12 +12,21 @@ Template.accountCreate.events({
     }
     
     promoCodes.push(promoCode);
+    
+    var requestedAddress = $(e.target).find('[name=companyAddress]').val()
+    var requestedFloor = $(e.target).find('[name=floor]').val();
+    
+    var requestedLocation = null;
+    if (requestedAddress) {
+      requestedLocation = requestedAddress + ': Floor ' + requestedFloor;
+    }
 
     var profile = {
       firstName: $(e.target).find('[name=firstName]').val(),
       lastName: $(e.target).find('[name=lastName]').val(),
       phoneNumber: $(e.target).find('[name=phoneNumber]').val(),
       building: $(e.target).find('[name=building]').val(),
+      requestedBuilding: requestedLocation,
       promoCodes: promoCodes
     }
     
@@ -29,6 +38,13 @@ Template.accountCreate.events({
   },
   'click #homeButton': function(e) {
     Router.go('takeout');
+  },
+  'change #request-building-select' : function (e) {
+    if ("Request a Building" === e.target.value) {
+      $('#request-building').show();
+    } else {
+      $('#request-building').hide();
+    }
   }
 });
 
