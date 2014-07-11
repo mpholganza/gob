@@ -1,11 +1,11 @@
 var Stripe = StripeAPI('sk_test_u1AsZeXmDBkFeJ3BzcFP1BSN');
 
-var stripeCreateCustomerAsync = function(userId, email, phoneNumber, fullName,  stripeToken) {
+var stripeCreateCustomerAsync = function(userId, email, customerDescription,  stripeToken) {
 	var future = new Future;
 	
 	Stripe.customers.create({
 	  card: stripeToken,
-	  description: phoneNumber + ' ' + email + ' ' + fullName,
+	  description: customerDescription,
     email: email
 	}, function(error, customer) {
 		if (error) {
@@ -39,6 +39,8 @@ Meteor.methods({
 			throw new Meteor.Error(402, "No phone number associated with this account.");
 		} 
     
+    var building = user.profile.building || '';
+    
     var fullName = user.profile.firstName + ' ' + user.profile.lastName;
     
 		/* TODO: use Meteor._wrapAsync when this is public to make this look nicer
@@ -53,8 +55,10 @@ Meteor.methods({
 
 		Meteor.users.update(userId, {$set: { 'services.stripe': { id: customer.id }}});
 		*/
+    
+    var customerDescription = phoneNumber + ',' + building + ',' + fullName;
 
-		var customerResponse = stripeCreateCustomerAsync(user._id, primaryEmail, phoneNumber, fullName, stripeToken);
+		var customerResponse = stripeCreateCustomerAsync(user._id, primaryEmail, customerDescription, stripeToken);
     var error = customerResponse.error;
     var customer = customerResponse.customer;
 
