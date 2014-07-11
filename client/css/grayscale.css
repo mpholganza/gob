@@ -1,14 +1,14 @@
 body {
-    width: 100%;
-    height: 100%;
-    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
-    color: #fff;
-    background-color: #000;
+  width: 100%;
+  height: 100%;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  color: #fff;
+  background-color: #000;
 }
 
 html {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 h1,
@@ -17,115 +17,115 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 35px;
-    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
-    font-weight: 700;
-    letter-spacing: 1px;
+  margin: 0 0 35px;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif !important;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 p {
-    font-size: 18px;
-    line-height: 1.5;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 a {
-    color: #28c3ab;
-    -webkit-transition: all .2s ease-in-out;
-    -moz-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
+  color: #28c3ab;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 a:hover,
 a:focus {
-    text-decoration: none;
-    color: #176e61;
+  text-decoration: none;
+  color: #176e61;
 }
 
 .navbar {
-    margin-bottom: 0;
-    border-bottom: 1px solid rgba(255,255,255,.3);
-    text-transform: uppercase;
-    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    background-color: #000;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(255,255,255,.3);
+  text-transform: uppercase;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  background-color: #000;
 }
 
 .navbar-brand {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 .navbar-brand:focus {
-    outline: 0;
+  outline: 0;
 }
 
 .navbar-custom a {
-    color: #fff;
+  color: #fff;
 }
 
 .navbar-custom a:hover {
-    color: #fff;
+  color: #fff;
 }
 
 .navbar-custom .nav li a {
-    -webkit-transition: background .3s ease-in-out;
-    -moz-transition: background .3s ease-in-out;
-    transition: background .3s ease-in-out;
+  -webkit-transition: background .3s ease-in-out;
+  -moz-transition: background .3s ease-in-out;
+  transition: background .3s ease-in-out;
 }
 
 .navbar-custom .nav li a:hover,
 .navbar-custom .nav li a:focus,
 .navbar-custom .nav li.active {
-    outline: 0;
-    background-color: rgba(255,255,255,.2);
+  outline: 0;
+  background-color: rgba(255,255,255,.2);
 }
 
 .navbar-toggle {
-    padding: 4px 6px;
-    font-size: 16px;
-    color: #fff;
+  padding: 4px 6px;
+  font-size: 16px;
+  color: #fff;
 }
 
 .navbar-toggle:focus,
 .navbar-toggle:active {
-    outline: 0;
+  outline: 0;
 }
 
 @media(min-width:768px) {
-    .navbar {
-        padding: 20px 0;
-        border-bottom: 0;
-        letter-spacing: 1px;
-        background: 0 0;
-        -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
-        transition: background .5s ease-in-out,padding .5s ease-in-out;
-    }
+  .navbar {
+    padding: 20px 0;
+    border-bottom: 0;
+    letter-spacing: 1px;
+    background: 0 0;
+    -webkit-transition: background .5s ease-in-out,padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out,padding .5s ease-in-out;
+    transition: background .5s ease-in-out,padding .5s ease-in-out;
+  }
 
-    .top-nav-collapse {
-        padding: 0;
-        background-color: #000;
-    }
+  .top-nav-collapse {
+    padding: 0;
+    background-color: #000;
+  }
 
-    .navbar-custom.top-nav-collapse {
-        border-bottom: 1px solid rgba(255,255,255,.3);
-    }
+  .navbar-custom.top-nav-collapse {
+    border-bottom: 1px solid rgba(255,255,255,.3);
+  }
 }
 
 .intro {
-    background: url(/img/background1.jpg) no-repeat bottom center scroll;
-    background-color: #000;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    color: #fff;
-    display: table;
-    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    height: 100%;
-    width: 100%;
-    padding: 100px 0;
-    position: relative;
-    text-align: center;
+  background: url(/img/background1.jpg) no-repeat bottom center scroll;
+  background-color: #000;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  color: #fff;
+  display: table;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  text-align: center;
 }
 
 .intro-body {

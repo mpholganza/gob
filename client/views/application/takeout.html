@@ -2,7 +2,7 @@
 <!-- id="page-top" data-spy="scroll" data-target=".navbar-custom"-->
   {{> header}}
 
-    <section class="intro">
+    <section id="top" class="intro">
       <div class="intro-body">
         <div class="container">
           <div class="row">
@@ -33,12 +33,12 @@
 
             {{#if currentUser}}
             {{else}}
-            <form>
-              <p class="join-text">Join today for <b>FREE</b> to get served by gob!</p>
-              <input type="email" value="" class="form-control" name="email" id="emailInput" placeholder="Email Address">
-              <input type="submit" value="Join Now" id="emailSubmit" class="btn btn-primary">
-            </form>
-            <!--small id="join-now-errors" style="display:none">Your email address is required</small-->
+              <form>
+                <p class="join-text">Join today for <b>FREE</b> to get served by gob!</p>
+                <input type="email" value="" class="form-control" name="email" id="emailInput" placeholder="Email Address">
+                <input type="submit" value="Join Now" id="emailSubmit" class="btn btn-primary">
+              </form>
+              <!--small id="join-now-errors" style="display:none">Your email address is required</small-->
             {{/if}}
 
             <div class="text-center">
@@ -68,7 +68,7 @@
       </div>
     </section>
 
-    <!-- About, Download, Contact -->
+    <!-- How it works -->
     <section id="hiw" class="hiw-section text-center">
       <div class="intro-body">
         <div class="container">
@@ -99,7 +99,7 @@
       </div>
     </section>
 
-    <!-- About, Download, Contact -->
+    <!-- About us -->
     <section id="about" class="about-section text-center">
       <div class="intro-body">
         <div class="container">
@@ -129,13 +129,13 @@
               <p id="copyright">&copy; 2014 gob</p>
             </div>
             <div class="col-sm-4 overlay-text icons">
-              <a class="social-media-icons" href="https://www.facebook.com/omgob">
+              <a class="social-media-icons" href="https://www.facebook.com/omgob" target="_blank">
                 <i class="fa fa-facebook-square"></i>
               </a>
-              <a class="social-media-icons" href="http://instagram.com/getgob">
+              <a class="social-media-icons" href="http://instagram.com/getgob" target="_blank">
                 <i class="fa fa-instagram"></i>
               </a>
-              <a class="social-media-icons" href="https://twitter.com/getgob">
+              <a class="social-media-icons" href="https://twitter.com/getgob" target="_blank">
                 <i class="fa fa-twitter"></i>
               </a>
             </div>
