@@ -12,18 +12,20 @@ Template.creditCardEntry.events({
 		var that = this;
 		Stripe.card.createToken($form, function(status, response) {
 			//var $form = $('#payment-form');
-			if (response.error) {
+			if (response && response.error) {
 				// Show the errors on the form
         $('#payment-errors').text(response.error.message);
 				$form.find('button').prop('disabled', false);
+        $('.form-control.number-only').focus();
 			} else {
 				// token contains id, last4, and card type
 				var token = response.id;
 
 				Meteor.call('saveStripeToken', token, function(error, response) {
 					if (error) {
-            $('#payments-errors').text(response.error.message);
+            $('#payment-errors').text(error.message);
 						$form.find('button').prop('disabled', false);
+            $('.form-control.number-only').focus();
 						return;
 					}
 
@@ -34,5 +36,14 @@ Template.creditCardEntry.events({
 		});
 
 		return false;
-	}
+	},
+  'keypress .number-only': function(e) {
+    var charCode = (e.which) ? e.which : e.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      e.preventDefault();
+    }
+    
+    var $form = $('#payment-form');
+    $form.find('button').prop('disabled', false);
+  }
 });

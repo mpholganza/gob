@@ -7,12 +7,11 @@ var stripeCreateCustomerAsync = function(userId, email, phoneNumber, fullName,  
 	  card: stripeToken,
 	  description: phoneNumber + ' ' + email + ' ' + fullName,
     email: email
-	}, function(err, customer) {
-		if (err) {
-			console.log('stripeCreateCustomerAsync:' + err.message);
-			throw new Meteor.Error(402, "Error creating customer info.");
+	}, function(error, customer) {
+		if (error) {
+			console.log('stripeCreateCustomerAsync:' + error.message);
 		}
-		future['return'](customer);
+		future['return']({error: error, customer: customer});
 	});
 	
 	return future.wait();
@@ -25,10 +24,15 @@ Meteor.methods({
 			throw new Meteor.Error(402, "User not logged in. User must be logged in to enter billing information.");
 		}
 		
+    // Require email and phone number before accepting credit cards
 		var primaryEmail = user.emails[0].address;
 		if (!primaryEmail) {
 			throw new Meteor.Error(402, "No email associated with this account.");
 		}  
+
+    if (!user.profile) {
+      throw new Meteor.Error(402, "No user profile associated with this account.");
+    }
 
     var phoneNumber = user.profile.phoneNumber;
 		if (!phoneNumber) {
@@ -36,6 +40,7 @@ Meteor.methods({
 		} 
     
     var fullName = user.profile.firstName + ' ' + user.profile.lastName;
+    
 		/* TODO: use Meteor._wrapAsync when this is public to make this look nicer
 		_wrapAsync implementation.
 		doesn't work as it depends on prototype methods/properties
@@ -49,8 +54,14 @@ Meteor.methods({
 		Meteor.users.update(userId, {$set: { 'services.stripe': { id: customer.id }}});
 		*/
 
-		var customer = stripeCreateCustomerAsync(user._id, primaryEmail, phoneNumber, fullName, stripeToken);
+		var customerResponse = stripeCreateCustomerAsync(user._id, primaryEmail, phoneNumber, fullName, stripeToken);
+    var error = customerResponse.error;
+    var customer = customerResponse.customer;
 
+    if (error) {
+      throw new Meteor.Error(402, error.message);
+    }
+    
 		Meteor.users.update(user._id, {$set: { 'services.stripe': { id: customer.id }, 'profile.hasCreditCard': 1}});
 	}
 });
