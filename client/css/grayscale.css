@@ -413,32 +413,32 @@ a:focus {
 }
 
 /*.download-section {
-    width: 100%;
-    padding: 50px 0;
-    color: #fff;
-    background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
-    background-color: #000;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+  width: 100%;
+  padding: 50px 0;
+  color: #fff;
+  background: url(../img/downloads-bg.jpg) no-repeat center center scroll;
+  background-color: #000;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 
 #map {
-    width: 100%;
-    height: 200px;
-    margin-top: 100px;
+  width: 100%;
+  height: 200px;
+  margin-top: 100px;
 }
 
 @media(min-width:768px) {
-    .download-section {
-        padding: 100px 0;
-    }
+  .download-section {
+    padding: 100px 0;
+  }
 
-    #map {
-        height: 400px;
-        margin-top: 250px;
-    }
+  #map {
+    height: 400px;
+    margin-top: 250px;
+  }
 }*/
 
 .btn {
@@ -468,127 +468,127 @@ a:focus {
     font-size: 26px;
 }
 
-.banner-social-buttons {
-    margin-top: 0;
+/*.banner-social-buttons {
+  margin-top: 0;
 }
 
 @media(max-width:1199px) {
-    ul.banner-social-buttons {
-        /*margin-top: 15px;*/
-    }
+  ul.banner-social-buttons {
+    margin-top: 15px;
+  }
 }
 
 @media(max-width:767px) {
-    ul.banner-social-buttons>li {
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-    }
+  ul.banner-social-buttons>li {
+    display: block;
+    margin-bottom: 20px;
+    padding: 0;
+  }
 
-    ul.banner-social-buttons>li:last-child {
-        margin-bottom: 0;
-    }
-}
+  ul.banner-social-buttons>li:last-child {
+    margin-bottom: 0;
+  }
+}*/
 
 ::-moz-selection {
-    text-shadow: none;
-    background: #fcfcfc;
-    background: rgba(255,255,255,.2);
+  text-shadow: none;
+  background: #fcfcfc;
+  background: rgba(255,255,255,.2);
 }
 
 ::selection {
-    text-shadow: none;
-    background: #fcfcfc;
-    background: rgba(255,255,255,.2);
+  text-shadow: none;
+  background: #fcfcfc;
+  background: rgba(255,255,255,.2);
 }
 
 img::selection {
-    background: 0 0;
+  background: 0 0;
 }
 
 img::-moz-selection {
-    background: 0 0;
+  background: 0 0;
 }
 
 body {
-    webkit-tap-highlight-color: rgba(255,255,255,.2);
+  webkit-tap-highlight-color: rgba(255,255,255,.2);
 }
 
 #logo {
-    background-size: 100%;
-    width: 65px;
-    height: 36px;
+  background-size: 100%;
+  width: 65px;
+  height: 36px;
 }
 
 #logo-top {
-    padding: 11px 0 0 15px;
+  padding: 11px 0 0 15px;
 }
 
 @media(min-width:768px) {
-    #logo {
-        width: 80px;
-        height: 45.5px;
-    }
+  #logo {
+    width: 80px;
+    height: 45.5px;
+  }
 
-    #logo-top {
-        padding: 2px 0 0 15px;
-    }
+  #logo-top {
+    padding: 2px 0 0 15px;
+  }
 }
 
 .text {
-    font-size: 23px;
-    font-weight: 300;
-    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
-    margin: 0px 0px 20px;
+  font-size: 23px;
+  font-weight: 300;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  margin: 0px 0px 20px;
 }
 
 #mce-EMAIL, #emailInput {
-    width: 90%;
-    height: 48px;
-    font-size: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    border-radius: 0.25rem;
+  width: 90%;
+  height: 48px;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-radius: 0.25rem;
 }
 
 #mc-embedded-subscribe, #emailSubmit {
-    width: 90%;
-    height: 48px;
-    font-size: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    border-radius: 0.25rem;
-    background-color: #e31e26;
-    border-color: #bb171e;
+  width: 90%;
+  height: 48px;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  border-radius: 0.25rem;
+  background-color: #e31e26;
+  border-color: #bb171e;
 }
 
 #emailSubmit:hover{
-    border: 1px solid #960c11;
-    outline: 0;
-    color: #fff;
-    background-color: #bb171e;
+  border: 1px solid #960c11;
+  outline: 0;
+  color: #fff;
+  background-color: #bb171e;
 }
 
 @media(min-width:768px) {
-    #mce-EMAIL, #emailInput {
-        width: 470px;
-        display: inline;
-    }
+  #mce-EMAIL, #emailInput {
+    width: 470px;
+    display: inline;
+  }
 
-    #mc-embedded-subscribe, #emailSubmit {
-        width: auto;
-        margin-left: 10px;
-    }
+  #mc-embedded-subscribe, #emailSubmit {
+    width: auto;
+    margin-left: 10px;
+  }
 }
 
 #mce-responses {
-    font-size: 18px;
-    font-style: italic;
-    padding-top: 5px;
-    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 18px;
+  font-style: italic;
+  padding-top: 5px;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 .credit-card-form {
@@ -614,7 +614,6 @@ body {
 .credit-card-form #payment-errors {
 }
 
-
 .signup-form {
   background-color:rgba(0, 0, 0, 0.4);
   padding:12px;
@@ -626,7 +625,10 @@ body {
 }
 
 .signup-form-title {
-  margin-bottom:24px;
+  font-weight: 700 !important;
+  margin-bottom: 24px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+
 }
 
 #extendedSignup .text-left {
@@ -634,11 +636,15 @@ body {
 }
 
 #extendedSignup .form-group {
-  margin-bottom:24px;
+  margin-bottom: 24px;
+}
+
+#extendedSignup .form-control {
+  font-size: 16px;
 }
 
 #extendedSignup .form-control-feedback {
-  position:absolute !important;
+  position: absolute !important;
   top: 10px !important;
   right: 20px !important;
 }
@@ -648,14 +654,62 @@ body {
 }
 
 #extendedSignup .help-block {
-  position:absolute;
-  top:30px;
-  left:0;
-  right:0;
-  width:100%;
+  position: absolute;
+  top: 30px;
+  left: 0;
+  right: 0;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
-  text-align:center;
+  text-align: center;
+}
+
+@media(max-width: 767px) {
+  #extendedSignupThankYou #homeButton {
+    width: 90%;
+  }
+}
+
+#extendedSignupThankYou .intro-text {
+  margin-top: 10px;
+  width: auto;
+}
+
+@media(max-width: 767px) {
+  #extendedSignupThankYou .intro-heading {
+    font-size: 25px;
+  }
+}
+
+#extendedSignup #extendedSignupSubmit {
+  margin-top: 0px;
+}
+
+#extendedSignupSubmit, #saveButton, #homeButton {
+  width: 100%;
+  height: auto;
+  font-size: 18px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  background-color: #e31e26;
+  border-color: #bb171e;
+}
+
+#extendedSignupSubmit:hover,
+#saveButton:hover,
+#homeButton:hover {
+  border: 1px solid #960c11;
+  outline: 0;
+  color: #fff;
+  background-color: #bb171e;
+}
+
+@media(min-width: 768px) {
+  #extendedSignupSubmit, #saveButton, #homeButton {
+    width: auto;
+  }
 }
 
 #signup-link {
@@ -671,111 +725,111 @@ body {
 }
 
 #footer {
-    background-color:#000;
-    height: 50px;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    display: table;
-    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    position: relative;
+  background-color: #000;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  display: table;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  position: relative;
 }
 
 #footer a {
-    color: #999;
-    text-decoration: none;
+  color: #999;
+  text-decoration: none;
 }
 
 #copyright {
-    color: #999;
-    font-size: 15px;
-    margin: 0px;
-    text-align: center;
+  color: #999;
+  font-size: 15px;
+  margin: 0px;
+  text-align: center;
 }
 
 .social-media-icons {
-    color: #fff;
-    font-size: 27px;
-    text-align: center;
-    text-decoration: none!important;
-    margin:0 5px 0;
+  color: #fff;
+  font-size: 27px;
+  text-align: center;
+  text-decoration: none !important;
+  margin:0 5px 0;
 }
 
 .social-media-icons:hover {
-    color: #e31e26;
+  color: #e31e26;
 }
 
 @media(min-width:768px) {
-    #copyright {
-        text-align: left;
-    }
+  #copyright {
+    text-align: left;
+  }
 }
 
 @media(min-width:992px) {
-    .terms-text-align {
-        text-align: right;
-        margin: 0px;
-    }
+  .terms-text-align {
+    text-align: right;
+    margin: 0px;
+  }
 
-    .social-media-icons {
-        margin: 0 10px 0;
-        text-align: center;
-    }
+  .social-media-icons {
+    margin: 0 10px 0;
+    text-align: center;
+  }
 }
 
 .terms-heading-margin {
-    margin: 0 0 20px;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  margin: 0 0 20px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .terms-text {
-    font-size: 16px;
-    font-weight: 300;
-    text-align: left;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
-    margin: 10px 0 0;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: left;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  margin: 10px 0 0;
 }
 
 .terms-background {
-    background-color: rgba(0, 0, 0, 0.4);
-    margin: auto;
-    border-radius: 12px;
-    padding: 15px;
-    width: 90%
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: auto;
+  border-radius: 12px;
+  padding: 15px;
+  width: 90%
 }
 
 .terms-h2 h2 {
-    font-size: 21px;
-    font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
-    margin: 20px 0 10px;
-    text-align: left;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
-    width: 90%;
+  font-size: 21px;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  margin: 20px 0 10px;
+  text-align: left;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  width: 90%;
 }
 
 @media(min-width:768px) {
-    .terms-heading-margin {
-        margin: 0 0 40px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+  .terms-heading-margin {
+    margin: 0 0 40px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    .terms-text {
-        font-size: 18px;
-    }
+  .terms-text {
+    font-size: 18px;
+  }
 
-    .terms-background {
-        padding: 50px;
-    }
+  .terms-background {
+    padding: 50px;
+  }
 
-    .terms-h2 h2 {
-        font-size: 30px;
-    }
+  .terms-h2 h2 {
+    font-size: 30px;
+  }
 }
 
 .fa-icon-large {
-  font-size:10em;
+  font-size: 10em;
 }
