@@ -23,3 +23,30 @@ Accounts.validateNewUser(function(user) {
   console.log("ValidateNewUser: Account for " + email + " created.");
   return true;
 });
+
+Meteor.methods({
+  editProfile: function(profile) {
+    var errorMessage = "";
+    // Validate phone number
+    phoneRegex = /^(\()?[2-9]{1}\d{2}(\))?(-|\s)?[2-9]{1}\d{2}(-|\s)\d{4}$/;
+    var phone = profile.phoneNumber;
+    if (phone && !phoneRegex.test(phone)) {
+      errorMessage += "Invalid phone number.\n"
+    }
+  
+    if (errorMessage.length > 0) {
+      console.log("ValidateNewUser: " + errorMessage);
+      throw new Meteor.Error(403, errorMessage);
+    }
+    
+    Meteor.users.update(Meteor.userId(),
+      { 
+        $set: {
+          "profile.firstName": profile.firstName,
+          "profile.lastName": profile.lastName,
+          "profile.phoneNumber": profile.phoneNumber
+        }
+      }
+    );
+  }
+})

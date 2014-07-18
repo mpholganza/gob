@@ -4,13 +4,22 @@
       <div class="intro-body">
         <div class="container">
           <div class="row">
-						{{#if currentUser}}
+            {{#if currentUser}}
               {{#if currentUser.profile.hasCreditCard}}
-							<div id="extendedSignupThankYou" class="terms-background">
-								<h1 class="intro-heading">Thanks for signing up!</h1>
-                <p class="intro-text">We will text you a featured dish each day at 10am</p>
-								<input type="button" class="btn btn-primary" value="Home" id="homeButton">
-							</div>
+                {{#if requestedBuilding}}
+                <div id="extendedSignupRequestBuilding" class="terms-background">
+                  <h1 class="intro-heading">Thanks for requesting a building!</h1>
+                  <p class="intro-text">We need a few weeks to prepare before we start service at your building. This is to ensure we provide the best service possible to our users.</p>
+                  <p class="intro-text">We look forward to simplifying your day one meal at a time :)</p>
+                  <input type="button" class="btn btn-primary" value="Home" id="homeButton">
+                </div>
+                {{else}}
+                <div id="extendedSignupThankYou" class="terms-background">
+                  <h1 class="intro-heading">Thanks for signing up!</h1>
+                  <p class="intro-text">We will text you a featured dish each day at 10am :)</p>
+                  <input type="button" class="btn btn-primary" value="Home" id="homeButton">
+                </div>
+                {{/if}}
               {{else}}
                 {{> creditCardEntry}}
               {{/if}}
@@ -42,32 +51,35 @@
 							</div>
 							<div class="form-group col-xs-12 text-left">
 								<label for="building" class="hidden">Building:</label>
-								<select id="request-building-select" class="form-control" name="building">
+								<select id="requestBuildingSelect" class="form-control" name="building">
 									<option value="Wattpad">Wattpad - 36 Wellington Street East, Toronto</option>
                   <option value="Request a Building">Request a Building</option>
 								</select>
 							</div>
-              <div id="request-building" style="display:none">
-                <div class="form-group col-xs-12 col-sm-9 text-left">
-                  <label for="companyAddress" class="hidden">Company Address</label>
-                  <input type="text" class="form-control" name="companyAddress" placeholder="Company Address">
-                </div>
-                <div class="form-group col-xs-12 col-sm-3 text-left">
-                  <label for="floor" class="hidden">Floor</label>
-                  <input type="text" class="form-control" name="floor" placeholder="Floor">
-                </div>
-              </div>
+              <div id="requestBuilding" style="display:none">
+              	<div class="form-group col-xs-12 col-sm-9 text-left">
+                	<label for="companyAddress" class="hidden">Company Address</label>
+                	<input type="text" class="form-control" name="companyAddress" placeholder="Company Address">
+              	</div>
+              	<div class="form-group col-xs-12 col-sm-3 text-left">
+                	<label for="floor" class="hidden">Floor</label>
+                	<input type="text" class="form-control" name="floor" placeholder="Floor">
+              	</div>
+            	</div>
 							<div class="form-group col-xs-12 text-left">
 								<label for="promo" class="hidden">Promo Code:</label>
 								<input type="text" class="form-control" name="promo" placeholder="Optional Promo Code">
 							</div>
-							<div class="form-group col-xs-12">
-								<small>By clicking 'Sign Up', you agree to our <a href="{{pathFor 'terms'}}">Terms of Service</a> and <a href="{{pathFor 'privacy'}}">Privacy Policy</a>
-								</small>
-							</div>
-							<div class="form-group col-xs-12">
-								<input type="submit" value="Sign Up" name="extendedSignupSubmit" id="extendedSignupSubmit" class="btn btn-primary">
-							</div>
+              <div class="form-group col-xs-12 checkbox-error">
+                <div>We cannot send you our text offerings without your consent. Please read our <a href="{{pathFor 'terms'}}" target="_blank">Terms of Service</a> and <a href="{{pathFor 'privacy'}}" target="_blank">Privacy Policy</a> for more information</div>
+                <medium>
+                <input type="checkbox" name="consent" class="checkbox-format">I have read, understand and consent to the above
+                </medium>
+              </div>
+							  <div class="form-group col-xs-12">
+								  <input type="submit" value="Sign Up" name="extendedSignupSubmit" id="extendedSignupSubmit" class="btn btn-primary">
+							  </div>
+              <!--/form-->
 						</form>
 						{{/if}}
 						<!--div><p id="copyright">Copyright &copy; 2014 gob</p></div-->

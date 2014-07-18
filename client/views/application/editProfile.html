@@ -1,0 +1,59 @@
+<template name="editProfile">
+  {{> header}}
+    <section class="intro">
+      <div class="intro-body">
+        <div class="container">
+          <div class="row">
+            {{#if currentUser}}
+              {{> editProfileForm}}
+              {{#if currentUser.profile.hasCreditCard}}
+
+              {{else}}
+              
+              {{/if}}
+            {{else}}
+
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </section>
+</template>
+
+<template name="editProfileForm">
+	<form role="form" id="editProfileForm" class="signup-form">
+		<h3 class="signup-form-title">Edit Your Profile</h3>
+		<div class="form-group col-xs-12 col-sm-6 text-left">
+			<label for="firstName" class="hidden">First Name:</label>
+			<input type="text" class="form-control" name="firstName" placeholder="First Name" value="{{currentUser.profile.firstName}}">
+		</div>
+		<div class="form-group col-xs-12 col-sm-6 text-left">
+			<label for="lastName" class="hidden">Last Name:</label>
+			<input type="text" class="form-control" name="lastName" placeholder="Last Name" value="{{currentUser.profile.lastName}}">
+		</div>
+		<div class="form-group col-xs-12 text-left">
+			<label for="phoneNumber" class="hidden">Phone Number:</label>
+			<input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" value="{{currentUser.profile.phoneNumber}}">
+		</div>
+		<!--div class="form-group col-xs-12 text-left">
+			<label for="building" class="hidden">Building:</label>
+			<select id="request-building-select" class="form-control" name="building">
+				<option value="Wattpad">Wattpad - 36 Wellington Street East, Toronto</option>
+        <option value="Request a Building">Request a Building</option>
+			</select>
+		</div>
+    <div id="request-building" style="display:none">
+      <div class="form-group col-xs-12 col-sm-9 text-left">
+        <label for="companyAddress" class="hidden">Company Address</label>
+        <input type="text" class="form-control" name="companyAddress" placeholder="Company Address">
+      </div>
+      <div class="form-group col-xs-12 col-sm-3 text-left">
+        <label for="floor" class="hidden">Floor</label>
+        <input type="text" class="form-control" name="floor" placeholder="Floor">
+      </div>
+    </div-->
+		<div class="form-group col-xs-12">
+			<input type="submit" value="Save" name="editProfileSubmit" id="extendedSignupSubmit" class="btn btn-primary">
+		</div>
+	</form>
+</template>
