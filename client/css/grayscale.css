@@ -661,6 +661,10 @@ body {
   right: 20px !important;
 }
 
+#extendedSignup .checkbox-error .form-control-feedback {
+  display:none !important;
+}
+
 #editProfileForm .form-control-feedback {
   position: absolute !important;
   top: 10px !important;

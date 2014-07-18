@@ -11,6 +11,10 @@ Template.accountCreate.events({
   }
 });
 
+Template.accountCreate.requestedBuilding = function () {
+  return Meteor.user().profile.building === "Request a Building";
+};
+
 Template.accountCreate.rendered = function() {
   if (!this._rendered) {
     this._rendered = true;

@@ -4,22 +4,22 @@
       <div class="intro-body">
         <div class="container">
           <div class="row">
-						{{#if currentUser}}
+            {{#if currentUser}}
               {{#if currentUser.profile.hasCreditCard}}
-
-                <!--div id="extendedSignupRequestBuilding" class="terms-background">
+                {{#if requestedBuilding}}
+                <div id="extendedSignupRequestBuilding" class="terms-background">
                   <h1 class="intro-heading">Thanks for requesting a building!</h1>
                   <p class="intro-text">We need a few weeks to prepare before we start service at your building. This is to ensure we provide the best service possible to our users.</p>
                   <p class="intro-text">We look forward to simplifying your day one meal at a time :)</p>
                   <input type="button" class="btn btn-primary" value="Home" id="homeButton">
-                </div-->
-
+                </div>
+                {{else}}
                 <div id="extendedSignupThankYou" class="terms-background">
                   <h1 class="intro-heading">Thanks for signing up!</h1>
                   <p class="intro-text">We will text you a featured dish each day at 10am :)</p>
                   <input type="button" class="btn btn-primary" value="Home" id="homeButton">
                 </div>
-
+                {{/if}}
               {{else}}
                 {{> creditCardEntry}}
               {{/if}}
@@ -70,11 +70,12 @@
 								<label for="promo" class="hidden">Promo Code:</label>
 								<input type="text" class="form-control" name="promo" placeholder="Optional Promo Code">
 							</div>
-							  <div class="form-group col-xs-12 checkbox-error">
-                  <medium>
-                  <input type="checkbox" name="consent" class="checkbox-format">Check this box to agree to our <a href="{{pathFor 'terms'}}" target="_blank">Terms of Service</a> and <a href="{{pathFor 'privacy'}}" target="_blank">Privacy Policy</a>
-								  </medium>
-							  </div>
+              <div class="form-group col-xs-12 checkbox-error">
+                <div>We cannot send you our text offerings without your consent. Please read our <a href="{{pathFor 'terms'}}" target="_blank">Terms of Service</a> and <a href="{{pathFor 'privacy'}}" target="_blank">Privacy Policy</a> for more information</div>
+                <medium>
+                <input type="checkbox" name="consent" class="checkbox-format">I have read, understand and consent to the above
+                </medium>
+              </div>
 							  <div class="form-group col-xs-12">
 								  <input type="submit" value="Sign Up" name="extendedSignupSubmit" id="extendedSignupSubmit" class="btn btn-primary">
 							  </div>
