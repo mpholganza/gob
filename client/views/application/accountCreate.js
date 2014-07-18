@@ -2,11 +2,11 @@ Template.accountCreate.events({
   'click #homeButton': function(e) {
     Router.go('takeout');
   },
-  'change #request-building-select' : function (e) {
+  'change #requestBuildingSelect' : function (e) {
     if ("Request a Building" === e.target.value) {
-      $('#request-building').show();
+      $('#requestBuilding').show();
     } else {
-      $('#request-building').hide();
+      $('#requestBuilding').hide();
     }
   }
 });
@@ -111,8 +111,18 @@ Template.accountCreate.rendered = function() {
               message: 'Password must be at least 6 characters'
             }
           }
+        },
+        consent: {
+          feedbackIcons: 'false',
+          validators: {
+            choice: {
+              min: 1,
+              max: 1,
+              message: 'Please indicate that you accept the Terms of Service and Privacy Policy'
+            }
+          }
         }
       }
-    });
+    })
   }
 };
