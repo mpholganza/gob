@@ -651,6 +651,12 @@ body {
   right: 20px !important;
 }
 
+#editProfileForm .form-control-feedback {
+  position: absolute !important;
+  top: 10px !important;
+  right: 20px !important;
+}
+
 .nav .open > a {
   background-color: rgba(255,255,255,.2) !important;
 }
