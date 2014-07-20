@@ -30,7 +30,12 @@ Template.creditCardEntry.events({
 					}
 
 					// TODO: FIX this: 'this' is null in this context
-					// Router.go('home');
+          var signUp = Router.current().params.signUp;
+          if ("1" === signUp) {
+            Router.go('signUpThankYou');
+          } else {
+            Router.go('takeout')
+          }
         });
 			}
 		});

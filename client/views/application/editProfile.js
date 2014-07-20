@@ -1,10 +1,13 @@
 Template.editProfileForm.events({
-  'change #request-building-select' : function (e) {
+  'change #request-building-select': function (e) {
     if ("Request a Building" === e.target.value) {
       $('#request-building').show();
     } else {
       $('#request-building').hide();
     }
+  },
+  'click #editCreditCardButton': function (e) {
+    Router.go('creditCardEntry', {signUp: 0});
   }
 });
 

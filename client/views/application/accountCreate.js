@@ -1,7 +1,4 @@
 Template.accountCreate.events({
-  'click #homeButton': function(e) {
-    Router.go('takeout');
-  },
   'change #requestBuildingSelect' : function (e) {
     if ("Request a Building" === e.target.value) {
       $('#requestBuilding').show();
@@ -10,10 +7,6 @@ Template.accountCreate.events({
     }
   }
 });
-
-Template.accountCreate.requestedBuilding = function () {
-  return Meteor.user().profile.building === "Request a Building";
-};
 
 Template.accountCreate.rendered = function() {
   if (!this._rendered) {
@@ -66,7 +59,9 @@ Template.accountCreate.rendered = function() {
           email: email,
           password: password,
           profile: profile
-        });   
+        });
+        
+        Router.go('creditCardEntry', {signUp: 1});
       },
       fields: {
         email: {

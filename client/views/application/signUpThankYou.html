@@ -1,0 +1,25 @@
+<template name="signUpThankYou">
+  {{> header}}
+  <section class="intro">
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+        {{#if requestedBuilding}}
+          <div id="extendedSignupRequestBuilding" class="terms-background">
+            <h1 class="intro-heading">Thanks for requesting a building!</h1>
+            <p class="intro-text">We need a few weeks to prepare before we start service at your building. This is to ensure we provide the best service possible to our users.</p>
+            <p class="intro-text">We look forward to simplifying your day one meal at a time :)</p>
+            <input type="button" class="btn btn-primary" value="Home" id="homeButton">
+          </div>
+        {{else}}
+          <div id="extendedSignupThankYou" class="terms-background">
+            <h1 class="intro-heading">Thanks for signing up!</h1>
+            <p class="intro-text">We will text you a featured dish each day at 10am :)</p>
+            <input type="button" class="btn btn-primary" value="Home" id="homeButton">
+          </div>
+        {{/if}}
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
