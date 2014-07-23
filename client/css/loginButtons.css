@@ -19,17 +19,27 @@
 	padding: 18px;
 }
 
+#login-dropdown-list .dropdown-menu #login-password {
+  margin-bottom: 0px;
+}
+
 .dropdown-menu #login-buttons-logout {
 	margin-top: 12px;
 }
 
-#login-buttons-logout,
-#login-buttons-do-change-password {
-  text-transform: uppercase;
-  background-color: #e31e26;
-  border-color: #bb171e;
+.dropdown-menu #login-buttons-password {
+  margin-top: 12px;
 }
 
+#login-buttons-password,
+#login-buttons-logout,
+#login-buttons-do-change-password {
+  background-color: #e31e26;
+  border-color: #bb171e;
+  text-transform: uppercase;
+}
+
+#login-buttons-password:hover,
 #login-buttons-logout:hover,
 #login-buttons-do-change-password:hover {
   background-color: #bb171e;
@@ -42,6 +52,8 @@
   margin-top: 0px;
 }
 
+#login-buttons-password,
+#login-buttons-do-change-password,
 #login-buttons-edit-profile,
 #login-buttons-open-change-password,
 #login-buttons-logout,
@@ -59,6 +71,7 @@
 }
 
 @media(max-width: 767px) {
+  #login-buttons-password,
   #login-buttons-edit-profile,
   #login-buttons-open-change-password,
   #login-buttons-logout,
