@@ -1,0 +1,91 @@
+.thank-you-background-request {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin: auto;
+  overflow: auto;
+  padding: 48px;
+  width: auto;
+}
+
+@media(max-width:767px) {
+  .thank-you-background-request {
+    padding: 30px;
+    width: 95%;
+  }
+}
+
+.thank-you-background {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin: auto;
+  max-width: 767px;
+  overflow: auto;
+  padding: 48px;
+}
+
+@media(max-width:767px) {
+  .thank-you-background {
+    padding: 30px;
+    width: 95%;
+  }
+}
+
+#extendedSignupThankYou .intro-text, #extendedSignupRequestBuilding .intro-text {
+  margin: 12px 0 0;
+  width: 100%;
+}
+
+@media(min-width: 768px) {
+  #extendedSignupThankYou .intro-text, #extendedSignupRequestBuilding .intro-text {
+    font-size: 21px;
+  }
+}
+
+@media(max-width: 767px) {
+  #extendedSignupThankYou .intro-heading, #extendedSignupRequestBuilding .intro-heading {
+    font-size: 25px;
+  }
+}
+
+#extendedSignupRequestBuilding .intro-heading {
+  margin-bottom: 15px;
+}
+
+#extendedSignupThankYou .text-center, #extendedSignupRequestBuilding .text-center {
+  margin-top: 30px;
+}
+
+@media(max-width: 767px) {
+  #extendedSignupThankYou .text-center, #extendedSignupRequestBuilding .text-center  {
+    margin-top: 12px;
+  }
+}
+
+#extendedSignupThankYou .social-media-icons, #extendedSignupRequestBuilding .social-media-icons {
+  margin-left: 18px;
+}
+
+#homeButton {
+  width: 70%;
+  height: auto;
+  font-size: 18px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 4px;
+  background-color: #e31e26;
+  border-color: #bb171e;
+}
+
+#homeButton:hover {
+  background-color: #bb171e;
+  border: 1px solid #960c11;
+  color: #fff;
+  outline: 0;
+}
+
+@media(max-width: 500px) {
+  #homeButton {
+    width: 100%;
+  }
+}

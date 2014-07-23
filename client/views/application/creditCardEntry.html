@@ -8,6 +8,7 @@
         		<i class="form-group fa fa-credit-card fa-icon-large"></i>
           	<p>To make payments as smooth as possible we need your credit card information.</p>
             <p class="form-group">You will only be charged when you place an order. You will not be charged now.</p>
+            
             <div class="form-group col-xs-12 col-sm-6">
               <label class="hidden">Credit Card Number</label>
               <input type="text" maxlength="20" size="20" data-stripe="number" class="form-control number-only" placeholder="Credit Card Number"/>
@@ -52,11 +53,11 @@
               </select>
             </div>
 
-            <div id="payment-errors"></div>
-
-          	<div class="col-xs-12">
+          	<div class="form-group col-xs-12">
               <button id="saveButton" type="submit" class="btn btn-primary">Save</button>
+              <div id="payment-errors"></div>
           	</div>
+
           </form>
         </div>
       </div>

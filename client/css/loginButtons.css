@@ -1,17 +1,72 @@
-.login-buttons-dropdown-align- {
-  padding:15px;
+#login-dropdown-list .dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.4);
+  margin-top: 15px;
 }
 
-.navbar-custom a, .navbar-custom a:hover {
-  color:#fff;
+#login-dropdown-list {
+  padding: 15px 0 0 0;
 }
 
-@media (min-width:767px) {
-  .accounts-dialog {
-    padding:15px;
-    position:absolute;
-    top:60px;
-    left:-150px;
-    background-color:rgba(255,255,255,.2)
+.dropdown-toggle {
+  padding: 16px 0 16.5px 15px;
+}
+
+.caret {
+  margin-right: 15px;
+}
+
+#login-dropdown-list .dropdown-menu {
+	padding: 18px;
+}
+
+.dropdown-menu #login-buttons-logout {
+	margin-top: 12px;
+}
+
+#login-buttons-logout,
+#login-buttons-do-change-password {
+  text-transform: uppercase;
+  background-color: #e31e26;
+  border-color: #bb171e;
+}
+
+#login-buttons-logout:hover,
+#login-buttons-do-change-password:hover {
+  background-color: #bb171e;
+  border: 1px solid #960c11;
+  color: #fff;
+  outline: 0;
+}
+
+.dropdown-menu #login-buttons-open-change-password {
+  margin-top: 0px;
+}
+
+#login-buttons-edit-profile,
+#login-buttons-open-change-password,
+#login-buttons-logout,
+#login-buttons-do-change-password,
+#login-buttons-cancel-change-password {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+#login-email,
+#login-password,
+#login-old-password {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+@media(max-width: 767px) {
+  #login-buttons-edit-profile,
+  #login-buttons-open-change-password,
+  #login-buttons-logout,
+  #login-buttons-do-change-password,
+  #login-buttons-cancel-change-password,
+  #login-email,
+  #login-password,
+  #login-old-password {
+    font-size: 14px;;
   }
 }

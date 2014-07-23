@@ -5,17 +5,47 @@
       <div class="container">
         <div class="row">
         {{#if requestedBuilding}}
-          <div id="extendedSignupRequestBuilding" class="terms-background">
+          <div id="extendedSignupRequestBuilding" class="thank-you-background-request">
             <h1 class="intro-heading">Thanks for requesting a building!</h1>
             <p class="intro-text">We need a few weeks to prepare before we start service at your building. This is to ensure we provide the best service possible to our users.</p>
-            <p class="intro-text">We look forward to simplifying your day one meal at a time :)</p>
-            <input type="button" class="btn btn-primary" value="Home" id="homeButton">
+            <p class="intro-text">Share with your co-workers to help us start sooner! We look forward to simplifying your day one meal at a time :)</p>
+            <div class="col-sm-6">
+              <input type="button" class="btn btn-primary" value="Home" id="homeButton">
+            </div>
+            <div class="col-sm-6">
+              <div class="text-center">
+                <a class="social-media-icons" href="https://www.facebook.com/omgob" target="_blank">
+                  <i class="fa fa-facebook-square"></i>
+                </a>
+                <a class="social-media-icons" href="http://instagram.com/getgob" target="_blank">
+                  <i class="fa fa-instagram"></i>
+                </a>
+                <a class="social-media-icons" href="https://twitter.com/getgob" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </div>
+            </div>
           </div>
         {{else}}
-          <div id="extendedSignupThankYou" class="terms-background">
+          <div id="extendedSignupThankYou" class="thank-you-background">
             <h1 class="intro-heading">Thanks for signing up!</h1>
-            <p class="intro-text">We will text you a featured dish each day at 10am :)</p>
-            <input type="button" class="btn btn-primary" value="Home" id="homeButton">
+            <p class="intro-text">We will text you starting tomorrow a featured dish each day at 10am :)</p>
+            <div class="col-sm-6">
+              <input type="button" class="btn btn-primary" value="Home" id="homeButton">
+            </div>
+            <div class="col-sm-6">
+              <div class="text-center">
+                <a class="social-media-icons" href="https://www.facebook.com/omgob" target="_blank">
+                  <i class="fa fa-facebook-square"></i>
+                </a>
+                <a class="social-media-icons" href="http://instagram.com/getgob" target="_blank">
+                  <i class="fa fa-instagram"></i>
+                </a>
+                <a class="social-media-icons" href="https://twitter.com/getgob" target="_blank">
+                  <i class="fa fa-twitter"></i>
+                </a>
+              </div>
+            </div>
           </div>
         {{/if}}
         </div>

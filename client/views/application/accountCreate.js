@@ -112,7 +112,6 @@ Template.accountCreate.rendered = function() {
           }
         },
         consent: {
-          feedbackIcons: 'false',
           validators: {
             choice: {
               min: 1,

@@ -58,10 +58,7 @@ a:focus {
   outline: 0;
 }
 
-.navbar-custom a {
-  color: #fff;
-}
-
+.navbar-custom a,
 .navbar-custom a:hover {
   color: #fff;
 }
@@ -360,7 +357,7 @@ a:focus {
   font-size: 20px;
   font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
   font-weight: 300;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
   margin-left: auto;
   margin-right: auto;
   width: 90%;
@@ -369,7 +366,7 @@ a:focus {
 .icon-text {
   font-size: 18px;
   font-weight: 300;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, .5);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
   margin: 0 0 0px;
   margin-left: auto;
   margin-right: auto;
@@ -591,39 +588,8 @@ body {
   font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
-.credit-card-form {
-  background-color:rgba(0, 0, 0, 0.4);
-  padding:12px;
-  max-width:767px;
-  margin:auto;
-  border-radius:12px;
-  padding:48px;
-  overflow:auto;
-}
-
-.credit-card-form p {
-  font-size:16px;
-}
-
-.credit-card-form .form-group {
-  padding-left:2px;
-  padding-right:2px;
-  margin-bottom:24px;
-}
-
-.credit-card-form #payment-errors {
-  color: #e31e26;
+#payment-form .form-control {
   font-size: 16px;
-}
-
-.signup-form {
-  background-color:rgba(0, 0, 0, 0.4);
-  padding:12px;
-  max-width:500px;
-  margin:auto;
-  border-radius:12px;
-  padding:24px;
-  overflow:auto;
 }
 
 .signup-form-title {
@@ -637,7 +603,7 @@ body {
 }
 
 #extendedSignup .checkbox-format {
-  margin: 0px 4px 0px 0px;
+  margin: 8px 8px 4px 0px;
   font-size: 20px;
 }
 
@@ -665,73 +631,11 @@ body {
   display:none !important;
 }
 
-#editProfileForm .form-control-feedback {
-  position: absolute !important;
-  top: 10px !important;
-  right: 20px !important;
-}
-
 .nav .open > a {
   background-color: rgba(255,255,255,.2) !important;
 }
 
-#login-dropdown-list .dropdown-menu {
-  background-color: rgba(0, 0, 0, 0.4);
-  margin-top: 15px;
-}
-
-#login-dropdown-list {
-  padding: 15px 0 0 0;
-}
-
-.dropdown-toggle {
-  padding: 16px 0 16.5px 15px;
-}
-
-.caret {
-  margin-right: 15px;
-}
-
-#login-buttons-password, #login-buttons-logout {
-  text-transform: uppercase;
-  background-color: #e31e26;
-  border-color: #bb171e;
-}
-
-#login-buttons-password:hover,
-#login-buttons-logout:hover,
-#login-buttons-do-change-password:hover {
-  border: 1px solid #960c11;
-  outline: 0;
-  color: #fff;
-  background-color: #bb171e;
-}
-
-.dropdown-menu #login-buttons-open-change-password {
-  margin-top: 0px;
-}
-
-#login-buttons-open-change-password, #login-buttons-do-change-password, #login-buttons-cancel-change-password {
-  text-transform: uppercase;
-}
-
-#login-buttons-do-change-password {
-  background-color: #e31e26;
-  border-color: #bb171e;
-}
-
-#login-email, #login-password, #login-old-password {
-  font-size: 16px;
-  font-weight: 300;
-}
-
-@media(max-width: 767px) {
-  #login-email, #login-password, #login-old-password {
-    font-size: 14px;;
-  }
-}
-
-#extendedSignup .help-block {
+#extendedSignup .help-block, #editProfileForm .help-block {
   color: #e31e26;
   position: absolute;
   top: 30px;
@@ -743,29 +647,7 @@ body {
   text-align: center;
 }
 
-@media(max-width: 767px) {
-  #extendedSignupThankYou #homeButton {
-    margin-top: 15px;
-    width: 90%;
-  }
-}
-
-#extendedSignupThankYou .intro-text {
-  margin-top: 10px;
-  width: auto;
-}
-
-@media(max-width: 767px) {
-  #extendedSignupThankYou .intro-heading {
-    font-size: 25px;
-  }
-}
-
-#extendedSignup #extendedSignupSubmit {
-  margin-top: 0;
-}
-
-#extendedSignupSubmit, #saveButton, #homeButton {
+#editCreditCardButton {
   width: 100%;
   height: auto;
   font-size: 18px;
@@ -777,9 +659,7 @@ body {
   border-color: #bb171e;
 }
 
-#extendedSignupSubmit:hover,
-#saveButton:hover,
-#homeButton:hover {
+#editCreditCardButton:hover {
   border: 1px solid #960c11;
   outline: 0;
   color: #fff;
@@ -787,7 +667,7 @@ body {
 }
 
 @media(min-width: 768px) {
-  #extendedSignupSubmit, #saveButton, #homeButton {
+  #editCreditCardButton {
     width: auto;
   }
 }
@@ -832,7 +712,7 @@ body {
   font-size: 27px;
   text-align: center;
   text-decoration: none !important;
-  margin:0 5px 0;
+  margin:0 6px 0;
 }
 
 .social-media-icons:hover {
@@ -852,7 +732,7 @@ body {
   }
 
   .social-media-icons {
-    margin: 0 10px 0;
+    margin: 0 12px 0;
     text-align: center;
   }
 }
@@ -874,8 +754,9 @@ body {
 
 .terms-background {
   background-color: rgba(0, 0, 0, 0.4);
-  margin: auto;
   border-radius: 12px;
+  margin: auto;
+  overflow: auto;
   padding: 15px;
   width: 90%
 }

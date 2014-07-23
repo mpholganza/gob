@@ -1,31 +1,20 @@
 UI.registerHelper('showLoginButtons', function() {
-  if ('accountCreate' === Router.current().route.name) {
-    return false;
+  if ('takeout' === Router.current().route.name) {
+    return true;
   }
-  
-  return true;
-});
-
-UI.registerHelper('showLogo', function() {
-  if ('accountCreate' === Router.current().route.name) {
-    return false;
-  }
-  
-  return true;
+  return false;
 });
 
 UI.registerHelper('showHIW', function() {
-  if ('accountCreate' === Router.current().route.name) {
-    return false;
+  if ('takeout' === Router.current().route.name) {
+    return true;
   }
-  
-  return true;
+  return false;
 });
 
 UI.registerHelper('showAbout', function() {
-  if ('accountCreate' === Router.current().route.name) {
-    return false;
+  if ('takeout' === Router.current().route.name) {
+    return true;
   }
-  
-  return true;
+  return false;
 });

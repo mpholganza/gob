@@ -1,0 +1,64 @@
+.credit-card-form {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin: auto;
+  max-width: 767px;
+  overflow: auto;
+  padding: 48px;
+}
+
+@media(max-width: 767px) {
+  .credit-card-form {
+    padding: 30px;
+    width: 95%;
+  }
+}
+
+.credit-card-form p {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.credit-card-form .form-group {
+  margin-bottom: 24px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#payment-errors {
+  color: #e31e26;
+  font-size: 14px;
+  position: absolute;
+  top: -15px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#saveButton {
+  width: 50%;
+  height: auto;
+  font-size: 18px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  border-radius: 4px;
+  background-color: #e31e26;
+  border-color: #bb171e;
+}
+
+#saveButton:hover {
+  background-color: #bb171e;
+  border: 1px solid #960c11;
+  color: #fff;
+  outline: 0;
+}
+
+@media(max-width: 767px) {
+  #saveButton {
+    width: 100%;
+  }
+}
