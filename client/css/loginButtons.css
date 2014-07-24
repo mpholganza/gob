@@ -48,12 +48,17 @@
   outline: 0;
 }
 
+.dropdown-menu #login-buttons-edit-profile,
 .dropdown-menu #login-buttons-open-change-password {
   margin-top: 0px;
 }
 
+.dropdown-menu #login-buttons-do-change-password,
+.dropdown-menu #login-buttons-cancel-change-password {
+  margin-top: 12px;
+}
+
 #login-buttons-password,
-#login-buttons-do-change-password,
 #login-buttons-edit-profile,
 #login-buttons-open-change-password,
 #login-buttons-logout,

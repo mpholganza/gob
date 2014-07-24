@@ -487,24 +487,22 @@ a:focus {
   }
 }*/
 
-::-moz-selection {
+input::selection {
   text-shadow: none;
-  background: #fcfcfc;
-  background: rgba(255,255,255,.2);
+  background: #b3d4fd;
+}
+
+input::-moz-selection {
+  text-shadow: none;
+  background: #b3d4fd;
 }
 
 ::selection {
-  text-shadow: none;
-  background: #fcfcfc;
-  background: rgba(255,255,255,.2);
+  background: 0;
 }
 
-img::selection {
-  background: 0 0;
-}
-
-img::-moz-selection {
-  background: 0 0;
+::-moz-selection {
+  background: 0;
 }
 
 body {
