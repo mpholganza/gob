@@ -412,31 +412,6 @@ body {
   text-align: center;
 }
 
-#editCreditCardButton {
-  width: 100%;
-  height: auto;
-  font-size: 18px;
-  margin-top: 30px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 4px;
-  background-color: #e31e26;
-  border-color: #bb171e;
-}
-
-#editCreditCardButton:hover {
-  border: 1px solid #960c11;
-  outline: 0;
-  color: #fff;
-  background-color: #bb171e;
-}
-
-@media(min-width: 768px) {
-  #editCreditCardButton {
-    width: auto;
-  }
-}
-
 #signup-link {
   display: none;
 }

@@ -227,6 +227,26 @@
   font-size: 25px;
 }
 
+.contact {
+  color: #e31e26;
+}
+
+.contact:hover{
+  color: #bb171e;
+}
+
+@media(min-width:768px) {
+  #mce-EMAIL, #emailInput {
+    width: 470px;
+    display: inline;
+  }
+
+  #mc-embedded-subscribe, #emailSubmit {
+    width: auto;
+    margin-left: 10px;
+  }
+}
+
 #restaurants .social-media-icons {
   color: #333333;
   font-size: 40px;
@@ -314,6 +334,12 @@
 }
 
 .margin-adjust-15 {
+  margin: 0 0 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.margin-adjust-25 {
   margin: 0 0 15px;
   margin-left: auto;
   margin-right: auto;
