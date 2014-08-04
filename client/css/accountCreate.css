@@ -1,3 +1,18 @@
+.signup-form {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin: auto;
+  max-width: 500px;
+  overflow: auto;
+  padding: 24px;
+}
+
+#extendedSignup .signup-form-title {
+  font-weight: 700 !important;
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+
 #extendedSignupSubmit {
   width: 50%;
   height: auto;
@@ -17,20 +32,11 @@
 }
 
 @media(max-width: 767px) {
-  #extendedSignupSubmit {
-    width: 100%;
-  }
-
   .signup-form {
     width: 95%
   }
-}
 
-.signup-form {
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 12px;
-  margin: auto;
-  max-width: 500px;
-  overflow: auto;
-  padding: 24px;
+  #extendedSignupSubmit {
+    width: 100%;
+  }
 }

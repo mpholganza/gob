@@ -34,6 +34,12 @@ Template.takeout.events({
     $('html, body').animate({
       scrollTop: $("#about").offset().top
     }, 600);
+  },
+  'click #featured-restaurants':function(e) {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $("#restaurants").offset().top
+    }, 600);
   }
 });
 

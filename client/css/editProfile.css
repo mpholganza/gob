@@ -1,3 +1,9 @@
+#editProfileForm .signup-form-title {
+  font-weight: 700 !important;
+  font-size: 30px;
+  margin-bottom: 24px;
+}
+
 #editProfileForm .form-group {
   margin-bottom: 24px;
 }

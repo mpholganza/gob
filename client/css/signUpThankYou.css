@@ -4,7 +4,7 @@
   margin: auto;
   overflow: auto;
   padding: 48px;
-  width: auto;
+  max-width: 900px;
 }
 
 @media(max-width:767px) {
