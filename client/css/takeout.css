@@ -249,8 +249,6 @@
 
 #restaurants .social-media-icons {
   color: #333333;
-  font-size: 40px;
-  margin: 0 20px 0;
 }
 
 #restaurants .social-media-icons:hover {
@@ -265,24 +263,26 @@
   .restaurant-p {
     font-size: 20px;
   }
-
-  #restaurants .social-media-icons {
-    font-size: 30px;
-    margin: 0 15px 0;
-  }
 }
 
 /* Social media */
 .social-media-icons {
   color: #fff;
-  font-size: 30px;
-  margin: 0 15px 0;
+  font-size: 40px;
+  margin: 0 20px 0;
   text-align: center;
   text-decoration: none !important;
 }
 
 .social-media-icons:hover {
   color: #e31e26;
+}
+
+@media(max-width: 767px) {
+  .social-media-icons {
+    font-size: 30px;
+    margin: 0 15px 0;
+  }
 }
 
 /* Footer */
