@@ -28,7 +28,7 @@ Meteor.methods({
 		var primaryEmail = user.emails[0].address;
 		if (!primaryEmail) {
 			throw new Meteor.Error(402, "No email associated with this account.");
-		}  
+		}
 
     if (!user.profile) {
       throw new Meteor.Error(402, "No user profile associated with this account.");

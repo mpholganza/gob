@@ -1,0 +1,19 @@
+<template name="dealsList">
+  {{#if isAdmin}}
+    <h1>Deals</h1>
+    {{#each deals}}
+      {{> dealItem}}
+    {{/each}}
+  {{/if}}
+</template>
+
+<template name="dealItem">
+  <div>
+    <div>
+      {{name}} from {{restaurantName}}, buildingId: {{buildingId}}, {{description}}, priceInCents: {{priceInCents}}, date: {{date}}
+    </div>
+    <div>
+      <input type="button" value="Mark as delivered" id="deliverButton">
+    </div>
+  </div>
+</template>
