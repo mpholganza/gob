@@ -1,6 +1,6 @@
 /* Intro */
 .intro {
-  background: url(/img/Background1.jpg) no-repeat bottom center scroll;
+  background: url(/img/background1.jpg) no-repeat bottom center scroll;
   background-color: #000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -176,7 +176,7 @@
 
 /* About us */
 .about-section {
-  background: url(../img/Background3.jpg) no-repeat center center scroll;
+  background: url(../img/background3.jpg) no-repeat center center scroll;
   background-color: #000;
   color: #fff;
   -webkit-background-size: cover;
