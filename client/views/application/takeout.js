@@ -16,23 +16,30 @@ Template.takeout.events({
   },
   'click #privacy-link': function(e) {
     Router.go('privacy');
+    $('body,html').scrollTop(0);
   },
-  'click #logo-top':function(e) {
+  'click #logo-top': function(e) {
     e.preventDefault();
     $('html, body').animate({
       scrollTop: $("#top").offset().top
     }, 600);
   },
-  'click #how-it-works':function(e) {
+  'click #how-it-works': function(e) {
     e.preventDefault();
     $('html, body').animate({
       scrollTop: $("#hiw").offset().top
     }, 600);
   },
-  'click #about-us':function(e) {
+  'click #about-us': function(e) {
     e.preventDefault();
     $('html, body').animate({
       scrollTop: $("#about").offset().top
+    }, 600);
+  },
+  'click #featured-restaurants': function(e) {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: $("#restaurants").offset().top
     }, 600);
   }
 });

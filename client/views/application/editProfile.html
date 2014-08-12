@@ -8,7 +8,7 @@
               {{> editProfileForm}}
             {{else}}
               <div class="signup-form">
-                <p class="intro-text">Please sign in to edit your profile</p>
+                <p class="intro-text white-text-adjust">Please sign in to edit your profile</p>
               </div>
             {{/if}}
           </div>
@@ -19,7 +19,7 @@
 
 <template name="editProfileForm">
   <form role="form" id="editProfileForm" class="signup-form">
-	  <h3 class="signup-form-title">Edit Your Profile</h3>
+	  <h3 class="signup-form-title white-text-adjust">Edit Profile</h3>
 		<div class="form-group col-xs-12 col-sm-6 text-left">
 			<label for="firstName" class="hidden">First Name:</label>
 			<input type="text" class="form-control" name="firstName" placeholder="First Name" value="{{currentUser.profile.firstName}}">
@@ -31,9 +31,6 @@
 		<div class="form-group col-xs-12 text-left">
 			<label for="phoneNumber" class="hidden">Phone Number:</label>
 			<input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number" value="{{currentUser.profile.phoneNumber}}">
-		</div>
-		<div class="form-group col-sm-6">
-			<input type="button" value="Edit Credit Card" name="editCreditCardButton" id="editCreditCardButton" class="btn btn-primary">
 		</div>
 		<!--div class="form-group col-xs-12 text-left">
 			<label for="building" class="hidden">Building:</label>
@@ -52,7 +49,10 @@
         <input type="text" class="form-control" name="floor" placeholder="Floor">
       </div>
     </div-->
-		<div class="form-group col-sm-6">
+    <div class="form-group col-xs-12 col-sm-6">
+      <input type="button" value="Edit Credit Card" name="editCreditCardButton" id="editCreditCardButton" class="btn btn-primary">
+    </div>
+		<div class="form-group col-xs-12 col-sm-6">
 			<input type="submit" value="Save" name="editProfileSubmit" id="extendedSignupSubmit" class="btn btn-primary">
 		</div>
 	</form>

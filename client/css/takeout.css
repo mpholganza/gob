@@ -1,0 +1,365 @@
+/* Intro */
+.intro {
+  background: url(/img/Background1.jpg) no-repeat bottom center scroll;
+  background-color: #000;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  color: #fff;
+  display: table;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  text-align: center;
+}
+
+.intro-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.intro-heading {
+  font-size: 30px;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  margin: 0 0 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.intro-text {
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.intro-text-margin {
+  margin: 10px 0 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.divider {
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.join-text {
+  font-size: 19px;
+  font-weight: 300;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+@media(min-width: 768px) {
+  .intro-heading {
+    font-size: 40px;
+  }
+
+  .intro-text {
+    font-size: 25px;
+  }
+  
+  .join-text {
+    font-size: 20px;
+  }
+
+  .divider {
+    width: 525px;
+  }
+}
+
+@media(min-width: 650px) and (max-width: 767px) {
+  .intro-heading {
+    font-size: 35px;
+  }
+
+  .intro-divider {
+    width: 70%;
+  }
+}
+
+@media(min-width: 530px) and (max-width: 649px) {
+  .intro-divider {
+    width: 455px;
+  }
+}
+
+@media(min-width: 481px) and (max-width: 767px) {
+  .intro-text {
+    font-size: 20px;
+  }
+
+  .join-text {
+    font-size: 20px;
+  }
+}
+
+/* How it works */
+.hiw-section {
+  /*background: url(/img/Background2.jpg) no-repeat bottom center scroll;*/
+  background-color: #fff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  display: table;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 75px 0 100px;
+  position: relative;
+}
+
+#hiw-icon {
+  background-size: 100%;
+  margin: 50px 0 25px;
+  width: 150px;
+  height: 150px;
+}
+
+@media(min-width: 1200px) {
+  #hiw-icon {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media(min-width: 992px) and (max-width: 1199px) {
+    #hiw-icon {
+      width: 175px;
+      height: 175px;
+    }
+}
+
+@media(min-width: 768px) {
+  .hiw-h1 {
+    margin: 0 0 75px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #hiw-icon {
+    margin: 0 0 50px;
+  }
+}
+
+.hiw-h2 {
+  font-size: 20px;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 300;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.hiw-h3 {
+  font-size: 18px;
+  font-weight: 300;
+  margin: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+/* About us */
+.about-section {
+  background: url(../img/Background3.jpg) no-repeat center center scroll;
+  background-color: #000;
+  color: #fff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  display: table;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+}
+
+@media(min-width: 768px) and (max-width: 991px) {
+  .about-text-font {
+    font-size: 23px;
+  }
+}
+
+@media(max-width: 767px) {
+  .about-text-margin {
+    margin: 0 0 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* Featured restaurants */
+.restaurant-section {
+  background-color: #fff;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  display: table;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 75px 0 100px;
+  position: relative;
+}
+
+.restaurant-h2 {
+  font-size: 35px;
+}
+
+.restaurant-p {
+  font-size: 25px;
+}
+
+.contact {
+  color: #e31e26;
+}
+
+.contact:hover{
+  color: #bb171e;
+}
+
+@media(min-width:768px) {
+  #mce-EMAIL, #emailInput {
+    width: 470px;
+    display: inline;
+  }
+
+  #mc-embedded-subscribe, #emailSubmit {
+    width: auto;
+    margin-left: 10px;
+  }
+}
+
+#restaurants .social-media-icons {
+  color: #333333;
+}
+
+#restaurants .social-media-icons:hover {
+  color: #e31e26;
+}
+
+@media(max-width: 767px) {
+  .restaurant-h2 {
+    font-size: 30px;
+  }
+
+  .restaurant-p {
+    font-size: 20px;
+  }
+}
+
+/* Social media */
+.social-media-icons {
+  color: #fff;
+  font-size: 40px;
+  margin: 0 20px 0;
+  text-align: center;
+  text-decoration: none !important;
+}
+
+.social-media-icons:hover {
+  color: #e31e26;
+}
+
+@media(max-width: 767px) {
+  .social-media-icons {
+    font-size: 30px;
+    margin: 0 15px 0;
+  }
+}
+
+/* Footer */
+#footer {
+  background-color: #000;
+  height: 50px;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  display: table;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  position: relative;
+}
+
+#footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+.footer-link {
+  cursor: pointer;
+}
+
+#copyright {
+  color: #999;
+  font-size: 15px;
+  margin: 0px;
+  text-align: center;
+}
+
+@media(min-width:768px) {
+  #copyright {
+    text-align: left;
+  }
+
+  .legal-text-align {
+    text-align: right;
+    margin: 0px;
+  }
+}
+
+/* General */
+.white-text-adjust {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+}
+
+.black-text-adjust {
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+}
+
+.margin-adjust-15 {
+  margin: 0 0 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.margin-adjust-25 {
+  margin: 0 0 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.margin-adjust-50 {
+  margin: 0 0 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.margin-adjust-75 {
+  margin: 0 0 75px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.margin-adjust-100 {
+  margin: 0 0 100px;
+  margin-left: auto;
+  margin-right: auto;
+}

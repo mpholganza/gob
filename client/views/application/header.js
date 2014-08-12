@@ -18,3 +18,10 @@ UI.registerHelper('showAbout', function() {
   }
   return false;
 });
+
+UI.registerHelper('showRestaurants', function() {
+  if ('takeout' === Router.current().route.name) {
+    return true;
+  }
+  return false;
+});
