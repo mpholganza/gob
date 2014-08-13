@@ -27,37 +27,34 @@ Template.accountCreate.rendered = function() {
       submitHandler: function(validator, form, submitButton) {
         var $form = $('#extendedSignup');
 
-        var email = $form.find('[name=email]').val();
+    		var email = $form.find('[name=email]').val();
         var password = $form.find('[name=password]').val();
-
+    
         var promoCodes = [];
         var promoCode = {
           code: $form.find('[name=promo]').val(),
           used: 0
-        };
-
+        }
+    
         promoCodes.push(promoCode);
-
+    
         var requestedAddress = $form.find('[name=companyAddress]').val()
         var requestedFloor = $form.find('[name=floor]').val();
-
+    
         var requestedLocation = null;
         if (requestedAddress) {
           requestedLocation = requestedAddress + ': Floor ' + requestedFloor;
         }
 
-        var buildingInfo = $form.find('[name=building]').val().split("_"); // old schema
-
         var profile = {
           firstName: $form.find('[name=firstName]').val(),
           lastName: $form.find('[name=lastName]').val(),
           phoneNumber: $form.find('[name=phoneNumber]').val(),
-          building: buildingInfo[1], // old schema
-          buildingId: buildingInfo[0],
+          building: $form.find('[name=building]').val(),
           requestedBuilding: requestedLocation,
           promoCodes: promoCodes
         }
-
+    
         Accounts.createUser({
           email: email,
           password: password,
@@ -126,8 +123,4 @@ Template.accountCreate.rendered = function() {
       }
     })
   }
-};
-
-Template.accountCreate.buildings = function() {
-  return Buildings.find();
 };

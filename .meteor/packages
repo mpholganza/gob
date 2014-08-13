@@ -10,9 +10,4 @@ bootstrap-3
 jquery
 stripe
 force-ssl
-twilio-meteor
-synced-cron
 iron-router
-moment
-underscore
-moment-timezone

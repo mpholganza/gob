@@ -42,7 +42,7 @@ Template.editProfileForm.rendered = function() {
           firstName: $form.find('[name=firstName]').val(),
           lastName: $form.find('[name=lastName]').val(),
           phoneNumber: $form.find('[name=phoneNumber]').val(),
-          // building: $form.find('[name=building]').val(),
+          building: $form.find('[name=building]').val(),
           requestedBuilding: requestedLocation
         }
         

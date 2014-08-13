@@ -1,12 +1,8 @@
 {
   "packages": {
+    "iron-router": {},
     "accounts-ui-bootstrap-3": {},
     "bootstrap-3": {},
-    "stripe": {},
-    "twilio-meteor": {},
-    "synced-cron": {},
-    "moment": {},
-    "iron-router": {},
-    "moment-timezone": {}
+    "stripe": {}
   }
 }
