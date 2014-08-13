@@ -21,6 +21,12 @@ Meteor.methods({
       return;
     }
 
+    // check if START
+    if (textBody === 'START') {
+      Meteor.call('textStart', textFrom, textBody);
+      return;
+    }
+
     // check if YES
     if (textBody === 'YES') {
       Meteor.call('textOrderReply', textFrom, textBody);
@@ -31,10 +37,13 @@ Meteor.methods({
     Meteor.call('textOther', textFrom, textBody);
   },
   textHelp: function (textFrom) {
-    // TODO
+    Meteor.call('sendText', textFrom, 'Welcome to gob! We text you a featured dish each day by 10am, simply reply YES to order by 11:15am & enjoy by 12:15pm! Reply STOP to unsubscribe');
   },
   textStop: function (textFrom) {
     // TODO
+  },
+  textStart: function (textFrom) {
+    Meteor.call('sendText', textFrom, 'You have successfully been re-subscribed to messages from this number. Reply HELP for help. Reply STOP to unsubscribe.');
   },
   textOrderReply: function (textFrom) {
     // Find ordering user
@@ -47,7 +56,7 @@ Meteor.methods({
 
     // check if activeSubscriber
     if (orderingUser == null) {
-      Meteor.call('sendText', textFrom, 'You are not signed up for gob. Sign up at http://omgob.com!');
+      Meteor.call('sendText', textFrom, 'You are not signed up for gob. Sign up at http://omgob.com');
       return;
     }
 
@@ -56,7 +65,7 @@ Meteor.methods({
     today.setHours(0,0,0,0);
     var dealInfo = Deals.findOne({"buildingId": orderingUser.profile.buildingId, "date": today});
     if (dealInfo == null) {
-      Meteor.call('sendText', textFrom, 'Sorry, there is no deal at your building today!');
+      Meteor.call('sendText', textFrom, 'Sorry, there is no featured dish at your building today');
       return;
     }
 
@@ -68,7 +77,7 @@ Meteor.methods({
     var now = new Date();
     if (!(now > todaysDate10am && now < todaysDate11am)) {
       // Deal not offered at this time, tell user
-      Meteor.call('sendText', textFrom, 'Our featured dish today is now over, but don’t worry we have plenty of delicious dishes featured daily!');
+      Meteor.call('sendText', textFrom, "Our featured dish today is now over, but don't worry we have plenty of delicious dishes featured daily!");
       return;
     }
 

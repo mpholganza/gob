@@ -42,10 +42,10 @@ Meteor.methods({
         var dishName = deal.name;
         var price = deal.priceInCents;
         var priceText = '$' + price;
-        var shortenedUrl = ' - ' + deal.shortenedUrl;
+        var shortenedUrl = deal.shortenedUrl;
         var promo = false;
         var promoText = (promo ? '[PROMO]': '');
-        var finishedText = 'Oh my gob! Today’s featured dish is ' + dishName + ' ' + shortenedUrl +  ' - Best Seller from ' + restaurantName + ' for ' + priceText + ' ' + promoText + ' - Reply YES by 11am to place your order';
+        var finishedText = "Today's featured dish is " + dishName + " from " + restaurantName + " - " + priceText + " " + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
         Meteor.call('sendText', subscriberNumber, finishedText);
       });
     });
