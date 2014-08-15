@@ -41,11 +41,10 @@ Template.buildingCreate.rendered = function() {
 */
       /* submitButtons: '#fakeSubmit', Trick validator until https://github.com/nghuuphuoc/bootstrapvalidator/pull/244 is fixed */
       submitHandler: function(validator, form, submitButton) {
-        alert("hello");
         var $form = $('#buildingCreate');
 
         var building = {
-          name: $form.find('[name=name]').val(),
+          companyName: $form.find('[name=companyName]').val(),
           address: $form.find('[name=address]').val(),
           floor: $form.find('[name=floor]').val()
         }

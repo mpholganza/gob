@@ -1,0 +1,21 @@
+.admin-form {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  overflow: auto;
+  padding: 24px;
+}
+
+.admin-form-title {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+#buildingCreate .form-control,
+#buildingSubmit {
+  font-size: 16px;
+}
