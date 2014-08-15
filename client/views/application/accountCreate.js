@@ -37,7 +37,7 @@ Template.accountCreate.rendered = function() {
 
         promoCodes.push(promoCode);
 
-        var requestedAddress = $form.find('[name=companyAddress]').val()
+        var requestedAddress = $form.find('[name=address]').val()
         var requestedFloor = $form.find('[name=floor]').val();
 
         var requestedLocation = null;

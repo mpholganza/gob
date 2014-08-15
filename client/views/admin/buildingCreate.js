@@ -44,7 +44,7 @@ Template.buildingCreate.rendered = function() {
         var $form = $('#buildingCreate');
 
         var building = {
-          companyName: $form.find('[name=companyName]').val(),
+          name: $form.find('[name=name]').val(),
           address: $form.find('[name=address]').val(),
           floor: $form.find('[name=floor]').val()
         }
