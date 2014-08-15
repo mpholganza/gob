@@ -4,31 +4,16 @@ Template.buildingCreate.rendered = function() {
        
     // Form validation
     $("#buildingCreate").bootstrapValidator({
-      message: 'This value is not valid',
       feedbackIcons: {
         valid: 'glyphicon glyphicon-ok',
         invalid: 'glyphicon glyphicon-remove',
         validating: 'glyphicon glyphicon-refresh'
       },
-      /* submitButtons: '#fakeSubmit', Trick validator until https://github.com/nghuuphuoc/bootstrapvalidator/pull/244 is fixed */
-      submitHandler: function(validator, form, submitButton) {
-        var $form = $('#buildingCreate');
 
-        var building = {
-          companyName: $form.find('[name=companyName]').val(),
-          address: $form.find('[name=address]').val(),
-          floor: $form.find('[name=floor]').val()
-        }
-
-        Buildings.createBuilding({
-          building: building
-        });
-        
-        Router.go('takeout');
-
-      },
+/* For some reason this is not working */
+/*
       fields: {
-        company: {
+        name: {
           trigger: 'blur',
           validators: {
             notEmpty: {
@@ -52,6 +37,22 @@ Template.buildingCreate.rendered = function() {
             }
           }
         }
+      },
+*/
+      /* submitButtons: '#fakeSubmit', Trick validator until https://github.com/nghuuphuoc/bootstrapvalidator/pull/244 is fixed */
+      submitHandler: function(validator, form, submitButton) {
+        alert("hello");
+        var $form = $('#buildingCreate');
+
+        var building = {
+          name: $form.find('[name=name]').val(),
+          address: $form.find('[name=address]').val(),
+          floor: $form.find('[name=floor]').val()
+        }
+        
+        Meteor.call('ensureBuilding', building);
+
+        Router.go('takeout');
       }
     })
   }
