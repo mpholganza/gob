@@ -1,0 +1,49 @@
+<template name="dealCreate">
+  <section class="admin">
+    <div class="admin-body">
+      <div class="container">
+        <div class="row">
+          <form role="form" id="dealCreate" class="admin-form">
+            <h1 class="admin-form-title">Add Deals</h1>
+            <div class="form-group col-xs-12 text-left">
+              <label for="buildingId" class="">Building ID: </label>
+              <input type="text" class="form-control margin-adjust-25" name="buildingId" placeholder="Building ID">
+            </div>
+            <div class="form-group col-xs-12 text-left">
+              <label for="date" class="">Date (YYYY-MM-DD): </label>
+              <input type="text" class="form-control margin-adjust-25" name="date" placeholder="YYYY-MM-DD">
+            </div>
+            <div class="form-group col-xs-12 text-left">
+              <label for="featuredDish" class="">Featured Dish:</label>
+              <input type="text" class="form-control margin-adjust-25" name="featuredDish" placeholder="Featured Dish">
+            </div>
+            <div class="form-group col-xs-12 text-left">
+              <label for="restaurant" class="">Restaurant:</label>
+              <input type="text" class="form-control margin-adjust-25" name="restaurant" placeholder="Restaurant">
+            </div>
+            <div class="form-group col-xs-12 text-left">
+              <label for="description" class="">Description:</label>
+              <input type="text" class="form-control margin-adjust-25" name="description" placeholder="Description">
+            </div>
+            <!--TODO: Add if statement for promo price-->
+            <div class="form-group col-xs-12 text-left">
+              <label for="price" class="">Price ($XX.XX): </label>
+              <input type="text" class="form-control margin-adjust-25" name="price" placeholder="$XX.XX">
+            </div>
+            <div class="form-group col-xs-12 text-left">
+              <label for="shortenedUrl" class="">Shortened URL:</label>
+              <input type="text" class="form-control margin-adjust-25" name="shortenedUrl" placeholder="Shortened URL">
+            </div>
+            <div class="form-group col-xs-12 text-left">
+              <label for="fullUrl" class="">Full URL:</label>
+              <input type="text" class="form-control margin-adjust-25" name="fullUrl" placeholder="Full URL">
+            </div>
+            <div class="form-group col-xs-12">
+              <input type="submit" value="Save" name="dealSubmit" id="dealSubmit" class="btn btn-primary">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
