@@ -5,42 +5,98 @@
         <div class="row">
           <form role="form" id="dealCreate" class="admin-form">
             <h1 class="admin-form-title">Add Deals</h1>
-            <div class="form-group col-xs-12 text-left">
-              <label for="buildingId" class="">Building ID: </label>
-              <input type="text" class="form-control margin-adjust-25" name="buildingId" placeholder="Building ID">
+            <div class="form-group col-xs-6 text-left">
+              <label for="buildingId" class="">Building ID:</label>
+              <input type="text" class="form-control margin-adjust-15" name="buildingId" placeholder="Building ID">
             </div>
-            <div class="form-group col-xs-12 text-left">
-              <label for="date" class="">Date (YYYY-MM-DD): </label>
-              <input type="text" class="form-control margin-adjust-25" name="date" placeholder="YYYY-MM-DD">
+            <div class="form-group col-xs-6 text-left">
+              <label for="date" class="">Date (YYYY-MM-DD):</label>
+              <input type="text" class="form-control margin-adjust-15" name="date" placeholder="YYYY-MM-DD">
             </div>
-            <div class="form-group col-xs-12 text-left">
+            <div class="form-group col-xs-6 text-left">
               <label for="featuredDish" class="">Featured Dish:</label>
-              <input type="text" class="form-control margin-adjust-25" name="featuredDish" placeholder="Featured Dish">
+              <input type="text" class="form-control margin-adjust-15" name="featuredDish" placeholder="Featured Dish">
             </div>
-            <div class="form-group col-xs-12 text-left">
+            <div class="form-group col-xs-6 text-left">
               <label for="restaurant" class="">Restaurant:</label>
-              <input type="text" class="form-control margin-adjust-25" name="restaurant" placeholder="Restaurant">
+              <input type="text" class="form-control margin-adjust-15" name="restaurant" placeholder="Restaurant">
             </div>
             <div class="form-group col-xs-12 text-left">
               <label for="description" class="">Description:</label>
-              <input type="text" class="form-control margin-adjust-25" name="description" placeholder="Description">
+              <input type="text" class="form-control margin-adjust-15" name="description" placeholder="Description">
             </div>
             <!--TODO: Add if statement for promo price-->
-            <div class="form-group col-xs-12 text-left">
-              <label for="price" class="">Price ($XX.XX): </label>
-              <input type="text" class="form-control margin-adjust-25" name="price" placeholder="$XX.XX">
+            <div class="form-group col-xs-3 text-left">
+              <label for="price" class="">Price ($): </label>
+              <input type="text" class="form-control margin-adjust-15" name="price" placeholder="$">
             </div>
-            <div class="form-group col-xs-12 text-left">
+            <div class="form-group col-xs-9 text-left">
               <label for="shortenedUrl" class="">Shortened URL:</label>
-              <input type="text" class="form-control margin-adjust-25" name="shortenedUrl" placeholder="Shortened URL">
+              <input type="text" class="form-control margin-adjust-15" name="shortenedUrl" placeholder="Shortened URL">
             </div>
             <div class="form-group col-xs-12 text-left">
               <label for="fullUrl" class="">Full URL:</label>
-              <input type="text" class="form-control margin-adjust-25" name="fullUrl" placeholder="Full URL">
+              <input type="text" class="form-control margin-adjust-15" name="fullUrl" placeholder="Full URL">
             </div>
-            <div class="form-group col-xs-12">
+            <div class="form-group col-sm-6">
+              <input type="button" class="btn btn-primary" value="Home" id="home">
+            </div>
+            <div class="form-group col-xs-6">
               <input type="submit" value="Save" name="dealSubmit" id="dealSubmit" class="btn btn-primary">
             </div>
+          </form>
+          <form role="form" id="dealOutput" class="admin-form">
+            <div class="form-group col-xs-2 text-left">
+              <label for="buildingId" class="">Building ID</label>
+              {{#each deals}}
+                <input type="text" class="form-control" name="buildingId" value={{deal.buildingId}} readonly>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="date" class="">YYYY-MM-DD</label>
+              {{#each deals}}
+                <input type="text" class="form-control" name="date" value={{deal.date}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="featuredDish" class="">Featured Dish</label>
+              {{#each deals}}
+                <input type="text" class="form-control" name="featuredDish" value={{deal.featuredDish}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="restaurant" class="">Restaurant</label>
+              {{#each deals}}
+                <input type="text" class="form-control" name="restaurant" value={{deal.restaurant}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-3 text-left">
+              <label for="description" class="">Description</label>
+              {{#each deals}}
+                <input type="text" class="form-control" name="description" value={{deal.description}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-1 text-left">
+              <label for="price" class="">Price ($)</label>
+              {{#each deals}}
+                <input type="text" class="form-control" name="price" value={{deal.price}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="shortenedUrl" class="">Shortened URL</label>
+              {{#each deals}}
+                <input type="text" class="form-control" name="shortenedUrl" value={{deal.shortenedUrl}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="fullUrl" class="">Full URL</label>
+              {{#each deals}}
+                <input type="text" class="form-control" name="fullUrl" value={{deal.fullUrl}}>
+              {{/each}}
+            </div>
+            <!--div class="form-group col-xs-12">
+              <input type="submit" value="Save" name="buildingEdit" id="dealEdit" class="btn btn-primary">
+            </div-->
           </form>
         </div>
       </div>

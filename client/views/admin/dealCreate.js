@@ -26,7 +26,7 @@ Template.dealCreate.rendered = function() {
 
         Meteor.call('ensureDeal', deal)
         
-        Router.go('takeout');
+        Router.go('dealCreate');
       },
 
       fields: {
@@ -91,6 +91,12 @@ Template.dealCreate.rendered = function() {
   }
 };
 
-Template.accountCreate.buildings = function() {
-  return Buildings.find();
+Template.dealCreate.deals = function() {
+  return Deals.find();
 };
+
+Template.dealCreate.events({
+  'click #home': function(e) {
+    Router.go('takeout');
+  }
+});

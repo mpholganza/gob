@@ -21,7 +21,21 @@ Template.buildingCreate.rendered = function() {
 
         Meteor.call('ensureBuilding', building);
         
-        Router.go('takeout');
+        Router.go('buildingCreate');
+      },
+
+      submitHandler: function(validator, form, submitButton) {
+        var $form = $('#buildingCreate');
+
+        var building = {
+          company: $form.find('[name=company]').val(),
+          address: $form.find('[name=address]').val(),
+          floor: $form.find('[name=floor]').val()
+        };
+
+        Meteor.call('ensureBuilding', building);
+        
+        Router.go('buildingCreate');
       },
 
       fields: {
@@ -54,6 +68,12 @@ Template.buildingCreate.rendered = function() {
   }
 };
 
-Template.accountCreate.buildings = function() {
+Template.buildingCreate.buildings = function() {
   return Buildings.find();
 };
+
+Template.buildingCreate.events({
+  'click #home': function(e) {
+    Router.go('takeout');
+  }
+});

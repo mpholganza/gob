@@ -5,9 +5,10 @@ Meteor.methods({
     var future = new Future;
     
     // Check for duplicate buildingId-date pair
-    var buildingId = deal.buildingId;
-    var date = deal.date;
-    var duplicateDeal = Deals.findOne({buildingId: buildingId, date: date});
+    //Unable to specify buildingId-date pair
+    //var buildingId = deal.buildingId;
+    //var date = deal.date;
+    var duplicateDeal = Deals.findOne({deal: deal});
     if (duplicateDeal != null) {
       return duplicateDeal._id;
     }
@@ -21,7 +22,6 @@ Meteor.methods({
     return future.wait();
   }
 });
-
 
 Meteor.publish("allDeals", function() {
   return Deals.find();
