@@ -497,6 +497,7 @@ input::-moz-selection {
   background: #b3d4fd;
 }
 
+/*
 ::selection {
   background: 0;
 }
@@ -504,6 +505,7 @@ input::-moz-selection {
 ::-moz-selection {
   background: 0;
 }
+*/
 
 body {
   webkit-tap-highlight-color: rgba(255,255,255,.2);

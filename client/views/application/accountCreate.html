@@ -1,75 +1,75 @@
 <template name="accountCreate">
   {{> header}}
-    <section class="intro">
-      <div class="intro-body">
-        <div class="container">
-          <div class="row">
-            {{#if currentUser}}
-              {{> signUpThankYou}}
-            {{else}}
-              <form role="form" id="extendedSignup" class="signup-form">
-                <h3 class="signup-form-title">Sign Up</h3>
-                <small id="signup-errors" style="display:none">There was a problem with sign up.</small>
-                <div class="form-group col-xs-12 text-left">
-                  <label for="email" class="hidden">Email:</label>
-                  <input type="text" value="{{email}}" class="form-control" name="email" placeholder="Email">
-                </div>
-                <div class="form-group col-xs-12 col-sm-6 text-left">
-                  <label for="firstName" class="hidden">First Name:</label>
-                  <input type="text" class="form-control" name="firstName" placeholder="First Name">
-                </div>
-  							<div class="form-group col-xs-12 col-sm-6 text-left">
-  								<label for="lastName" class="hidden">Last Name:</label>
-  								<input type="text" class="form-control" name="lastName" placeholder="Last Name">
-  							</div>
-  							<div class="form-group col-xs-12 text-left">
-  								<label for="phoneNumber" class="hidden">Phone Number:</label>
-  								<input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
-  							</div>
-  							<div class="form-group col-xs-12 text-left">
-  								<!-- hidden display so chrome doesn't autofill incorrectly-->
-  								<input type="text" style="display:none">
-  								<label for="password" class="hidden">Password</label>
-  								<input type="password" placeholder="Password" name="password" class="form-control">
-  							</div>
-  							<div class="form-group col-xs-12 text-left">
-  								<label for="building" class="hidden">Building:</label>
-  								<select id="requestBuildingSelect" class="form-control" name="building">
-                    {{#each buildings}}
-  									<option value="{{_id}}_{{name}}">{{name}} - {{address}}</option>
-                    {{/each}}
-                    <option value="Request a Building">Request a Building</option>
-  								</select>
-  							</div>
-                <div id="requestBuilding" style="display:none">
-                	<div class="form-group col-xs-12 col-sm-9 text-left">
-                  	<label for="companyAddress" class="hidden">Company Address</label>
-                  	<input type="text" class="form-control" name="companyAddress" placeholder="Company Address">
-                	</div>
-                	<div class="form-group col-xs-12 col-sm-3 text-left">
-                  	<label for="floor" class="hidden">Floor</label>
-                  	<input type="text" class="form-control" name="floor" placeholder="Floor">
-                	</div>
+  <section class="intro">
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          {{#if currentUser}}
+            {{> signUpThankYou}}
+          {{else}}
+            <form role="form" id="extendedSignup" class="signup-form">
+              <h3 class="signup-form-title">Sign Up</h3>
+              <small id="signup-errors" style="display:none">There was a problem with sign up.</small>
+              <div class="form-group col-xs-12 text-left">
+                <label for="email" class="hidden">Email:</label>
+                <input type="text" value="{{email}}" class="form-control" name="email" placeholder="Email">
+              </div>
+              <div class="form-group col-xs-12 col-sm-6 text-left">
+                <label for="firstName" class="hidden">First Name:</label>
+                <input type="text" class="form-control" name="firstName" placeholder="First Name">
+              </div>
+              <div class="form-group col-xs-12 col-sm-6 text-left">
+								<label for="lastName" class="hidden">Last Name:</label>
+								<input type="text" class="form-control" name="lastName" placeholder="Last Name">
+							</div>
+							<div class="form-group col-xs-12 text-left">
+								<label for="phoneNumber" class="hidden">Phone Number:</label>
+								<input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+							</div>
+							<div class="form-group col-xs-12 text-left">
+								<!-- hidden display so chrome doesn't autofill incorrectly-->
+								<input type="text" style="display:none">
+								<label for="password" class="hidden">Password</label>
+								<input type="password" placeholder="Password" name="password" class="form-control">
+							</div>
+							<div class="form-group col-xs-12 text-left">
+								<label for="building" class="hidden">Building:</label>
+								<select id="requestBuildingSelect" class="form-control" name="building">
+                  {{#each buildings}}
+  									<option value="{{_id}}_{{building.Company}}">{{building.company}} - {{building.address}} - {{building.floor}}</option>
+                  {{/each}}
+                  <option value="Request a Building">Request a Building</option>
+								</select>
+							</div>
+              <div id="requestBuilding" style="display:none">
+              	<div class="form-group col-xs-12 col-sm-9 text-left">
+                	<label for="address" class="hidden">Company Address</label>
+                	<input type="text" class="form-control" name="address" placeholder="Company Address">
               	</div>
-  							<div class="form-group col-xs-12 text-left">
-  								<label for="promo" class="hidden">Promo Code:</label>
-  								<input type="text" class="form-control" name="promo" placeholder="Optional Promo Code">
-  							</div>
-                <div class="form-group col-xs-12 checkbox-error">
-                  <div>gob requires your consent to send you SMS and email. Please read our <a href="{{pathFor 'terms'}}" target="_blank">Terms of Service</a> and <a href="{{pathFor 'privacy'}}" target="_blank">Privacy Policy</a> for more information.</div>
-                  <medium>
-                  <input type="checkbox" name="consent" class="checkbox-format">Check here to consent to the above
-                  </medium>
-                </div>
-                <div class="form-group col-xs-12">
-                  <input type="submit" value="Sign Up" name="extendedSignupSubmit" id="extendedSignupSubmit" class="btn btn-primary">
-                </div>
-              </form>
-            {{/if}}
-          </div>
+              	<div class="form-group col-xs-12 col-sm-3 text-left">
+                	<label for="floor" class="hidden">Floor</label>
+                	<input type="text" class="form-control" name="floor" placeholder="Floor">
+              	</div>
+            	</div>
+							<div class="form-group col-xs-12 text-left">
+								<label for="promo" class="hidden">Promo Code:</label>
+								<input type="text" class="form-control" name="promo" placeholder="Optional Promo Code">
+              </div>
+              <div class="form-group col-xs-12 checkbox-error">
+                <div>gob requires your consent to send you SMS and email. Please read our <a href="{{pathFor 'terms'}}" target="_blank">Terms of Service</a> and <a href="{{pathFor 'privacy'}}" target="_blank">Privacy Policy</a> for more information.</div>
+                <medium>
+                <input type="checkbox" name="consent" class="checkbox-format">Check here to consent to the above
+                </medium>
+              </div>
+              <div class="form-group col-xs-12">
+                <input type="submit" value="Sign Up" name="extendedSignupSubmit" id="extendedSignupSubmit" class="btn btn-primary">
+              </div>
+            </form>
+          {{/if}}
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
   <!-- Google Analytics -->
 

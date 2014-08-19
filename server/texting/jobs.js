@@ -41,7 +41,7 @@ Meteor.methods({
         var restaurantName = deal.restaurantName;
         var dishName = deal.name;
         var price = deal.priceInCents;
-        var shortenedUrl = ' - ' + deal.shortenedUrl;
+        var shortenedUrl = deal.shortenedUrl;
 
         // Start TODO: Refactor this with the duplicate functionality in jobs.js
         // Find a promo associated with this deal. Note this only supports one promo per deal
@@ -67,7 +67,8 @@ Meteor.methods({
 
         var priceText = '$' + price;
 
-        var finishedText = 'Oh my gob! Today’s featured dish is ' + dishName + ' ' + shortenedUrl +  ' - Best Seller from ' + restaurantName + ' for ' + priceText + ' ' + promoText + ' - Reply YES by 11am to place your order';
+        var finishedText = "Today's featured dish is " + dishName + " from " + restaurantName + " - " + priceText + " " + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
+
         Meteor.call('sendText', subscriberNumber, finishedText);
       });
     });

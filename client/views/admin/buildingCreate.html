@@ -1,0 +1,60 @@
+<template name="buildingCreate">
+  <section class="admin">
+    <div class="admin-body">
+      <div class="container">
+        <div class="row">
+          <form role="form" id="buildingCreate" class="admin-form">
+            <h1 class="admin-form-title">Add Companies</h1>
+            <div class="form-group col-xs-12 text-left">
+              <label for="company" class="">Company Name:</label>
+              <input type="text" class="form-control margin-adjust-15" name="company" placeholder="Company Name">
+            </div>
+            <div class="form-group col-xs-12 text-left">
+              <label for="address" class="">Address:</label>
+              <input type="text" class="form-control margin-adjust-15" name="address" placeholder="123 Fake Street, Toronto, ON">
+            </div>
+            <div class="form-group col-xs-12 text-left">
+              <label for="floor" class="">Floor/Suite:</label>
+              <input type="text" class="form-control margin-adjust-15" name="floor" placeholder="Floor/Suite">
+            </div>
+            <div class="form-group col-sm-6">
+              <input type="button" class="btn btn-primary" value="Home" id="home">
+            </div>
+            <div class="form-group col-xs-6">
+              <input type="submit" value="Save" name="buildingSubmit" id="buildingSubmit" class="btn btn-primary">
+            </div>
+          </form>
+          <form role="form" id="buildingOutput" class="admin-form">
+            <div class="form-group col-xs-3 text-left">
+              <label for="buildingId" class="">Building ID</label>
+              {{#each buildings}}
+                <input type="text" class="form-control" name="buildingId" value={{_id}} readonly>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-3 text-left">
+              <label for="company" class="">Company Name</label>
+              {{#each buildings}}
+                <input type="text" class="form-control" name="company" value={{company}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-4 text-left">
+              <label for="address" class="">Address</label>
+              {{#each buildings}}
+                <input type="text" class="form-control" name="address" value={{address}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="floor" class="">Floor/Suite</label>
+              {{#each buildings}}
+                <input type="text" class="form-control" name="floor" value={{floor}}>
+              {{/each}}
+            </div>
+            <!--div class="form-group col-xs-12">
+              <input type="submit" value="Save" name="buildingEdit" id="buildingEdit" class="btn btn-primary">
+            </div-->
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

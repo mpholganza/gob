@@ -1,0 +1,66 @@
+.admin {
+  background-color: #fff;
+  color: #fff;
+  display: table;
+  font-family: Lato,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 100px 0;
+  position: relative;
+  text-align: center;
+}
+.admin-body {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.admin-form {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 500px;
+  overflow: auto;
+  padding: 24px;
+}
+
+.admin-form-title {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+#buildingCreate .form-control,
+#buildingSubmit,
+/*#buildingEdit,*/
+#dealCreate .form-control,
+#dealSubmit,
+#home {
+  font-size: 16px;
+}
+
+#buildingCreate .form-control-feedback,
+#dealCreate .form-control-feedback {
+  position: absolute;
+  top: 35px;
+  right: 20px;
+}
+
+#buildingCreate .help-block,
+#dealCreate .help-block {
+  position: absolute;
+  top: 55px;
+  right: 20px;
+}
+
+#buildingOutput,
+#dealOutput {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 12px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 1200px;
+  overflow: auto;
+  padding: 24px;
+}

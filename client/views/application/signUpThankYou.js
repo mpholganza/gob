@@ -1,5 +1,5 @@
 Template.signUpThankYou.requestedBuilding = function () {
-  return Meteor.user().profile.building === "Request a Building";
+  return Meteor.user().profile.buildingId === "Request a Building";
 };
 
 Template.signUpThankYou.events({

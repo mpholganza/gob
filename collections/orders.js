@@ -1,7 +1,7 @@
 Orders = new Meteor.Collection('orders');
 
 Meteor.methods({  
-  ensureOrder: function(userId, dealId, timeOrdered, dealName, restaurantName, priceInCents) {
+  ensureOrder: function(userId, dealId, dealName, restaurantName, priceInCents) {
     var future = new Future;
 
     // Check for duplicate userid-dealid pair
