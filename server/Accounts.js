@@ -24,6 +24,13 @@ Accounts.validateNewUser(function(user) {
   return true;
 });
 
+Accounts.onCreateUser(function(options, user) {
+  if (options.profile.phoneNumber) {
+    var phoneNumber = toTwilioPhoneNumber(options.profile.phoneNumber);
+    Meteor.call('sendText', phoneNumber, "Welcome to gob!");
+  }
+});
+
 Meteor.methods({
   editProfile: function(profile) {
     var errorMessage = "";

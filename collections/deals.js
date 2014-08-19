@@ -1,7 +1,7 @@
 Deals = new Meteor.Collection('deals');
 
 Meteor.methods({
-  ensureDeal: function(buildingId, date, name, restaurantName, priceInCents, description, shortenedUrl, fullUrl) {
+  ensureDeal: function(buildingId, buildingName, date, name, restaurantName, priceInCents, description, shortenedUrl, fullUrl, maxOrders) {
     var future = new Future;
     
     // Check for duplicate buildingId-date pair
@@ -9,17 +9,22 @@ Meteor.methods({
     if (duplicateDeal != null) {
       return duplicateDeal._id;
     }
-
-    Deals.insert({
+    
+    var deal = {
       "buildingId": buildingId,
+      "buildingName": buildingName,
       "name": name,
       "restaurantName": restaurantName,
       "description": description,
       "priceInCents": priceInCents,
       "date": date,
       "shortenedUrl": shortenedUrl,
-      "fullUrl": fullUrl
-    }, function(error, dealId) {
+      "fullUrl": fullUrl,
+      "maxOrders": maxOrders,
+      "numberOfOrders": 0
+    };
+
+    Deals.insert(deal, function(error, dealId) {
       future['return'](dealId);
     });
 

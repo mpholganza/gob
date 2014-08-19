@@ -62,14 +62,18 @@ Meteor.methods({
 
     // check if reply is within offer time
     var todaysDate10am = new Date();
-    todaysDate10am.setHours(14,0,0,0);
+    todaysDate10am.setHours(14,0,0,0); // 10am EST
     var todaysDate11am = new Date();
-    todaysDate11am.setHours(15,0,0,0);
+    todaysDate11am.setHours(15,0,0,0); // 11am EST
     var now = new Date();
-    if (!(now > todaysDate10am && now < todaysDate11am)) {
-      // Deal not offered at this time, tell user
-      Meteor.call('sendText', textFrom, 'Our featured dish today is now over, but don’t worry we have plenty of delicious dishes featured daily!');
+    if (now < todaysDate10am) {
+      Meteor.call('sendText', textFrom, 'Our featured dish today is not yet being offered. Please reply again between 10-11am!');
       return;
+    }
+    
+    if (now > todaysDate11am) {
+      Meteor.call('sendText', textFrom, 'Our featured dish today is now over, but don’t worry we have plenty of delicious dishes featured daily!');
+      return;      
     }
 
     // Create an order

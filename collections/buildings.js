@@ -9,7 +9,7 @@ Meteor.methods({
     if (duplicateBuilding != null) {
       return duplicateBuilding._id;
     }
-    
+
     Buildings.insert({
       "name": name,
       "address": address

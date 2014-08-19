@@ -37,14 +37,36 @@ Meteor.methods({
     _.each(todaysDeals, function(deal) {
       var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId, "profile.hasCreditCard": 1}, {fields: {"profile.phoneNumber": 1}}).fetch();
       _.each(activeSubscribers, function(subscriber) {
-        var subscriberNumber = '+1' + subscriber.profile.phoneNumber.replace(/\D+/g, '');
+        var subscriberNumber = toTwilioPhoneNumber(subscriber.profile.phoneNumber);
         var restaurantName = deal.restaurantName;
         var dishName = deal.name;
         var price = deal.priceInCents;
-        var priceText = '$' + price;
         var shortenedUrl = ' - ' + deal.shortenedUrl;
-        var promo = false;
-        var promoText = (promo ? '[PROMO]': '');
+
+        // Start TODO: Refactor this with the duplicate functionality in jobs.js
+        // Find a promo associated with this deal. Note this only supports one promo per deal
+        var promoText = '';
+        var promoCode = null;
+        var promo = Promos.findOne({"dealId": deal.dealId});
+
+        if (promo) {
+          // Check if the user has one of the promos
+          if (subscriber.profile.promoCodes) {
+            promoCode = _.find(subscriber.profile.promoCodes, function(promoCode) {
+              return promo._id === promoCode._id;
+            });
+
+            if (promoCode) {
+              // Apply discount
+              price = price - promo.priceInCentsOff;
+              promoText = '[PROMO]';
+            }
+          }
+        }
+        // Finish TODO
+
+        var priceText = '$' + price;
+
         var finishedText = 'Oh my gob! Today’s featured dish is ' + dishName + ' ' + shortenedUrl +  ' - Best Seller from ' + restaurantName + ' for ' + priceText + ' ' + promoText + ' - Reply YES by 11am to place your order';
         Meteor.call('sendText', subscriberNumber, finishedText);
       });
