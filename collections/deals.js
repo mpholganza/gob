@@ -46,7 +46,8 @@ Meteor.methods({
       priceInCents: priceInCents,
       maxOrders: maxOrders,
       shortenedUrl: shortenedUrl,
-      fullUrl: fullUrl
+      fullUrl: fullUrl,
+      numberOfOrders: 0
     }, function(error, dealId) {
       future['return'](dealId);
     });

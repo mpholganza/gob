@@ -38,7 +38,7 @@ Meteor.methods({
       var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId, "profile.hasCreditCard": 1}, {fields: {"profile.phoneNumber": 1}}).fetch();
       _.each(activeSubscribers, function(subscriber) {
         var subscriberNumber = toTwilioPhoneNumber(subscriber.profile.phoneNumber);
-        var restaurantName = deal.restaurantName;
+        var restaurant = deal.restaurant;
         var dishName = deal.name;
         var price = deal.priceInCents;
         var shortenedUrl = deal.shortenedUrl;
@@ -66,8 +66,7 @@ Meteor.methods({
         // Finish TODO
 
         var priceText = '$' + price;
-
-        var finishedText = "Today's featured dish is " + dishName + " from " + restaurantName + " - " + priceText + " " + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
+        var finishedText = "Today's featured dish is " + dishName + " from " + restaurant + " - " + priceText + " " + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
 
         Meteor.call('sendText', subscriberNumber, finishedText);
       });
