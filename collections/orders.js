@@ -1,7 +1,7 @@
 Orders = new Meteor.Collection('orders');
 
 Meteor.methods({  
-  ensureOrder: function(userId, dealId, timeOrdered, dealName, restaurantName, priceInCents) {
+  ensureOrder: function(userId, dealId, dealName, restaurantName, priceInCents) {
     var future = new Future;
     
     // Check for duplicate userid-dealid pair
@@ -27,7 +27,7 @@ Meteor.methods({
       // Send order confirmation
       Meteor.call('sendText', user.profile.phoneNumber, "Thanks! Your order has been placed, we'll text you once your dish is delivered! :)");
 
-      future['return'](dealId);
+      future['return'](orderId);
     });
 
     return future.wait();

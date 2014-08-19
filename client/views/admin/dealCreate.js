@@ -19,12 +19,12 @@ Template.dealCreate.rendered = function() {
           featuredDish: $form.find('[name=featuredDish]').val(),
           restaurant: $form.find('[name=restaurant]').val(),
           description: $form.find('[name=description]').val(),
-          price: $form.find('[name=price]').val(),
+          priceInCents: $form.find('[name=priceInCents]').val(),
           shortenedUrl: $form.find('[name=shortenedUrl]').val(),
           fullUrl: $form.find('[name=fullUrl]').val()
         }
 
-        Meteor.call('ensureDeal', deal)
+        Meteor.call('ensureDeal', deal.buildingId, deal.date, deal.featuredDish, deal.restaurant, deal.description, deal.priceInCents, deal.shortenedUrl, deal.fullUrl);
         
         Router.go('dealCreate');
       },
@@ -62,11 +62,11 @@ Template.dealCreate.rendered = function() {
             }
           }
         },
-        price: {
+        priceInCents: {
           trigger: 'blur',
           validators: {
             notEmpty: {
-              message: 'Please provide the price'
+              message: 'Please provide the priceInCents'
             }
           }
         },

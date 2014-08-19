@@ -28,8 +28,9 @@ Meteor.methods({
     }
 
     // check if YES
-    if (textBody === 'YES') {
-      Meteor.call('textOrderReply', textFrom, textBody);
+    var yesTracking = textBody.substring(0,3); 
+    if (yesTracking === 'YES') {
+      Meteor.call('textOrderReply', textFrom, yesTracking);
       return;
     }
 
@@ -82,7 +83,8 @@ Meteor.methods({
     }
 
     // Create an order
-    Meteor.call('ensureOrder', orderingUser._id, dealInfo._id, dealInfo.name, dealInfo.restaurantName, dealInfo.priceInCents);
+    Meteor.call('ensureOrder', orderingUser._id, dealInfo._id, dealInfo.featuredDish, dealInfo.restaurant, dealInfo.priceInCents);
+
   },
   textOther: function (textFrom, textBody) {
     

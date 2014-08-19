@@ -19,25 +19,10 @@ Template.buildingCreate.rendered = function() {
           floor: $form.find('[name=floor]').val()
         };
 
-        Meteor.call('ensureBuilding', building);
+        Meteor.call('ensureBuilding', building.company, building.address, building.floor);
         
         Router.go('buildingCreate');
       },
-
-      submitHandler: function(validator, form, submitButton) {
-        var $form = $('#buildingCreate');
-
-        var building = {
-          company: $form.find('[name=company]').val(),
-          address: $form.find('[name=address]').val(),
-          floor: $form.find('[name=floor]').val()
-        };
-
-        Meteor.call('ensureBuilding', building);
-        
-        Router.go('buildingCreate');
-      },
-
       fields: {
         company: {
           trigger: 'blur',
