@@ -1,5 +1,4 @@
 var Stripe = StripeAPI('sk_test_4OjrvwlCpmlbp1SKdYnqnvhS');
-
 var stripeCreateCustomerAsync = function(userId, email, customerDescription,  stripeToken) {
 	var future = new Future;
 	

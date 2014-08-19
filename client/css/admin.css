@@ -35,26 +35,31 @@
 /*#buildingEdit,*/
 #dealCreate .form-control,
 #dealSubmit,
+#promoCreate .form-control,
+#promoSubmit,
 #home {
   font-size: 16px;
 }
 
 #buildingCreate .form-control-feedback,
-#dealCreate .form-control-feedback {
+#dealCreate .form-control-feedback,
+#promoCreate .form-control-feedback {
   position: absolute;
   top: 35px;
   right: 20px;
 }
 
 #buildingCreate .help-block,
-#dealCreate .help-block {
+#dealCreate .help-block,
+#promoCreate .help-block {
   position: absolute;
   top: 55px;
   right: 20px;
 }
 
 #buildingOutput,
-#dealOutput {
+#dealOutput,
+#promoOutput {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
   margin-top: 50px;
