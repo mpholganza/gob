@@ -83,8 +83,8 @@ Meteor.methods({
     // var orderAmount = Orders.find({"date": {"$gte": todaysDate, "$lt": tomorrowsDate}, "status": "confirmed"}).fetch().length;
     var todaysDeals = Deals.find({date: {"$gte": todaysDate, "$lt": tomorrowsDate}}).fetch;
     var orderText = '';
-    _.each(todaysDeals, function(deal)) {
-      orderText += deal.restaurant ": " + deal.numberOfOrders + ".";
+    _.each(todaysDeals, function(deal) {
+      orderText += deal.restaurant + ": " + deal.numberOfOrders + ".";
     });
 
     Meteor.call('sendText', '+16472981717', orderText); // TODO: Remove Hardcode

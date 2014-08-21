@@ -47,11 +47,22 @@ Accounts.validateNewUser(function(user) {
   return true;
 });
 
+// TODO: Take this out of the global namespace
+function toTwilioPhoneNumber(phoneNumber) {
+  return '+1' + phoneNumber.replace(/\D+/g, '');
+}
+
 Accounts.onCreateUser(function(options, user) {
-  if (options.profile.phoneNumber) {
-    var phoneNumber = toTwilioPhoneNumber(options.profile.phoneNumber);
-    Meteor.call('sendText', phoneNumber, "Welcome to gob!");
+  if (options.profile) {
+    user.profile = options.profile;
+    
+    if (options.profile.phoneNumber) {
+      var phoneNumber = toTwilioPhoneNumber(options.profile.phoneNumber);
+      Meteor.call('sendText', phoneNumber, "Welcome to gob!");
+    }
   }
+  
+  return user;
 });
 
 Meteor.methods({
