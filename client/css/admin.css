@@ -17,6 +17,7 @@
 .admin-form {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   max-width: 500px;
@@ -37,7 +38,9 @@
 #dealSubmit,
 #promoCreate .form-control,
 #promoSubmit,
-#home {
+#home,
+#dealsList .form-group,
+#deliveredButton {
   font-size: 16px;
 }
 
@@ -59,10 +62,10 @@
 
 #buildingOutput,
 #dealOutput,
-#promoOutput {
+#promoOutput,
+#orderOutput {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
-  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   min-width: 1200px;

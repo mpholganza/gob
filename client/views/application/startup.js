@@ -7,4 +7,5 @@ Meteor.startup(function() {
    Meteor.subscribe('publicBuildings');
    Meteor.subscribe('allDeals');
    Meteor.subscribe('allPromos');
+   Meteor.subscribe('allOrders');
 });

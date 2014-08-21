@@ -23,14 +23,14 @@ Accounts.validateNewUser(function(user) {
   console.log("ValidateNewUser: Account for " + email + " created.");
   return true;
 });
-
+/*
 Accounts.onCreateUser(function(options, user) {
   if (options.profile.phoneNumber) {
     var phoneNumber = toTwilioPhoneNumber(options.profile.phoneNumber);
-    Meteor.call('sendText', phoneNumber, "Welcome to gob!");
+    Meteor.call('sendText', phoneNumber, "Welcome to gob! We text you a featured dish each day by 10am, simply reply YES to order by 11:15am & enjoy by 12:15pm!");
   }
 });
-
+*/
 Meteor.methods({
   editProfile: function(profile) {
     var errorMessage = "";

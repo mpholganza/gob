@@ -1,40 +1,40 @@
 Meteor.methods({
   textDispatcher: function(textFrom, textBody) {
-    // check number
+    // Check number
     var twilioNumber = '+16475575906'; // TODO: Remove Hardcode
     if (textFrom === twilioNumber) {
-      // avoid text loop!
+      // Avoid text loop!
       return;
     }
 
     textBody = textBody.toUpperCase();
 
-    // check if HELP
+    // Check if HELP
     if (textBody === 'HELP') {
       Meteor.call('textHelp', textFrom);
       return;
     }
 
-    // check if STOP
+    // Check if STOP
     if (textBody === 'STOP') {
-      Meteor.call('textStop', textFrom, textBody);
+      Meteor.call('textStop', textFrom);
       return;
     }
 
-    // check if START
+    // Check if START
     if (textBody === 'START') {
-      Meteor.call('textStart', textFrom, textBody);
+      Meteor.call('textStart', textFrom);
       return;
     }
 
-    // check if YES
-    var yesTracking = textBody.substring(0,3); 
+    // Check if YES
+    var yesTracking = textBody.substring(0,3);
     if (yesTracking === 'YES') {
-      Meteor.call('textOrderReply', textFrom, yesTracking);
+      Meteor.call('textOrderReply', textFrom);
       return;
     }
 
-    // other messages
+    // Other messages
     Meteor.call('textOther', textFrom, textBody);
   },
   textHelp: function (textFrom) {
@@ -49,7 +49,7 @@ Meteor.methods({
   textOrderReply: function (textFrom) {
     // Find ordering user
     // TODO: better query would query the actually phoneNumber directly if it's formatted properly
-    var activeSubscribers = Meteor.users.find({"profile.hasCreditCard": 1}).fetch();
+    var activeSubscribers = Meteor.users.find().fetch();
     var orderingUser = _.find(activeSubscribers, function(subscriber) {
       var subscriberNumber = '+1' + subscriber.profile.phoneNumber.replace(/\D+/g, '');
       return (textFrom === subscriberNumber);
@@ -58,6 +58,18 @@ Meteor.methods({
     // Check if activeSubscriber
     if (orderingUser == null) {
       Meteor.call('sendText', textFrom, 'You are not signed up for gob. Sign up at http://omgob.com');
+      return;
+    }
+
+    // At this moment there is no profile.hasCreditCard - need to add in
+    var inactiveSubscribers = Meteor.users.find({"profile.hasCreditCard": 0}).fetch();
+    var orderingUser = _.find(inactiveSubscribers, function(subscriber) {
+      var subscriberNumber = '+1' + subscriber.profile.phoneNumber.replace(/\D+/g, '');
+      return (textFrom === subscriberNumber);
+    });
+
+    if (orderingUser == null) {
+      Meteor.call('sendText', textFrom, 'There was an issue processing your credit card. Please update your credit card information at http://omgob.com/edit_profile');
       return;
     }
 

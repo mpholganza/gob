@@ -1,19 +1,33 @@
 <template name="dealsList">
   {{#if isAdmin}}
-    <h1>Deals</h1>
-    {{#each deals}}
-      {{> dealItem}}
-    {{/each}}
+    <section class="admin">
+      <div class="admin-body">
+        <div class="container">
+          <div class="row">
+            <form role="form" id="dealsList" class="admin-form">
+              <h1 class="admin-form-title">Deals</h1>
+              {{#each deals}}
+                {{> dealItem}}
+              {{/each}}
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
   {{/if}}
 </template>
 
 <template name="dealItem">
-  <div>
-    <div>
-      {{name}} from {{restaurantName}}, buildingName: {{buildingName}}, {{description}}, priceInCents: {{priceInCents}}, date: {{date}}
+  <form role="form" class="admin-form">
+    <div class="form-group col-xs-6 text-left">
+      {{company}}
+      <div>{{date}}</div>
     </div>
-    <div>
-      <input type="button" value="Mark as delivered" id="deliverButton">
+    <div class="form-group col-xs-6 text-left">
+      {{featuredDish}} from {{restaurant}} - ${{priceInCents}}
     </div>
-  </div>
+    <div class="form-group col-xs-12 margin-adjust-15">
+      <input type="button" class="btn btn-primary" value="Mark as delivered" id="deliveredButton">
+    </div>
+  </form>
 </template>
