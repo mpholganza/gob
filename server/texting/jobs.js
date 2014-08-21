@@ -35,12 +35,14 @@ Meteor.methods({
 
     // send text to users in buildings associated with deals
     _.each(todaysDeals, function(deal) {
-      var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId, "profile.hasCreditCard": 1}, {fields: {"profile.phoneNumber": 1}}).fetch();
+
+      var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId}, {fields: {"profile.phoneNumber": 1}}).fetch();
       _.each(activeSubscribers, function(subscriber) {
         var subscriberNumber = toTwilioPhoneNumber(subscriber.profile.phoneNumber);
         var restaurant = deal.restaurant;
         var dishName = deal.name;
-        var price = deal.priceInCents;
+        var priceInCents = deal.priceInCents;
+        var priceInDollars = priceInCents/100;
         var shortenedUrl = deal.shortenedUrl;
 
         // Start TODO: Refactor this with the duplicate functionality in jobs.js
@@ -58,14 +60,14 @@ Meteor.methods({
 
             if (promoCode) {
               // Apply discount
-              price = price - promo.priceInCentsOff;
+              priceInCents = priceInCents - promo.priceInCentsOff;
+              priceInDollars = priceInCents/100
               promoText = '[PROMO]';
             }
           }
         }
         // Finish TODO
-
-        var priceText = '$' + price;
+        var priceText = '$' + priceInDollars;
         var finishedText = "Today's featured dish is " + dishName + " from " + restaurant + " - " + priceText + " " + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
 
         Meteor.call('sendText', subscriberNumber, finishedText);

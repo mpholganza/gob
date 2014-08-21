@@ -43,8 +43,12 @@ Template.dealCreate.rendered = function() {
           trigger: 'blur',
           validators: {
             notEmpty: {
-              message: 'Please provide the date for the featured dish'
-            }
+              message: 'Please provide the date'
+            },
+            date: {
+              format: 'YYYY-MM-DD',
+              message: 'The value is not a valid date'
+            }          
           }
         },
         featuredDish: {
@@ -67,7 +71,7 @@ Template.dealCreate.rendered = function() {
           trigger: 'blur',
           validators: {
             notEmpty: {
-              message: 'Please provide the price in cents'
+              message: 'Please provide the price'
             }
           }
         },
@@ -75,7 +79,7 @@ Template.dealCreate.rendered = function() {
           trigger: 'blur',
           validators: {
             notEmpty: {
-              message: 'Please provide the maximum no. of orders'
+              message: 'Please provide the max orders'
             }
           }
         },
@@ -83,7 +87,7 @@ Template.dealCreate.rendered = function() {
           trigger: 'blur',
           validators: {
             notEmpty: {
-              message: 'Please provide the shortened URL'
+              message: 'Please provide the short URL'
             }
           }
         },

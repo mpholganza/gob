@@ -37,13 +37,13 @@ Template.accountCreate.rendered = function() {
 
         promoCodes.push(promoCode);
 
-        var requestedAddress = $form.find('[name=address]').val()
+        var requestedAddress = $form.find('[name=address]').val();
         var requestedFloor = $form.find('[name=floor]').val();
 
         var requestedLocation = null;
         if (requestedAddress) {
           requestedLocation = requestedAddress + ': Floor ' + requestedFloor;
-        }
+        };
 
         var buildingInfo = $form.find('[name=building]').val().split("_"); // old schema
 
@@ -54,8 +54,9 @@ Template.accountCreate.rendered = function() {
           building: buildingInfo[1], // old schema
           buildingId: buildingInfo[0],
           requestedBuilding: requestedLocation,
-          promoCodes: promoCodes
-        }
+          promoCodes: promoCodes,
+          hasCreditCard: 0
+        };
 
         Accounts.createUser({
           email: email,

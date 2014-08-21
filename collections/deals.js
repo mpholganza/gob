@@ -17,7 +17,7 @@ Meteor.methods({
 
     // Used to find company name based off buildingId
     var buildingInfo = Buildings.findOne({_id: buildingId});
-    var company = buildingInfo.company
+    var company = buildingInfo.company;
 
 // What is numberOfOrders?
 /*<<<<<<< HEAD

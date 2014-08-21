@@ -1,7 +1,7 @@
 Orders = new Meteor.Collection('orders');
 
 Meteor.methods({  
-  ensureOrder: function(userId, dealId, dealName, restaurantName, priceInCents) {
+  ensureOrder: function(userId, dealId, featuredDish, restaurant, priceInCents) {
     var future = new Future;
 
     // Check for duplicate userid-dealid pair
@@ -41,13 +41,15 @@ Meteor.methods({
       }
     }
 
+    var dateOrdered = moment().tz("America/Toronto").format();
+
     var order = {
       "userId": userId,
       "dealId": dealId,
-      "submitted": new Date(),
-      "dishName": dealName,
-      "restaurantName": restaurantName,
+      "featuredDish": featuredDish,
+      "restaurant": restaurant,
       "priceInCents": priceInCents,
+      "dateOrdered": dateOrdered,
       "status": "confirmed"
     };
 
@@ -70,4 +72,8 @@ Meteor.methods({
 
     return future.wait();
   }
+});
+
+Meteor.publish("allOrders", function() {
+  return Orders.find();
 });

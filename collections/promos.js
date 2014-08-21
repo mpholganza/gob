@@ -1,31 +1,35 @@
 Promos = new Meteor.Collection('promos');
 
 Meteor.methods({
-  ensurePromo: function(dealId, promoName, promoCode, promoDescription, startDate, endDate, priceInCentsOff, maxOrders) {
+  ensurePromo: function(dealId, promoCode, promoName, promoDescription, startDate, endDate, priceInCentsOff, maxOrders) {
     var future = new Future;
 
+    // Make case-insensitive
+    var dealIdRegex = new RegExp('^'+dealId+'$','i');
+
     // Only support one promo per deal. Could change this later.
-    var duplicatePromo = Promos.findOne({"dealId": dealId});
+    var duplicatePromo = Promos.findOne({dealId: dealIdRegex});
     if (duplicatePromo != null) {
       return duplicatePromo._id;
     }
 
-    var promo = {
-      "dealId": dealId,
-      "promoName": promoName,
-      "promoCode": promoCode,
-      "promoDescription": promoDescription,
-      "startDate": startDate,
-      "endDate": endDate,
-      "priceInCentsOff": priceInCentsOff,
-      "maxOrders": maxOrders,
-      "numberOfOrders": 0
-    };
-
-    var promoId = Promos.insert(promo, function(error, promoId) {
+    Promos.insert({
+      dealId: dealId,
+      promoCode: promoCode,
+      promoName: promoName,
+      promoDescription: promoDescription,
+      startDate: startDate,
+      endDate: endDate,
+      priceInCentsOff: priceInCentsOff,
+      maxOrders: maxOrders
+    }, function(error, promoId) {
       future['return'](promoId);
     });
 
     return future.wait();
   }
+});
+
+Meteor.publish("allPromos", function() {
+  return Promos.find();
 });

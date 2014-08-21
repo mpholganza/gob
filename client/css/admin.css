@@ -17,6 +17,7 @@
 .admin-form {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
+  margin-bottom: 50px;
   margin-left: auto;
   margin-right: auto;
   max-width: 500px;
@@ -35,29 +36,36 @@
 /*#buildingEdit,*/
 #dealCreate .form-control,
 #dealSubmit,
-#home {
+#promoCreate .form-control,
+#promoSubmit,
+#home,
+#dealsList .form-group,
+#deliveredButton {
   font-size: 16px;
 }
 
 #buildingCreate .form-control-feedback,
-#dealCreate .form-control-feedback {
+#dealCreate .form-control-feedback,
+#promoCreate .form-control-feedback {
   position: absolute;
   top: 35px;
   right: 20px;
 }
 
 #buildingCreate .help-block,
-#dealCreate .help-block {
+#dealCreate .help-block,
+#promoCreate .help-block {
   position: absolute;
   top: 55px;
   right: 20px;
 }
 
 #buildingOutput,
-#dealOutput {
+#dealOutput,
+#promoOutput,
+#orderOutput {
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 12px;
-  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   min-width: 1200px;
