@@ -4,46 +4,46 @@
       <div class="container">
         <div class="row">
           <form role="form" id="orderOutput" class="admin-form">
-            <div class="form-group col-xs-2 text-left">
+            <div class="form-group col-xs-1 text-left">
               <label for="userId" class="">User ID</label>
               {{#each orders}}
                 <input type="text" class="form-control" name="userId" value={{userId}} readonly>
               {{/each}}
             </div>
-            <div class="form-group col-xs-2 text-left">
+            <div class="form-group col-xs-1 text-left">
               <label for="dealId" class="">Deal ID</label>
               {{#each orders}}
-                <input type="text" class="form-control" name="dealId" value={{dealId}}>
+                <input type="text" class="form-control" name="dealId" value={{dealId}} readonly>
               {{/each}}
             </div>
-            <div class="form-group col-xs-2 text-left">
+            <div class="form-group col-xs-3 text-left">
               <label for="featuredDish" class="">Featured Dish</label>
               {{#each orders}}
-                <input type="text" class="form-control" name="featuredDish" value={{featuredDish}}>
+                <input type="text" class="form-control" name="featuredDish" value={{featuredDish}} readonly>
               {{/each}}
             </div>
             <div class="form-group col-xs-2 text-left">
               <label for="restaurant" class="">Restaurant</label>
               {{#each orders}}
-                <input type="text" class="form-control" name="restaurant" value={{restaurant}}>
+                <input type="text" class="form-control" name="restaurant" value={{restaurant}} readonly>
               {{/each}}
             </div>
             <div class="form-group col-xs-1 text-left">
               <label for="priceInCents" class="">Price (¢)</label>
               {{#each orders}}
-                <input type="text" class="form-control" name="priceInCents" value={{priceInCents}}>
+                <input type="text" class="form-control" name="priceInCents" value={{priceInCents}} readonly>
               {{/each}}
             </div>
             <div class="form-group col-xs-2 text-left">
               <label for="dateOrdered" class="">Date</label>
               {{#each orders}}
-                <input type="text" class="form-control" name="dateOrdered" value={{dateOrdered}}>
+                <input type="text" class="form-control" name="dateOrdered" value={{dateOrdered}} readonly>
               {{/each}}
             </div>
-            <div class="form-group col-xs-1 text-left">
+            <div class="form-group col-xs-2 text-left">
               <label for="status" class="">Status</label>
               {{#each orders}}
-                <input type="text" class="form-control" name="status" value={{status}}>
+                <input type="text" class="form-control" name="status" value={{status}} readonly>
               {{/each}}
             </div>
             <div class="form-group col-xs-12">

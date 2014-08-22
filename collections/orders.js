@@ -12,6 +12,7 @@ Meteor.methods({
     }
 
     var deal = Deals.find({dealId: dealId});
+    console.log(deal)
     if (!deal) {
       console.log("ensureOrder: order attempted from userId " + userId + ". dealId " + dealId + " not found.");
       return;
@@ -19,7 +20,7 @@ Meteor.methods({
 
     if (deal.numberOfOrders >= deal.maxOrders) {
       console.log("ensureOrder: order attempted from userId " + userId + ". dealId " + dealId + " max orders reached.");
-      // TODO: Send text to say max orders reached
+      Meteor.call('sendText', user.profile.phoneNumber, 'Sorry, we are sold out for today');
       return;
     }
 

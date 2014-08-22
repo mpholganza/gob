@@ -6,9 +6,9 @@ function toTwilioPhoneNumber(phoneNumber) {
 SyncedCron.add({
   name: 'Text daily offering to active users at 10am every weekday',
   schedule: function(parser) {
-    // parser is a later.parse object
-    // this 2pm is actually 10am EST
-    return parser.text('at 2:00 pm on Monday, Tuesday, Wednesday, Thursday and Friday');
+    // Parser is a later.parse object
+    // This 1:30pm is actually 9:30am EST
+    return parser.text('at 1:30 pm on Monday, Tuesday, Wednesday, Thursday and Friday');
   }, 
   job: function() {
     Meteor.call('textSubscribers');
@@ -18,9 +18,9 @@ SyncedCron.add({
 SyncedCron.add({
   name: 'Text couriers confirming number of orders',
   schedule: function(parser) {
-    // parser is a later.parse object
-    // this 3pm is actually 11am EST
-    return parser.text('at 3:00 pm on Monday, Tuesday, Wednesday, Thursday and Friday');
+    // Parser is a later.parse object
+    // This 3:15pm is actually 11:15am EST
+    return parser.text('at 4:35 am on Monday, Tuesday, Wednesday, Thursday and Friday');
   }, 
   job: function() {
     Meteor.call('textCouriersOrderInfo');
@@ -31,21 +31,21 @@ Meteor.methods({
   textSubscribers: function() {
     console.log('Texting daily offering to active users at 10am every weekday');
 
-    // get all deals for the day
+    // Get all deals for the day
     var todaysDate = new Date();
     todaysDate.setHours(0,0,0,0);
     var tomorrowsDate = new Date();
-    tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
-    var todaysDeals = Deals.find({"date": {"$gte": todaysDate, "$lt": tomorrowsDate}}).fetch();
+    tomorrowsDate.setHours(23,59,59,59);
+    var todaysDeals = Deals.find({"date": {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();
 
-    // send text to users in buildings associated with deals
+    // Send text to users in buildings associated with deals
     _.each(todaysDeals, function(deal) {
 
       var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId}, {fields: {"profile.phoneNumber": 1}}).fetch();
       _.each(activeSubscribers, function(subscriber) {
         var subscriberNumber = toTwilioPhoneNumber(subscriber.profile.phoneNumber);
         var restaurant = deal.restaurant;
-        var dishName = deal.name;
+        var featuredDish = deal.featuredDish;
         var priceInCents = deal.priceInCents;
         var priceInDollars = priceInCents/100;
         var shortenedUrl = deal.shortenedUrl;
@@ -73,7 +73,7 @@ Meteor.methods({
         }
         // Finish TODO
         var priceText = '$' + priceInDollars;
-        var finishedText = "Today's featured dish is " + dishName + " from " + restaurant + " - " + priceText + " " + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
+        var finishedText = "Today's featured dish is " + featuredDish + " from " + restaurant + " - " + priceText + " " + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
 
         Meteor.call('sendText', subscriberNumber, finishedText);
       });
@@ -81,20 +81,22 @@ Meteor.methods({
   },
   textCouriersOrderInfo: function() {
     console.log('Texting couriers confirming number of orders');
-    // get amount of confirmed orders
+    // Get amount of confirmed orders
     var todaysDate = new Date();
     todaysDate.setHours(0,0,0,0);
     var tomorrowsDate = new Date();
-    tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
+    tomorrowsDate.setHours(23,59,59,59);
     
     // var orderAmount = Orders.find({"date": {"$gte": todaysDate, "$lt": tomorrowsDate}, "status": "confirmed"}).fetch().length;
-    var todaysDeals = Deals.find({date: {"$gte": todaysDate, "$lt": tomorrowsDate}}).fetch;
+    var todaysDeals = Deals.find({date: {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch;
+    console.log(todaysDeals;
     var orderText = '';
     _.each(todaysDeals, function(deal) {
+      console.log(deal.numberOfOrders);
       orderText += deal.restaurant + ": " + deal.numberOfOrders + ".";
     });
 
-    Meteor.call('sendText', '+16472981717', orderText); // TODO: Remove Hardcode
-    // send text to couriers
+    Meteor.call('sendText', '+16474488843', orderText); // TODO: Remove Hardcode
+    // Send text to couriers
   }
 });

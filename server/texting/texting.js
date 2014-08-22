@@ -10,7 +10,7 @@ Meteor.methods({
     twilio.sendSms({
       to: toNumber, // Any number Twilio can deliver to
       from: fromNumber, // A number you bought from Twilio and can use for outbound communication
-      body: textContent // body of the SMS message
+      body: textContent // Body of the SMS message
     }, function(err, responseData) { //this function is executed when a response is received from Twilio
       if (!err) { // "err" is an error received during the request, if any
         // "responseData" is a JavaScript object containing data received from Twilio.
@@ -23,12 +23,15 @@ Meteor.methods({
     });
   },
   textDelivered: function(dealId) {
-    // find all orders for that deal and set order status to confirmed
+    // Find all orders for that deal and set order status to confirmed
     Orders.update({"dealId": dealId}, {$set: {"status": "delivered"}}, function(error, response) {
-      // send out text
-      var deliveredOrders = Orders.find({"dealId": buildingDeal.dealId}, {"status": "delivered"}).fetch();
+      // Send out text
+      var deliveredOrders = Orders.find({"dealId": dealId}, {"status": "delivered"}).fetch();
       _.each(deliveredOrders, function(order) {
-        Meteor.call('sendText', order.phoneNumber, "Your dish has arrived! Pickup at " + order.pickupLocation + " How was our service? Tweet us @getgob or let us know on http://facebook.com/omgob");
+        console.log(order.userId);
+        var user = Meteor.users.findOne(order.userId);
+        var buildingFloor = Buildings.findOne(user.profile.buildingId);
+        Meteor.call('sendText', user.profile.phoneNumber, "Your dish has arrived! Pickup at " + user.profile.building + " " + buildingFloor.floor + ", front desk. How was our service? Tweet us @getgob or let us know on http://facebook.com/omgob");
       });
     });
   }

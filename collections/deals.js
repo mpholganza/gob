@@ -7,10 +7,10 @@ Meteor.methods({
     
     // Make case-insensitive
     var buildingIdRegex = new RegExp('^'+buildingId+'$','i');
-    var dateRegex = new RegExp('^'+date+'$','i');
+    var date = new Date(date+'T'+'00:00:00-04:00');
 
     // Check for duplicate buildingId-date pair
-    var duplicateDeal = Deals.findOne({buildingId: buildingIdRegex, date: dateRegex});
+    var duplicateDeal = Deals.findOne({buildingId: buildingIdRegex, date: date});
     if (duplicateDeal != null) {
       return duplicateDeal._id;
     }
@@ -18,23 +18,6 @@ Meteor.methods({
     // Used to find company name based off buildingId
     var buildingInfo = Buildings.findOne({_id: buildingId});
     var company = buildingInfo.company;
-
-// What is numberOfOrders?
-/*<<<<<<< HEAD
-    var deal = {
-      "buildingId": buildingId,
-      "buildingName": buildingName,
-      "name": name,
-      "restaurantName": restaurantName,
-      "description": description,
-      "priceInCents": priceInCents,
-      "date": date,
-      "shortenedUrl": shortenedUrl,
-      "fullUrl": fullUrl,
-      "maxOrders": maxOrders,
-      "numberOfOrders": 0
-    };
-=======*/
 
     Deals.insert({
       buildingId: buildingId,

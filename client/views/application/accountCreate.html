@@ -36,7 +36,7 @@
 								<label for="building" class="hidden">Building:</label>
 								<select id="requestBuildingSelect" class="form-control" name="building">
                   {{#each buildings}}
-  									<option value="{{_id}}_{{building.Company}}">{{company}} - {{address}} - {{floor}}</option>
+  									<option value="{{_id}}_{{company}}">{{company}} - {{address}} - {{floor}}</option>
                   {{/each}}
                   <option value="Request a Building">Request a Building</option>
 								</select>
