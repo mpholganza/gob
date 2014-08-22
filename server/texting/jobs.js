@@ -88,8 +88,7 @@ Meteor.methods({
     tomorrowsDate.setHours(23,59,59,59);
     
     // var orderAmount = Orders.find({"date": {"$gte": todaysDate, "$lt": tomorrowsDate}, "status": "confirmed"}).fetch().length;
-    var todaysDeals = Deals.find({date: {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch;
-    console.log(todaysDeals;
+    var todaysDeals = Deals.find({date: {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();
     var orderText = '';
     _.each(todaysDeals, function(deal) {
       console.log(deal.numberOfOrders);

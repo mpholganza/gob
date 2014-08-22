@@ -11,8 +11,7 @@ Meteor.methods({
       return duplicateOrder._id;
     }
 
-    var deal = Deals.find({dealId: dealId});
-    console.log(deal)
+    var deal = Deals.findOne({dealId: dealId});
     if (!deal) {
       console.log("ensureOrder: order attempted from userId " + userId + ". dealId " + dealId + " not found.");
       return;
