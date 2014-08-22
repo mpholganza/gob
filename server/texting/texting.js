@@ -24,7 +24,7 @@ Meteor.methods({
   },
   textDelivered: function(dealId) {
     // find all orders for that deal and set order status to confirmed
-    Orders.update({"dealId": dealId}, {$set: {"status": "delivered"}}, function(error, response) {
+    Orders.update({"dealId": dealId}, {$set: {"status": "delivered"}, {multi: true}}, function(error, response) {
       // send out text
       var deliveredOrders = Orders.find({"dealId": buildingDeal.dealId}, {"status": "delivered"}).fetch();
       _.each(deliveredOrders, function(order) {
