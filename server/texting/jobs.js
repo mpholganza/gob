@@ -1,3 +1,8 @@
+// TODO: Take this out of the global namespace
+function toTwilioPhoneNumber(phoneNumber) {
+  return '+1' + phoneNumber.replace(/\D+/g, '');
+}
+
 SyncedCron.add({
   name: 'Text daily offering to active users at 10am every weekday',
   schedule: function(parser) {
