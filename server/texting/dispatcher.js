@@ -63,20 +63,23 @@ Meteor.methods({
 
     // At this moment there is no profile.hasCreditCard - need to add in
     var inactiveSubscribers = Meteor.users.find({"profile.hasCreditCard": 0}).fetch();
-    var orderingUser = _.find(inactiveSubscribers, function(subscriber) {
+    var nonOrderingUser = _.find(inactiveSubscribers, function(subscriber) {
       var subscriberNumber = '+1' + subscriber.profile.phoneNumber.replace(/\D+/g, '');
       return (textFrom === subscriberNumber);
     });
 
-    if (orderingUser == null) {
+    if (nonOrderingUser) {
       Meteor.call('sendText', textFrom, 'There was an issue processing your credit card. Please update your credit card information at http://omgob.com/edit_profile');
       return;
     }
 
     // There must be an associated deal
-    var today = new Date();
-    today.setHours(0,0,0,0);
-    var dealInfo = Deals.findOne({"buildingId": orderingUser.profile.buildingId, "date": today});
+    var todaysDate = new Date();
+    todaysDate.setHours(0,0,0,0);
+    var tomorrowsDate = new Date();
+    tomorrowsDate.setHours(23,59,59,59);
+
+    var dealInfo = Deals.findOne({"buildingId": orderingUser.profile.buildingId, date: {"$gte": todaysDate, "$lte": tomorrowsDate}});
     if (dealInfo == null) {
       Meteor.call('sendText', textFrom, 'Sorry, there is no featured dish at your building today');
       return;
