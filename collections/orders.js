@@ -11,14 +11,15 @@ Meteor.methods({
       return duplicateOrder._id;
     }
 
-    var deal = Deals.find({dealId: dealId});
-    console.log(deal)
+    var deal = Deals.findOne(dealId);
     if (!deal) {
       console.log("ensureOrder: order attempted from userId " + userId + ". dealId " + dealId + " not found.");
       return;
     }
 
-    if (deal.numberOfOrders >= deal.maxOrders) {
+    var user = Meteor.users.findOne(userId);
+
+    if (deal.numberOfOrders > deal.maxOrders) {
       console.log("ensureOrder: order attempted from userId " + userId + ". dealId " + dealId + " max orders reached.");
       Meteor.call('sendText', user.profile.phoneNumber, 'Sorry, we are sold out for today');
       return;
@@ -53,8 +54,6 @@ Meteor.methods({
       "dateOrdered": dateOrdered,
       "status": "confirmed"
     };
-
-    var user = Meteor.users.findOne(userId);
 
     var orderId = Orders.insert(order, function(error, orderId) {
       // Send order confirmation

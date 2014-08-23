@@ -23,7 +23,7 @@ Meteor.methods({
     });
   },
   textDelivered: function(dealId) {
-    // Find all orders for that deal and set order status to confirmed
+    // Find all orders for that deal and set order status to delivered
     Orders.update({"dealId": dealId}, {$set: {"status": "delivered"}}, function(error, response) {
       // Send out text
       var deliveredOrders = Orders.find({"dealId": dealId}, {"status": "delivered"}).fetch();
