@@ -11,7 +11,7 @@ SyncedCron.add({
     return parser.text('at 1:30 pm on Monday, Tuesday, Wednesday, Thursday and Friday');
   }, 
   job: function() {
-    Meteor.call('textSubscribers');
+    textSubscribers();
   }
 });
 
@@ -23,79 +23,78 @@ SyncedCron.add({
     return parser.text('at 3:15 pm on Monday, Tuesday, Wednesday, Thursday and Friday');
   }, 
   job: function() {
-    Meteor.call('textCouriersOrderInfo');
+    textCouriersOrderInfo();
   }
 });
 
-Meteor.methods({
-  textSubscribers: function() {
-    console.log('Texting daily offering to active users at 10am every weekday');
+function textSubscribers() {
+  console.log('Texting daily offering to active users at 10am every weekday');
 
-    // Get all deals for the day
-    var todaysDate = new Date();
-    todaysDate.setHours(0,0,0,0);
-    var tomorrowsDate = new Date();
-    tomorrowsDate.setHours(23,59,59,59);
-    var todaysDeals = Deals.find({"date": {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();
+  // Get all deals for the day
+  var todaysDate = new Date();
+  todaysDate.setHours(0,0,0,0);
+  var tomorrowsDate = new Date();
+  tomorrowsDate.setHours(23,59,59,59);
+  var todaysDeals = Deals.find({"date": {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();
 
-    // Send text to users in buildings associated with deals
-    _.each(todaysDeals, function(deal) {
+  // Send text to users in buildings associated with deals
+  _.each(todaysDeals, function(deal) {
 
-      var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId}, {fields: {"profile.phoneNumber": 1}}).fetch();
-      _.each(activeSubscribers, function(subscriber) {
-        var subscriberNumber = toTwilioPhoneNumber(subscriber.profile.phoneNumber);
-        var restaurant = deal.restaurant;
-        var featuredDish = deal.featuredDish;
-        var priceInCents = deal.priceInCents;
-        var priceInDollars = priceInCents/100;
-        var shortenedUrl = deal.shortenedUrl;
+    var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId}, {fields: {"profile.phoneNumber": 1}}).fetch();
+    _.each(activeSubscribers, function(subscriber) {
+      var subscriberNumber = toTwilioPhoneNumber(subscriber.profile.phoneNumber);
+      var restaurant = deal.restaurant;
+      var featuredDish = deal.featuredDish;
+      var priceInCents = deal.priceInCents;
+      var priceInDollars = priceInCents/100;
+      var shortenedUrl = deal.shortenedUrl;
 
-        // Start TODO: Refactor this with the duplicate functionality in jobs.js
-        // Find a promo associated with this deal. Note this only supports one promo per deal
-        var promoText = '';
-        var promoCode = null;
-        var promo = Promos.findOne({"dealId": deal.dealId});
+      // Start TODO: Refactor this with the duplicate functionality in jobs.js
+      // Find a promo associated with this deal. Note this only supports one promo per deal
+      var promoText = '';
+      var promoCode = null;
+      var promo = Promos.findOne({"dealId": deal.dealId});
 
-        if (promo) {
-          // Check if the user has one of the promos
-          if (subscriber.profile.promoCodes) {
-            promoCode = _.find(subscriber.profile.promoCodes, function(promoCode) {
-              return promo._id === promoCode._id;
-            });
+      if (promo) {
+        // Check if the user has one of the promos
+        if (subscriber.profile.promoCodes) {
+          promoCode = _.find(subscriber.profile.promoCodes, function(promoCode) {
+            return promo._id === promoCode._id;
+          });
 
-            if (promoCode) {
-              // Apply discount
-              priceInCents = priceInCents - promo.priceInCentsOff;
-              priceInDollars = priceInCents/100
-              promoText = '[PROMO]';
-            }
+          if (promoCode) {
+            // Apply discount
+            priceInCents = priceInCents - promo.priceInCentsOff;
+            priceInDollars = priceInCents/100
+            promoText = '[PROMO]';
           }
         }
-        // Finish TODO
-        var priceText = '$' + priceInDollars;
-        var finishedText = "Today's featured dish is " + featuredDish + " from " + restaurant + " - " + priceText + " " + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
+      }
+      // Finish TODO
+      var priceText = '$' + priceInDollars;
+      var finishedText = "Today's featured dish is " + featuredDish + " from " + restaurant + " - " + priceText + " " + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
 
-        Meteor.call('sendText', subscriberNumber, finishedText);
-      });
+      Texting.sendText(subscriberNumber, finishedText);
     });
-  },
-  textCouriersOrderInfo: function() {
-    console.log('Texting couriers confirming number of orders');
-    // Get amount of confirmed orders
-    var todaysDate = new Date();
-    todaysDate.setHours(0,0,0,0);
-    var tomorrowsDate = new Date();
-    tomorrowsDate.setHours(23,59,59,59);
-    
-    // var orderAmount = Orders.find({"date": {"$gte": todaysDate, "$lt": tomorrowsDate}, "status": "confirmed"}).fetch().length;
-    var todaysDeals = Deals.find({date: {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();
-    var orderText = '';
-    _.each(todaysDeals, function(deal) {
-      console.log(deal.numberOfOrders);
-      orderText += deal.restaurant + ": " + deal.numberOfOrders + ".";
-    });
+  });
+}
 
-    Meteor.call('sendText', '+16474488843', orderText); // TODO: Remove Hardcode
-    // Send text to couriers
-  }
-});
+function textCouriersOrderInfo() {
+  console.log('Texting couriers confirming number of orders');
+  // Get amount of confirmed orders
+  var todaysDate = new Date();
+  todaysDate.setHours(0,0,0,0);
+  var tomorrowsDate = new Date();
+  tomorrowsDate.setHours(23,59,59,59);
+  
+  // var orderAmount = Orders.find({"date": {"$gte": todaysDate, "$lt": tomorrowsDate}, "status": "confirmed"}).fetch().length;
+  var todaysDeals = Deals.find({date: {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();
+  var orderText = '';
+  _.each(todaysDeals, function(deal) {
+    console.log(deal.numberOfOrders);
+    orderText += deal.restaurant + ": " + deal.numberOfOrders + ".";
+  });
+
+  Texting.sendText('+16474488843', orderText); // TODO: Remove Hardcode
+  // Send text to couriers
+}
