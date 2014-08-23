@@ -20,7 +20,7 @@ SyncedCron.add({
   schedule: function(parser) {
     // Parser is a later.parse object
     // This 3:15pm is actually 11:15am EST
-    return parser.text('at 4:35 am on Monday, Tuesday, Wednesday, Thursday and Friday');
+    return parser.text('at 3:15 pm on Monday, Tuesday, Wednesday, Thursday and Friday');
   }, 
   job: function() {
     Meteor.call('textCouriersOrderInfo');

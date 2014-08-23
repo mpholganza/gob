@@ -8,6 +8,7 @@ Meteor.startup(function () {
 
 function LoadTestData() {
 
-  Meteor.call('ensureOrder', 'iEowKTzNA6AEPX6cC', 'MnERisTdQYju9NhKk', 'Cobb Salad w/ Chicken', 'Salad Days', '700');
-/*  Meteor.call('textCouriersOrderInfo');*/
+  //Meteor.call('ensureOrder', 'MQNKzWSyLogTdpZwJ', 'ckFrQK6aRBPoyfutH', 'Cobb Salad w/ Chicken', 'Salad Days', '700');
+  //Meteor.call('ensureOrder', 'nr78uJuvPfgd8cJyc', 'zBRA8nuMGyWQDxgne', 'Cobb Salad w/ Chicken', 'Salad Days', '700');
+  //Meteor.call('textCouriersOrderInfo');
 }

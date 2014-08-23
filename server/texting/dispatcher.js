@@ -61,7 +61,6 @@ Meteor.methods({
       return;
     }
 
-    // At this moment there is no profile.hasCreditCard - need to add in
     var inactiveSubscribers = Meteor.users.find({"profile.hasCreditCard": 0}).fetch();
     var nonOrderingUser = _.find(inactiveSubscribers, function(subscriber) {
       var subscriberNumber = '+1' + subscriber.profile.phoneNumber.replace(/\D+/g, '');

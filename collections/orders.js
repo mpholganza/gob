@@ -17,7 +17,9 @@ Meteor.methods({
       return;
     }
 
-    if (deal.numberOfOrders >= deal.maxOrders) {
+    var user = Meteor.users.findOne(userId);
+
+    if (deal.numberOfOrders > deal.maxOrders) {
       console.log("ensureOrder: order attempted from userId " + userId + ". dealId " + dealId + " max orders reached.");
       Meteor.call('sendText', user.profile.phoneNumber, 'Sorry, we are sold out for today');
       return;
@@ -52,8 +54,6 @@ Meteor.methods({
       "dateOrdered": dateOrdered,
       "status": "confirmed"
     };
-
-    var user = Meteor.users.findOne(userId);
 
     var orderId = Orders.insert(order, function(error, orderId) {
       // Send order confirmation

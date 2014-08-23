@@ -2,7 +2,7 @@ Meteor.methods({
   sendText: function(toNumber, textContent) {
     var fromNumber = '+16475575906';
     if (toNumber === fromNumber) {
-      // avoid text loop
+      // Avoid text loop
       return;
     }
 
@@ -23,9 +23,9 @@ Meteor.methods({
     });
   },
   textDelivered: function(dealId) {
-    // find all orders for that deal and set order status to confirmed
+    // Find all orders for that deal and set order status to delivered
     Orders.update({"dealId": dealId}, {$set: {"status": "delivered"}}, {multi: true}, function(error, response) {
-      // send out text
+      // Send out text
       var deliveredOrders = Orders.find({"dealId": dealId}, {"status": "delivered"}).fetch();
       _.each(deliveredOrders, function(order) {
         console.log(order.userId);
