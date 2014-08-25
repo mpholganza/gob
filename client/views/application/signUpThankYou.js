@@ -5,10 +5,16 @@ Template.signUpThankYou.requestedBuilding = function () {
 Template.signUpThankYou.promoText = function () {
   var promoText = '';
   if (Meteor.user().profile.promoCodes) {
-    if (Meteor.user().profile.promoCodes._id) {
-      promoText = "Congratulations your promoCode went through!";
+    if (Meteor.user().profile.promoCodes[0]._id) {
+      promo = Promos.findOne({_id : Meteor.user().profile.promoCodes[0]._id})
+      promoCount = promo.numberOfOrders;
+      promoText = "Congratulations! You are promo code # " + promoCount + ". Your promo code was successful!";
+    } else if (Meteor.user().profile.promoCodes[0].rejected) {
+      promoText = "Sorry, the max number of promos was reached";
+    } else if (Meteor.user().profile.promoCodes[0].code == "") {
+      promoText = ""
     } else {
-      promoText = "Sorry the max number of promos was reached.";
+      promoText = "Your promo code was invalid"
     }
   }
   return promoText;

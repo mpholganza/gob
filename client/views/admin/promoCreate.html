@@ -34,8 +34,8 @@
               <input type="text" class="form-control margin-adjust-15" name="priceInCentsOff" placeholder="¢">
             </div>
             <div class="form-group col-xs-6 text-left">
-              <label for="maxOrders" class="">Max Orders:</label>
-              <input type="text" class="form-control margin-adjust-15" name="maxOrders" placeholder="0-99">
+              <label for="maxPromos" class="">Max Promos:</label>
+              <input type="text" class="form-control margin-adjust-15" name="maxPromos" placeholder="0-99">
             </div>
             <div class="form-group col-xs-6">
               <input type="button" class="btn btn-primary" value="Home" id="home">
@@ -70,13 +70,13 @@
               {{/each}}
             </div>
             <div class="form-group col-xs-2 text-left">
-              <label for="startDate" class="">Date</label>
+              <label for="startDate" class="">Start Date</label>
               {{#each promos}}
                 <input type="text" class="form-control" name="startDate" value={{startDate}}>
               {{/each}}
             </div>
             <div class="form-group col-xs-2 text-left">
-              <label for="endDate" class="">Date</label>
+              <label for="endDate" class="">End Date</label>
               {{#each promos}}
                 <input type="text" class="form-control" name="endDate" value={{endDate}}>
               {{/each}}
@@ -88,9 +88,9 @@
               {{/each}}
             </div>
             <div class="form-group col-xs-2 text-left">
-              <label for="maxOrders" class="">Max Orders</label>
+              <label for="maxPromos" class="">Max Promos</label>
               {{#each promos}}
-                <input type="text" class="form-control" name="maxOrders" value={{maxOrders}}>
+                <input type="text" class="form-control" name="maxPromos" value={{maxPromos}}>
               {{/each}}
             </div>
             <!--div class="form-group col-xs-12">

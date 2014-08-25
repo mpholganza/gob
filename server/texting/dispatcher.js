@@ -37,12 +37,15 @@ Meteor.methods({
     // Other messages
     Meteor.call('textOther', textFrom, textBody);
   },
+  // Does not work
   textHelp: function (textFrom) {
     Meteor.call('sendText', textFrom, 'Welcome to gob! We text you a featured dish each day by 10am, simply reply YES to order by 11:15am & enjoy by 12:15pm! Reply STOP to unsubscribe');
   },
+  // Does not work
   textStop: function (textFrom) {
     // TODO
   },
+  // Does not work
   textStart: function (textFrom) {
     Meteor.call('sendText', textFrom, 'You have successfully been re-subscribed to messages from this number. Reply HELP for help. Reply STOP to unsubscribe.');
   },
@@ -74,9 +77,10 @@ Meteor.methods({
 
     // There must be an associated deal
     var todaysDate = new Date();
-    todaysDate.setHours(0,0,0,0);
+    todaysDate.setHours(4,0,0,0);
     var tomorrowsDate = new Date();
-    tomorrowsDate.setHours(23,59,59,59);
+    tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
+    tomorrowsDate.setHours(3,59,59,59);
 
     var dealInfo = Deals.findOne({"buildingId": orderingUser.profile.buildingId, date: {"$gte": todaysDate, "$lte": tomorrowsDate}});
     if (dealInfo == null) {
@@ -86,12 +90,12 @@ Meteor.methods({
 
     // Check if reply is within offer time
     var todaysDate10am = new Date();
-    todaysDate10am.setHours(14,0,0,0); // 10am EST
+    todaysDate10am.setHours(13,30,0,0); // 13:30 is actually 9:30am EST
     var todaysDate11am = new Date();
-    todaysDate11am.setHours(15,0,0,0); // 11am EST
+    todaysDate11am.setHours(23,15,0,0); // 15:15 is actually 11:15am EST
     var now = new Date();
     if (now < todaysDate10am) {
-      Meteor.call('sendText', textFrom, "Our featured dish today is not yet being offered. Please reply between 10-11am");
+      Meteor.call('sendText', textFrom, "Our featured dish today is not yet being offered. Please reply between 9:30-11:15am");
       return;
     }
     

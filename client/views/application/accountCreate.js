@@ -31,8 +31,7 @@ Template.accountCreate.rendered = function() {
 
         var promoCodes = [];
         var promoCode = {
-          code: $form.find('[name=promo]').val(),
-          used: 0
+          code: $form.find('[name=promo]').val()
         };
 
         promoCodes.push(promoCode);

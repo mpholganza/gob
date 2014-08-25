@@ -21,13 +21,12 @@ Template.promoCreate.rendered = function() {
           startDate: $form.find('[name=startDate]').val(),
           endDate: $form.find('[name=endDate]').val(),
           priceInCentsOff: $form.find('[name=priceInCentsOff]').val(),
-          maxOrders: $form.find('[name=maxOrders]').val(),
-          numberOfOrders: 0
+          maxPromos: $form.find('[name=maxPromos]').val()
         };
 
         Meteor.call('ensurePromo', 
           promo.dealId, promo.promoCode, promo.promoName, promo.promoDescription, promo.startDate, promo.endDate, 
-          promo.priceInCentsOff, promo.maxOrders);
+          promo.priceInCentsOff, promo.maxPromos);
         
         Router.go('promoCreate');
       },
@@ -88,11 +87,11 @@ Template.promoCreate.rendered = function() {
             }
           }
         },
-        maxOrders: {
+        maxPromos: {
           trigger: 'blur',
           validators: {
             notEmpty: {
-              message: 'Please provide the max orders'
+              message: 'Please provide the max promos'
             }
           }
         }

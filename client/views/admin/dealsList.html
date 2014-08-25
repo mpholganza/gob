@@ -20,11 +20,11 @@
 <template name="dealItem">
   <form role="form" class="admin-form">
     <div class="form-group col-xs-6 text-left">
-      {{company}}
+      {{company}} - {{floor}}
       <div>{{date}}</div>
     </div>
     <div class="form-group col-xs-6 text-left">
-      {{featuredDish}} from {{restaurant}} - {{priceInCents}}¢
+      {{featuredDish}} from {{restaurant}} - {{priceInCents}}¢ {{priceInDollars}}
     </div>
     <div class="form-group col-xs-12 margin-adjust-15">
       <input type="button" class="btn btn-primary" value="Mark as delivered" id="deliveredButton">

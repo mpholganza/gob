@@ -19,7 +19,7 @@ Meteor.methods({
 
     var user = Meteor.users.findOne(userId);
 
-    if (deal.numberOfOrders > deal.maxOrders) {
+    if (deal.numberOfOrders >= deal.maxOrders) {
       console.log("ensureOrder: order attempted from userId " + userId + ". dealId " + dealId + " max orders reached.");
       Meteor.call('sendText', user.profile.phoneNumber, 'Sorry, we are sold out for today');
       return;
@@ -33,7 +33,7 @@ Meteor.methods({
       // Check if the user has one of the promos
       if (Meteor.user().profile.promoCodes) {
         promoCode = _.find(Meteor.user().profile.promoCodes, function(promoCode) {
-          return promo._id === promoCode._id; 
+          return promo._id === promoCode._id;
         });
 
         if (promoCode) {
@@ -60,11 +60,11 @@ Meteor.methods({
       Meteor.call('sendText', user.profile.phoneNumber, "Thanks! Your order has been placed, we'll text you once your dish is delivered! :)");
 
       // Increment number of orders against deal
-      Deals.update(dealId, {$inc: {"numberOfOrders":1}});
+      Deals.update(dealId, {$inc: {"numberOfOrders": 1}});
       
       // Increment number of promos used against deal
       if (promoCode) {
-        Promos.update({"dealId": dealId}, {$inc: {"numberOfOrders":1}});
+        Promos.update({"dealId": dealId}, {$inc: {"numberOfOrders": 1}});
       }
 
       future['return'](orderId);

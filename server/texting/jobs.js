@@ -8,7 +8,7 @@ SyncedCron.add({
   schedule: function(parser) {
     // Parser is a later.parse object
     // This 1:30pm is actually 9:30am EST
-    return parser.text('at 1:30 pm on Monday, Tuesday, Wednesday, Thursday and Friday');
+    return parser.text('at 1:30 pm on Monday, Tuesday, Wednesday, Thursday, Friday, Sunday');
   }, 
   job: function() {
     Meteor.call('textSubscribers');
@@ -20,7 +20,7 @@ SyncedCron.add({
   schedule: function(parser) {
     // Parser is a later.parse object
     // This 3:15pm is actually 11:15am EST
-    return parser.text('at 3:15 pm on Monday, Tuesday, Wednesday, Thursday and Friday');
+    return parser.text('at 3:15 pm on Monday, Tuesday, Wednesday, Thursday, Friday, Sunday');
   }, 
   job: function() {
     Meteor.call('textCouriersOrderInfo');
@@ -33,15 +33,15 @@ Meteor.methods({
 
     // Get all deals for the day
     var todaysDate = new Date();
-    todaysDate.setHours(0,0,0,0);
+    todaysDate.setHours(4,0,0,0);
     var tomorrowsDate = new Date();
-    tomorrowsDate.setHours(23,59,59,59);
+    tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
+    tomorrowsDate.setHours(3,59,59,59);
     var todaysDeals = Deals.find({"date": {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();
 
     // Send text to users in buildings associated with deals
     _.each(todaysDeals, function(deal) {
-
-      var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId}, {fields: {"profile.phoneNumber": 1}}).fetch();
+      var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId}, {fields: {"profile.phoneNumber": 1, "profile.promoCodes": 1}}).fetch();
       _.each(activeSubscribers, function(subscriber) {
         var subscriberNumber = toTwilioPhoneNumber(subscriber.profile.phoneNumber);
         var restaurant = deal.restaurant;
@@ -53,27 +53,28 @@ Meteor.methods({
         // Start TODO: Refactor this with the duplicate functionality in jobs.js
         // Find a promo associated with this deal. Note this only supports one promo per deal
         var promoText = '';
-        var promoCode = null;
-        var promo = Promos.findOne({"dealId": deal.dealId});
+        var subscriberPromoCode = null;
+        var promo = Promos.findOne({"dealId": deal._id});
+        console.log(featuredDish);
 
         if (promo) {
           // Check if the user has one of the promos
           if (subscriber.profile.promoCodes) {
-            promoCode = _.find(subscriber.profile.promoCodes, function(promoCode) {
-              return promo._id === promoCode._id;
+            subscriberPromoCode = _.find(subscriber.profile.promoCodes, function(subscriberPromoCode) {
+              return promo._id === subscriberPromoCode._id;
             });
 
-            if (promoCode) {
+            if (subscriberPromoCode) {
               // Apply discount
               priceInCents = priceInCents - promo.priceInCentsOff;
               priceInDollars = priceInCents/100
-              promoText = '[PROMO]';
+              promoText = ' [PROMO]';
             }
           }
         }
         // Finish TODO
         var priceText = '$' + priceInDollars;
-        var finishedText = "Today's featured dish is " + featuredDish + " from " + restaurant + " - " + priceText + " " + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
+        var finishedText = "Today's featured dish is " + featuredDish + " from " + restaurant + " - " + priceText + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
 
         Meteor.call('sendText', subscriberNumber, finishedText);
       });
@@ -83,19 +84,20 @@ Meteor.methods({
     console.log('Texting couriers confirming number of orders');
     // Get amount of confirmed orders
     var todaysDate = new Date();
-    todaysDate.setHours(0,0,0,0);
+    todaysDate.setHours(4,0,0,0);
     var tomorrowsDate = new Date();
-    tomorrowsDate.setHours(23,59,59,59);
+    tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
+    tomorrowsDate.setHours(3,59,59,59);
     
     // var orderAmount = Orders.find({"date": {"$gte": todaysDate, "$lt": tomorrowsDate}, "status": "confirmed"}).fetch().length;
     var todaysDeals = Deals.find({date: {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();
     var orderText = '';
     _.each(todaysDeals, function(deal) {
       console.log(deal.numberOfOrders);
-      orderText += deal.restaurant + ": " + deal.numberOfOrders + ".";
+      orderText += deal.restaurant + ": " + deal.numberOfOrders + ": " + deal.company + "\n";
     });
 
-    Meteor.call('sendText', '+16474488843', orderText); // TODO: Remove Hardcode
     // Send text to couriers
+    Meteor.call('sendText', '+16474488843', orderText); // TODO: Remove Hardcode
   }
 });

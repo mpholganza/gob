@@ -7,7 +7,7 @@ Meteor.methods({
     
     // Make case-insensitive
     var buildingIdRegex = new RegExp('^'+buildingId+'$','i');
-    var date = new Date(date+'T'+'00:00:00-04:00');
+    var date = new Date(date+'T'+'04:00:00-04:00');
 
     // Check for duplicate buildingId-date pair
     var duplicateDeal = Deals.findOne({buildingId: buildingIdRegex, date: date});
@@ -18,10 +18,12 @@ Meteor.methods({
     // Used to find company name based off buildingId
     var buildingInfo = Buildings.findOne({_id: buildingId});
     var company = buildingInfo.company;
+    var floor = buildingInfo.floor;
 
     Deals.insert({
       buildingId: buildingId,
       company: company,
+      floor: floor,
       date: date,
       featuredDish: featuredDish,
       restaurant: restaurant,

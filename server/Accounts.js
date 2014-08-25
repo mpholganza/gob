@@ -1,5 +1,4 @@
 Accounts.validateNewUser(function(user) {
-
   // Validate email
   emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
   var email = user.emails[0].address;
@@ -23,24 +22,21 @@ Accounts.validateNewUser(function(user) {
   // Validate promo code
   if (user.profile.promoCodes) {
     var code = user.profile.promoCodes[0].code;
-    var promo = Promos.findOne({code: code});
-    if (promo) {
-      if (promo.numberOfOrders < maxOrders) {
-        Meteor.users.update(Meteor.userId(),
-        {
-          $set: {
-            "profile.promoCodes.0._id": promo._id
-          }
-        });
-      } else {
-        Meteor.users.update(Meteor.userId(),
-        {
-          $set: {
-            "profile.promoCodes.0.rejected": 1
-          }
-        });
+    var building = Buildings.findOne({"_id" : user.profile.buildingId})
+    var deals = Deals.find({"buildingId" : user.profile.buildingId}).fetch()
+    _.each(deals, function(deal) {
+      var promo = Promos.findOne({"promoCode": code, "dealId": deal._id});
+      if (promo) {
+        if (promo.numberOfOrders < promo.maxPromos) {
+          user.profile.promoCodes[0]._id = promo._id;
+          Promos.update({"_id": promo._id}, {$inc: {"numberOfOrders": 1}});
+          console.log('accepted');
+        } else {
+          user.profile.promoCodes[0].rejected = 1;
+          console.log('rejected');
+        }
       }
-    }
+    });
   }
 
   console.log("ValidateNewUser: Account for " + email + " created.");
@@ -56,7 +52,7 @@ Accounts.onCreateUser(function(options, user) {
   if (options.profile) {
     user.profile = options.profile;
     
-    if (options.profile.phoneNumber) {
+    if (options.profile.phoneNumber && options.profile.buildingId != "Request a Building") {
       var phoneNumber = toTwilioPhoneNumber(options.profile.phoneNumber);
       Meteor.call('sendText', phoneNumber, "Welcome to gob! We text you a featured dish each day by 10am, simply reply YES to order by 11:15am & enjoy by 12:15pm!");
     }
