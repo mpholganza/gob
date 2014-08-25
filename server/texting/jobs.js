@@ -40,9 +40,10 @@ function textSubscribers() {
 
   // Send text to users in buildings associated with deals
   _.each(todaysDeals, function(deal) {
-    var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId}, {fields: {"profile.phoneNumber": 1, "profile.promoCodes": 1}}).fetch();
+    var activeSubscribers = Meteor.users.find({"profile.buildingId": deal.buildingId}, {fields: {"profile.firstName": 1, "profile.phoneNumber": 1, "profile.promoCodes": 1}}).fetch();
     _.each(activeSubscribers, function(subscriber) {
       var subscriberNumber = toTwilioPhoneNumber(subscriber.profile.phoneNumber);
+      var subscriberName = subscriber.profile.firstName;
       var restaurant = deal.restaurant;
       var featuredDish = deal.featuredDish;
       var priceInCents = deal.priceInCents;
@@ -72,7 +73,7 @@ function textSubscribers() {
       }
       // Finish TODO
       var priceText = '$' + priceInDollars;
-      var finishedText = "Today's featured dish is " + featuredDish + " from " + restaurant + " - " + priceText + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
+      var finishedText = subscriberName + "! Today's featured dish is " + featuredDish + " from " + restaurant + " - " + priceText + promoText + " - See " + shortenedUrl + " or reply YES by 11am to order";
 
       Texting.sendText(subscriberNumber, finishedText);
     });

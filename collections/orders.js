@@ -21,7 +21,7 @@ Meteor.methods({
 
     if (deal.numberOfOrders >= deal.maxOrders) {
       console.log("ensureOrder: order attempted from userId " + userId + ". dealId " + dealId + " max orders reached.");
-      Meteor.call('sendText', user.profile.phoneNumber, 'Sorry, we are sold out for today');
+      Texting.sendText(user.profile.phoneNumber, 'Sorry, we are sold out for today');
       return;
     }
 
@@ -57,7 +57,7 @@ Meteor.methods({
 
     var orderId = Orders.insert(order, function(error, orderId) {
       // Send order confirmation
-      Meteor.call('sendText', user.profile.phoneNumber, "Thanks! Your order has been placed, we'll text you once your dish is delivered! :)");
+      Texting.sendText(user.profile.phoneNumber, "Thanks! Your order has been placed, we'll text you once your dish is delivered! :)");
 
       // Increment number of orders against deal
       Deals.update(dealId, {$inc: {"numberOfOrders": 1}});

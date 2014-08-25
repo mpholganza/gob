@@ -12,24 +12,10 @@ Template.dealsList.deals = function() {
   return Deals.find({date: {"$gte": todaysDate, "$lte": tomorrowsDate}});
 };
 
-// TODO: Convert to dollars
 Template.dealItem.priceInDollars = function () {
-  /*var todaysDate = new Date();
-  todaysDate.setHours(4,0,0,0);
-  var tomorrowsDate = new Date();
-  tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
-  tomorrowsDate.setHours(3,59,59,59);
-  var todaysDeals = Deals.find({"date": {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();
-  console.log(todaysDeals);
-  _.each(todaysDeals, function(deal) {
-    var priceInCents = deal.priceInCents;
-    var priceInDollars = priceInCents/100;
-  }
-  var deal = Deals.findOne({_id: deals._id});
-  console.log('Hello');
-  var priceInCents = deal.priceInCents;
+  var priceInCents = this.priceInCents;
   var priceInDollars = priceInCents/100;
-  return priceInDollars;*/
+  return priceInDollars;
 };
 
 Template.dealItem.events({

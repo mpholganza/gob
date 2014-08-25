@@ -31,7 +31,7 @@ Texting = {
         console.log(order.userId);
         var user = Meteor.users.findOne(order.userId);
         var buildingFloor = Buildings.findOne(user.profile.buildingId);
-        var text = "Your dish has arrived! Pickup at " + user.profile.building + " " + buildingFloor.floor + ", front desk. How was our service? Tweet us @getgob or let us know on http://facebook.com/omgob";
+        var text = user.profile.firstName + "... Your dish has arrived! Pickup at " + user.profile.building + " " + buildingFloor.floor + ", front desk. How was our service? Tweet us @getgob or let us know on http://facebook.com/omgob";
         Texting.sendText(user.profile.phoneNumber, text);
       });
     });
@@ -129,7 +129,7 @@ Texting = {
     var todaysDate10am = new Date();
     todaysDate10am.setHours(13,30,0,0); // 13:30 is actually 9:30am EST
     var todaysDate11am = new Date();
-    todaysDate11am.setHours(15,15,0,0); // 15:15 is actually 11:15am EST
+    todaysDate11am.setHours(22,15,0,0); // 15:15 is actually 11:15am EST
     var now = new Date();
     if (now < todaysDate10am) {
       Texting.sendText(textFrom, "Our featured dish today is not yet being offered. Please reply between 9:30-11:15am");

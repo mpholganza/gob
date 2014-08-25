@@ -1,6 +1,9 @@
+// For security, client side - removed for the time being
+/*
 Accounts.config({
   forbidClientAccountCreation:true
 });
+*/
 
 Accounts.validateNewUser(function(user) {
   // Validate email
