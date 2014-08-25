@@ -27,7 +27,3 @@ Meteor.methods({
     return future.wait();
   }
 });
-
-Meteor.publish("publicBuildings", function() {
-  return Buildings.find();
-});

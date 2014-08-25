@@ -1,3 +1,8 @@
+Template.dealCreate.isAdmin = function () {
+  return true;
+  //return Meteor.user().profile.isAdmin;
+};
+
 Template.dealCreate.rendered = function() {
   if (!this._rendered) {
     this._rendered = true;

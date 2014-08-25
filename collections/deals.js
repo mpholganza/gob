@@ -40,7 +40,3 @@ Meteor.methods({
     return future.wait();
   }
 });
-
-Meteor.publish("allDeals", function() {
-  return Deals.find();
-});

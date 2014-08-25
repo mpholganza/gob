@@ -1,3 +1,8 @@
+Template.promoCreate.isAdmin = function () {
+  return true;
+  //return Meteor.user().profile.isAdmin;
+};
+
 Template.promoCreate.rendered = function() {
   if (!this._rendered) {
     this._rendered = true;
