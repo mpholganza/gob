@@ -30,7 +30,3 @@ Meteor.methods({
     return future.wait();
   }
 });
-
-Meteor.publish("allPromos", function() {
-  return Promos.find();
-});

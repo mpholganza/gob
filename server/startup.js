@@ -4,6 +4,22 @@ Meteor.startup(function () {
   SyncedCron.start();
 
   LoadTestData();
+  
+  Meteor.publish("allDeals", function() {
+    return Deals.find();
+  });
+
+  Meteor.publish("allOrders", function() {
+    return Orders.find();
+  });
+
+  Meteor.publish("allPromos", function() {
+    return Promos.find();
+  });
+
+  Meteor.publish("publicBuildings", function() {
+    return Buildings.find();
+  });
 });
 
 function LoadTestData() {

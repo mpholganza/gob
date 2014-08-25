@@ -73,7 +73,3 @@ Meteor.methods({
     return future.wait();
   }
 });
-
-Meteor.publish("allOrders", function() {
-  return Orders.find();
-});
