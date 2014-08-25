@@ -21,7 +21,8 @@ Meteor.methods({
       startDate: startDate,
       endDate: endDate,
       priceInCentsOff: priceInCentsOff,
-      maxOrders: maxOrders
+      maxOrders: maxOrders,
+      numberOfOrders: 0
     }, function(error, promoId) {
       future['return'](promoId);
     });
