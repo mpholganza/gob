@@ -1,3 +1,20 @@
+Meteor.methods({
+  textDelivered: function(dealId) {
+    // Find all orders for that deal and set order status to delivered
+    Orders.update({"dealId": dealId}, {$set: {"status": "delivered"}}, {multi: true}, function(error, response) {
+      // Send out text
+      var deliveredOrders = Orders.find({"dealId": dealId}, {"status": "delivered"}).fetch();
+      _.each(deliveredOrders, function(order) {
+        console.log(order.userId);
+        var user = Meteor.users.findOne(order.userId);
+        var building = Buildings.findOne(user.profile.buildingId);
+        var text = user.profile.firstName + "... Your dish has arrived! Pickup at " + user.profile.building + " " + building.floor + ", front desk. How was our service? Tweet us @getgob or let us know on http://facebook.com/omgob";
+        Texting.sendText(user.profile.phoneNumber, text);
+      });
+    });
+  }
+});
+
 Texting = {
   sendText: function(toNumber, textContent) {
     var fromNumber = '+16475575906';
@@ -20,20 +37,6 @@ Texting = {
         return;
       }
       console.log('Error sending message "' + textContent + '" to "' + toNumber + '": ' + err.message);
-    });
-  },
-  textDelivered: function(dealId) {
-    // Find all orders for that deal and set order status to delivered
-    Orders.update({"dealId": dealId}, {$set: {"status": "delivered"}}, {multi: true}, function(error, response) {
-      // Send out text
-      var deliveredOrders = Orders.find({"dealId": dealId}, {"status": "delivered"}).fetch();
-      _.each(deliveredOrders, function(order) {
-        console.log(order.userId);
-        var user = Meteor.users.findOne(order.userId);
-        var buildingFloor = Buildings.findOne(user.profile.buildingId);
-        var text = user.profile.firstName + "... Your dish has arrived! Pickup at " + user.profile.building + " " + buildingFloor.floor + ", front desk. How was our service? Tweet us @getgob or let us know on http://facebook.com/omgob";
-        Texting.sendText(user.profile.phoneNumber, text);
-      });
     });
   },
   textDispatcher: function(textFrom, textBody) {
@@ -129,7 +132,7 @@ Texting = {
     var todaysDate10am = new Date();
     todaysDate10am.setHours(13,30,0,0); // 13:30 is actually 9:30am EST
     var todaysDate11am = new Date();
-    todaysDate11am.setHours(22,15,0,0); // 15:15 is actually 11:15am EST
+    todaysDate11am.setHours(15,15,0,0); // 15:15 is actually 11:15am EST
     var now = new Date();
     if (now < todaysDate10am) {
       Texting.sendText(textFrom, "Our featured dish today is not yet being offered. Please reply between 9:30-11:15am");
@@ -140,7 +143,7 @@ Texting = {
       Texting.sendText(textFrom, "Our featured dish today is now over, but don't worry we have plenty of delicious dishes featured daily!");
       return;      
     }
-
+    
     // Create an order
     Meteor.call('ensureOrder', orderingUser._id, dealInfo._id, dealInfo.featuredDish, dealInfo.restaurant, dealInfo.priceInCents);
 
