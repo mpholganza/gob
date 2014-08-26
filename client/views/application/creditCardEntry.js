@@ -7,7 +7,7 @@ Template.creditCardEntry.events({
 		// Disable the submit button to prevent repeated clicks
 		$form.find('button').prop('disabled', true);
 
-		Stripe.setPublishableKey('pk_test_AYtaRhoGqICMZMmo3MB2gsh2');
+		Stripe.setPublishableKey('pk_test_4OjrLZKlb1DucfJc77YegjIJ');
 		
 		var that = this;
 		Stripe.card.createToken($form, function(status, response) {

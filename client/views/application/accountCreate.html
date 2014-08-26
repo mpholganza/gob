@@ -19,44 +19,48 @@
                 <input type="text" class="form-control" name="firstName" placeholder="First Name">
               </div>
               <div class="form-group col-xs-12 col-sm-6 text-left">
-                <label for="lastName" class="hidden">Last Name:</label>
-                <input type="text" class="form-control" name="lastName" placeholder="Last Name">
-              </div>
-              <div class="form-group col-xs-12 text-left">
-                <label for="phoneNumber" class="hidden">Phone Number:</label>
-                <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
-              </div>
-              <div class="form-group col-xs-12 text-left">
-                <!-- hidden display so chrome doesn't autofill incorrectly-->
-                <input type="text" style="display:none">
-                <label for="password" class="hidden">Password</label>
-                <input type="password" placeholder="Password" name="password" class="form-control">
-              </div>
-              <div class="form-group col-xs-12 text-left">
-                <label for="building" class="hidden">Building:</label>
-                <select id="requestBuildingSelect" class="form-control" name="building">
-                  <option value="Wattpad">Wattpad - 36 Wellington Street East, Toronto</option>
+								<label for="lastName" class="hidden">Last Name:</label>
+								<input type="text" class="form-control" name="lastName" placeholder="Last Name">
+							</div>
+							<div class="form-group col-xs-12 text-left">
+								<label for="phoneNumber" class="hidden">Phone Number:</label>
+								<input type="text" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="Phone Number">
+							</div>
+							<div class="form-group col-xs-12 text-left">
+								<!-- hidden display so chrome doesn't autofill incorrectly-->
+								<input type="text" style="display:none">
+								<label for="password" class="hidden">Password</label>
+								<input type="password" placeholder="Password" name="password" class="form-control">
+							</div>
+							<div class="form-group col-xs-12 text-left">
+								<label for="building" class="hidden">Building:</label>
+								<select id="requestBuildingSelect" class="form-control" name="building">
+                  {{#each buildings}}
+  									<option value="{{_id}}_{{company}}">{{company}} - {{address}} - {{floor}}</option>
+                  {{/each}}
                   <option value="Request a Building">Request a Building</option>
-                </select>
-              </div>
+								</select>
+							</div>
               <div id="requestBuilding" style="display:none">
-                <div class="form-group col-xs-12 col-sm-9 text-left">
-                  <label for="companyAddress" class="hidden">Company Address</label>
-                  <input type="text" class="form-control" name="companyAddress" placeholder="Company Address">
-                </div>
-                <div class="form-group col-xs-12 col-sm-3 text-left">
-                  <label for="floor" class="hidden">Floor</label>
-                  <input type="text" class="form-control" name="floor" placeholder="Floor">
-                </div>
-              </div>
-              <div class="form-group col-xs-12 text-left">
-                <label for="promo" class="hidden">Promo Code:</label>
-                <input type="text" class="form-control" name="promo" placeholder="Optional Promo Code">
+              	<div class="form-group col-xs-12 col-sm-9 text-left">
+                	<label for="address" class="hidden">Company Address</label>
+                	<input type="text" class="form-control" name="address" placeholder="Company Address">
+              	</div>
+              	<div class="form-group col-xs-12 col-sm-3 text-left">
+                	<label for="floor" class="hidden">Floor</label>
+                	<input type="text" class="form-control" name="floor" placeholder="Floor">
+              	</div>
+            	</div>
+							<div class="form-group col-xs-12 text-left">
+								<label for="promo" class="hidden">Promo Code:</label>
+								<input type="text" class="form-control" name="promo" placeholder="Optional Promo Code">
               </div>
               <div class="form-group col-xs-12 checkbox-error">
-                <div class="white-text-adjust">gob requires your consent to send you SMS and email. Please read our <a href="{{pathFor 'terms'}}" target="_blank">Terms of Service</a> and <a href="{{pathFor 'privacy'}}" target="_blank">Privacy Policy</a> for more information.</div>
+                <div class="white-text-adjust">
+                  gob requires your consent to send you SMS and email. Please read our <a href="{{pathFor 'terms'}}" target="_blank">Terms of Service</a> and <a href="{{pathFor 'privacy'}}" target="_blank">Privacy Policy</a> for more information.
+                </div>
                 <medium class="white-text-adjust">
-                <input type="checkbox" name="consent" class="checkbox-format">Check here to consent to the above
+                  <input type="checkbox" name="consent" class="checkbox-format">Check here to consent to the above
                 </medium>
               </div>
               <div class="form-group col-xs-12">
@@ -68,9 +72,8 @@
       </div>
     </section>
   {{/if}}
-    
-  <!-- Google Analytics -->
 
+  <!-- Google Analytics -->
   <script>
     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -80,4 +83,5 @@
     ga('create', 'UA-51477536-1', 'omgob.com');
     ga('send', 'pageview');
   </script>
+  
 </template>

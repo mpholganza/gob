@@ -8,367 +8,101 @@
   <title>gob</title>
   <link rel="shortcut icon" href="/img/favicon.ico" >
 
-<!-- Bootstrap Core CSS -->
-
+  <!-- Bootstrap Core CSS -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 
-<!-- Fonts -->
-
+  <!-- Fonts -->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <link href='//fonts.googleapis.com/css?family=Lora:100,700,100italic,700italic' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=Montserrat:100,300,700' rel='stylesheet' type='text/css'>
   <link href='//fonts.googleapis.com/css?family=Lato:100,300,500,700' rel='stylesheet' type='text/css'>
 
-<!-- Custom Theme CSS -->
-
+  <!-- Custom Theme CSS -->
   <link href="css/grayscale.css" rel="stylesheet">
-
-<!-- Mailchimp Start -->
-
-  <script type="text/javascript">
-    var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';
-    try {
-      var jqueryLoaded=jQuery;
-      jqueryLoaded=true;
-    } catch(err) {
-      var jqueryLoaded=false;
-    }
-    var head= document.getElementsByTagName('head')[0];
-    if (!jqueryLoaded) {
-      var script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.src = '//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js';
-      head.appendChild(script);
-      if (script.readyState && script.onload!==null){
-        script.onreadystatechange= function () {
-          if (this.readyState == 'complete') mce_preload_check();
-        }    
-      }
-    }
-
-var err_style = '';
-try{
-    err_style = mc_custom_error_style;
-} catch(e){
-    err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
-}
-var head= document.getElementsByTagName('head')[0];
-var style= document.createElement('style');
-style.type= 'text/css';
-if (style.styleSheet) {
-  style.styleSheet.cssText = err_style;
-} else {
-  style.appendChild(document.createTextNode(err_style));
-}
-head.appendChild(style);
-setTimeout('mce_preload_check();', 250);
-
-var mce_preload_checks = 0;
-function mce_preload_check(){
-    if (mce_preload_checks>40) return;
-    mce_preload_checks++;
-    try {
-        var jqueryLoaded=jQuery;
-    } catch(err) {
-        setTimeout('mce_preload_check();', 250);
-        return;
-    }
-    var script = document.createElement('script');
-    script.type = 'text/javascript';
-    script.src = 'http://downloads.mailchimp.com/js/jquery.form-n-validate.js';
-    head.appendChild(script);
-    try {
-        var validatorLoaded=jQuery("#fake-form").validate({});
-    } catch(err) {
-        setTimeout('mce_preload_check();', 250);
-        return;
-    }
-    mce_init_form();
-}
-function mce_init_form(){
-    jQuery(document).ready( function($) {
-      var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
-      var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
-      $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
-      options = { url: 'http://omgob.us8.list-manage1.com/subscribe/post-json?u=0c6cb91f1bee42854108ff7f7&id=16045ed2ee&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
-                    beforeSubmit: function(){
-                        $('#mce_tmp_error_msg').remove();
-                        $('.datefield','#mc_embed_signup').each(
-                            function(){
-                                var txt = 'filled';
-                                var fields = new Array();
-                                var i = 0;
-                                $(':text', this).each(
-                                    function(){
-                                        fields[i] = this;
-                                        i++;
-                                    });
-                                $(':hidden', this).each(
-                                    function(){
-                                        var bday = false;
-                                        if (fields.length == 2){
-                                            bday = true;
-                                            fields[2] = {'value':1970};//trick birthdays into having years
-                                        }
-                                        if ( fields[0].value=='MM' && fields[1].value=='DD' && (fields[2].value=='YYYY' || (bday && fields[2].value==1970) ) ){
-                                            this.value = '';
-                                        } else if ( fields[0].value=='' && fields[1].value=='' && (fields[2].value=='' || (bday && fields[2].value==1970) ) ){
-                                            this.value = '';
-                                        } else {
-                                            if (/\[day\]/.test(fields[0].name)){
-                                                this.value = fields[1].value+'/'+fields[0].value+'/'+fields[2].value;                                           
-                                            } else {
-                                                this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
-                                            }
-                                        }
-                                    });
-                            });
-                        $('.phonefield-us','#mc_embed_signup').each(
-                            function(){
-                                var fields = new Array();
-                                var i = 0;
-                                $(':text', this).each(
-                                    function(){
-                                        fields[i] = this;
-                                        i++;
-                                    });
-                                $(':hidden', this).each(
-                                    function(){
-                                        if ( fields[0].value.length != 3 || fields[1].value.length!=3 || fields[2].value.length!=4 ){
-                                            this.value = '';
-                                        } else {
-                                            this.value = 'filled';
-                                        }
-                                    });
-                            });
-                        return mce_validator.form();
-                    }, 
-                    success: mce_success_cb
-                };
-      $('#mc-embedded-subscribe-form').ajaxForm(options);
-      
-      
-    });
-}
-function mce_success_cb(resp){
-    $('#mce-success-response').hide();
-    $('#mce-error-response').hide();
-    if (resp.result=="success"){
-        $('#mce-'+resp.result+'-response').show();
-        $('#mce-'+resp.result+'-response').html(resp.msg);
-        $('#mc-embedded-subscribe-form').each(function(){
-            this.reset();
-        });
-    } else {
-        var index = -1;
-        var msg;
-        try {
-            var parts = resp.msg.split(' - ',2);
-            if (parts[1]==undefined){
-                msg = resp.msg;
-            } else {
-                i = parseInt(parts[0]);
-                if (i.toString() == parts[0]){
-                    index = parts[0];
-                    msg = parts[1];
-                } else {
-                    index = -1;
-                    msg = resp.msg;
-                }
-            }
-        } catch(e){
-            index = -1;
-            msg = resp.msg;
-        }
-        try{
-            if (index== -1){
-                $('#mce-'+resp.result+'-response').show();
-                $('#mce-'+resp.result+'-response').html(msg);            
-            } else {
-                err_id = 'mce_tmp_error_msg';
-                html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
-                
-                var input_id = '#mc_embed_signup';
-                var f = $(input_id);
-                if (ftypes[index]=='address'){
-                    input_id = '#mce-'+fnames[index]+'-addr1';
-                    f = $(input_id).parent().parent().get(0);
-                } else if (ftypes[index]=='date'){
-                    input_id = '#mce-'+fnames[index]+'-month';
-                    f = $(input_id).parent().parent().get(0);
-                } else {
-                    input_id = '#mce-'+fnames[index];
-                    f = $().parent(input_id).get(0);
-                }
-                if (f){
-                    $(f).append(html);
-                    $(input_id).focus();
-                } else {
-                    $('#mce-'+resp.result+'-response').show();
-                    $('#mce-'+resp.result+'-response').html(msg);
-                }
-            }
-        } catch(e){
-            $('#mce-'+resp.result+'-response').show();
-            $('#mce-'+resp.result+'-response').html(msg);
-        }
-    }
-}
-  </script>
-
-<!-- Mailchimp End -->
 
 </head>
 
 <template name="dinein">
 <!-- id="page-top" data-spy="scroll" data-target=".navbar-custom"-->
 
-    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a id="logo-top" class="navbar-brand" href="#page-top"><img id="logo"
- src="/img/logo.png"></a>
-            </div>
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a id="logo-top" class="navbar-brand" href="#page-top"><img id="logo" src="/img/logo.png"></a>
+      </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
-                <ul class="nav navbar-nav">
-                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <!--li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#download">Download</a>
-                    </li-->
-                    <li class="page-scroll">
-                        <a class="hover" href="mailto:info@omgob.com">Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
-    <section class="intro">
-        <div class="intro-body">
-            <div class="container">
-                <div class="row">
-                    <h1 class="brand-heading">Take Out Made Easy</h1>
-                    <p class="intro-text">Receive a text &nbsp; &sdot; &nbsp; Tap to order &nbsp; &sdot; &nbsp; Enjoy your meal</p>
-                    <p class="intro-text">gob simplifies your day one meal at a time</p>
-                    <br>
-                    <br>
-                    <hr class="intro-divider">
-                    <br>
-                    <br>
-                        
-<!-- Begin MailChimp Signup Form -->
-
-    <div id="mc_embed_signup">
-        <form action="http://omgob.us8.list-manage.com/subscribe/post?u=0c6cb91f1bee42854108ff7f7&amp;id=16045ed2ee" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
-            
-            <p class="text">Join today to learn more about gob!</p>
-            <input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Email Address">
-            <input type="submit" value="Join Now" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">
-
-            <div id="mce-responses" class="">
-                <div class="" id="mce-error-response" style="display:none"></div>
-                <div class="" id="mce-success-response" style="display:none"></div>
-            </div><!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    
-            <div style="position: absolute; left: -5000px;"><input type="text" name="b_0c6cb91f1bee42854108ff7f7_16045ed2ee" tabindex="-1" value=""></div>
-
-        </form>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <ul class="nav navbar-nav">
+          <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+          <li class="hidden">
+              <a href="#page-top"></a>
+          </li>
+          <!--li class="page-scroll">
+              <a href="#about">About</a>
+          </li>
+          <li class="page-scroll">
+              <a href="#download">Download</a>
+          </li-->
+          <li class="page-scroll">
+              <a class="hover" href="mailto:info@omgob.com">Contact</a>
+          </li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
     </div>
+    <!-- /.container -->
+  </nav>
 
-<!-- End MailChimp Signup Form -->
-
-    <div><p id="copyright">Copyright &copy; 2014 gob</p></div>
-
-                        <!--div class="page-scroll">
-                            <a href="#about" class="btn btn-circle">
-                                <i class="fa fa-angle-double-down animated"></i>
-                            </a>
-                        </div-->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About, Download, Contact -->
-    <!--section id="about" class="container content-section text-center">
+  <section class="intro">
+    <div class="intro-body">
+      <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>About Grayscale</h2>
-                <p>Grayscale is a premium quality, free Bootstrap 3 theme created by Start Bootstrap. It can be yours right now, all you need to do is download the template on the preview page. You can use this template for any purpose, personal or commercial.</p>
-                <p>This striking, black and white theme features stock photographs by <a href="http://gratisography.com/">Gratisography</a> along with a custom Google Map skin courtesy of <a href="http://snazzymaps.com/">Snazzy Maps</a>.</p>
-                <p>With this template, just the slightest splash of color can make a huge impact on the overall presentation and design.</p>
-            </div>
+          <h1 class="brand-heading">Take Out Made Easy</h1>
+          <p class="intro-text">Receive a text &nbsp; &sdot; &nbsp; Tap to order &nbsp; &sdot; &nbsp; Enjoy your meal</p>
+          <p class="intro-text">gob simplifies your day one meal at a time</p>
+          <br>
+          <br>
+          <hr class="intro-divider">
+          <br>
+          <br>
+
+          <div><p id="copyright">Copyright &copy; 2014 gob</p></div>
+
+          <!--div class="page-scroll">
+              <a href="#about" class="btn btn-circle">
+                  <i class="fa fa-angle-double-down animated"></i>
+              </a>
+          </div-->
+
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <h2>Download Grayscale</h2>
-                    <p>You can download Grayscale for free on the download page at Start Bootstrap. You can also get the source code directly from GitHub if you prefer. Additionally, Grayscale is the first Start Bootstrap theme to come with a LESS file for easy color customization!</p>
-                    <a href="http://startbootstrap.com/grayscale" class="btn btn-default btn-lg">Visit Download Page</a>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- Core JavaScript Files -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2">
-                <h2>Contact Start Bootstrap</h2>
-                <p>Feel free to email us to provide some feedback on our templates, give us suggestions for new templates and themes, or to just say hello!</p>
-                <p>feedback@startbootstrap.com</p>
-                <ul class="list-inline banner-social-buttons">
-                    <li><a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li><a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li><a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+  <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
+  <!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script-->
 
-    <div id="map"></div-->
+  <!-- Custom Theme JavaScript -->
+  <script src="js/grayscale.js"></script>
 
-    <!-- Core JavaScript Files -->
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-    <!-- Google Maps API Key - You will need to use your own API key to use the map feature -->
-    <!--script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script-->
-
-    <!-- Custom Theme JavaScript -->
-
-    <script src="js/grayscale.js"></script>
-
-    <!-- Google Analytics -->
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-51477536-1', 'omgob.com');
-      ga('send', 'pageview');
-    </script>
+    ga('create', 'UA-51477536-1', 'omgob.com');
+    ga('send', 'pageview');
+  </script>
 
 </template>

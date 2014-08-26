@@ -65,6 +65,16 @@
   margin-left: 18px;
 }
 
+.promo-true {
+  color: #42dd45;
+  font-size: 16px;
+}
+
+.promo-false {
+  color: #e31e26;
+  font-size: 16px;
+}
+
 #homeButton {
   width: 70%;
   height: auto;

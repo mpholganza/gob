@@ -17,7 +17,6 @@ Template.accountCreate.rendered = function() {
     
     // Form validation
     $("#extendedSignup").bootstrapValidator({
-      message: 'This value is not valid',
       feedbackIcons: {
         valid: 'glyphicon glyphicon-ok',
         invalid: 'glyphicon glyphicon-remove',
@@ -32,29 +31,32 @@ Template.accountCreate.rendered = function() {
     
         var promoCodes = [];
         var promoCode = {
-          code: $form.find('[name=promo]').val(),
-          used: 0
-        }
+          code: $form.find('[name=promo]').val()
+        };
     
         promoCodes.push(promoCode);
     
-        var requestedAddress = $form.find('[name=companyAddress]').val()
+        var requestedAddress = $form.find('[name=address]').val()
         var requestedFloor = $form.find('[name=floor]').val();
-    
+
         var requestedLocation = null;
         if (requestedAddress) {
           requestedLocation = requestedAddress + ': Floor ' + requestedFloor;
-        }
+        };
+
+        var buildingInfo = $form.find('[name=building]').val().split("_"); // old schema
 
         var profile = {
           firstName: $form.find('[name=firstName]').val(),
           lastName: $form.find('[name=lastName]').val(),
           phoneNumber: $form.find('[name=phoneNumber]').val(),
-          building: $form.find('[name=building]').val(),
+          building: buildingInfo[1], // old schema
+          buildingId: buildingInfo[0],
           requestedBuilding: requestedLocation,
-          promoCodes: promoCodes
-        }
-    
+          promoCodes: promoCodes,
+          hasCreditCard: 0
+        };
+
         Accounts.createUser({
           email: email,
           password: password,
@@ -123,4 +125,8 @@ Template.accountCreate.rendered = function() {
       }
     })
   }
+};
+
+Template.accountCreate.buildings = function() {
+  return Buildings.find();
 };
