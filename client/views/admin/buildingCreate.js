@@ -1,6 +1,6 @@
 Template.buildingCreate.isAdmin = function () {
-  return true;
-  //return Meteor.user().profile.isAdmin;
+  return Meteor.user().profile.isAdmin;
+  //return true;
 };
 
 Template.buildingCreate.rendered = function() {

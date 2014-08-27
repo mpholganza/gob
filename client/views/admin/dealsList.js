@@ -1,6 +1,6 @@
 Template.dealsList.isAdmin = function () {
-  return true;
-  //return Meteor.user().profile.isAdmin;
+  return Meteor.user().profile.isAdmin;
+  //return true;
 };
 
 Template.dealsList.deals = function() {

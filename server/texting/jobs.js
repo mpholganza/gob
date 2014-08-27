@@ -8,7 +8,8 @@ SyncedCron.add({
   schedule: function(parser) {
     // Parser is a later.parse object
     // This 1:30pm is actually 9:30am EST
-    return parser.text('at 1:30 pm on Monday, Tuesday, Wednesday, Thursday, Friday');
+    //return parser.text('at 1:30 pm on Monday, Tuesday, Wednesday, Thursday, Friday');
+    return parser.text('at 1:30 pm on Sunday');
   }, 
   job: function() {
     textSubscribers();
@@ -20,7 +21,8 @@ SyncedCron.add({
   schedule: function(parser) {
     // Parser is a later.parse object
     // This 3:15pm is actually 11:15am EST
-    return parser.text('at 3:15 pm on Monday, Tuesday, Wednesday, Thursday, Friday');
+    //return parser.text('at 3:15 pm on Monday, Tuesday, Wednesday, Thursday, Friday');
+    return parser.text('at 3:15 pm on Sunday');
   }, 
   job: function() {
     textCouriersOrderInfo();

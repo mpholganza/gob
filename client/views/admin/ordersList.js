@@ -1,6 +1,6 @@
 Template.ordersList.isAdmin = function () {
-  return true;
-  //return Meteor.user().profile.isAdmin;
+  return Meteor.user().profile.isAdmin;
+  //return true;
 };
 
 Template.ordersList.orders = function() {
