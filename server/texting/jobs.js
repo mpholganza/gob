@@ -32,10 +32,9 @@ function textSubscribers() {
 
   // Get all deals for the day
   var todaysDate = new Date();
-  todaysDate.setHours(4,0,0,0);
+  todaysDate.setHours(0,0,0,0);
   var tomorrowsDate = new Date();
-  tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
-  tomorrowsDate.setHours(3,59,59,59);
+  tomorrowsDate.setHours(23,59,59,59);
   var todaysDeals = Deals.find({"date": {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();
 
   // Send text to users in buildings associated with deals
@@ -84,10 +83,9 @@ function textCouriersOrderInfo() {
   console.log('Texting couriers confirming number of orders');
   // Get amount of confirmed orders
   var todaysDate = new Date();
-  todaysDate.setHours(4,0,0,0);
+  todaysDate.setHours(0,0,0,0);
   var tomorrowsDate = new Date();
-  tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
-  tomorrowsDate.setHours(3,59,59,59);
+  tomorrowsDate.setHours(23,59,59,59);
   
   // var orderAmount = Orders.find({"date": {"$gte": todaysDate, "$lt": tomorrowsDate}, "status": "confirmed"}).fetch().length;
   var todaysDeals = Deals.find({date: {"$gte": todaysDate, "$lte": tomorrowsDate}}).fetch();

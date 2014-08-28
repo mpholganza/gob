@@ -41,7 +41,7 @@ Meteor.methods({
       }
     }
 
-    var dateOrdered = moment().tz("America/Toronto").format();
+    var dateOrdered = new Date();
 
     var order = {
       "userId": userId,

@@ -4,6 +4,7 @@ Meteor.startup(function() {
    $('body').attr('id', 'page-top');
 
    // Subscribe
+   Meteor.subscribe('userData');
    Meteor.subscribe('publicBuildings');
    Meteor.subscribe('allDeals');
    Meteor.subscribe('allPromos');

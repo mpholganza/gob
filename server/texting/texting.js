@@ -117,10 +117,9 @@ Texting = {
 
     // There must be an associated deal
     var todaysDate = new Date();
-    todaysDate.setHours(4,0,0,0);
+    todaysDate.setHours(0,0,0,0);
     var tomorrowsDate = new Date();
-    tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
-    tomorrowsDate.setHours(3,59,59,59);
+    tomorrowsDate.setHours(23,59,59,59);
 
     var dealInfo = Deals.findOne({"buildingId": orderingUser.profile.buildingId, date: {"$gte": todaysDate, "$lte": tomorrowsDate}});
     if (dealInfo == null) {

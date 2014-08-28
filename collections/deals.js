@@ -7,7 +7,7 @@ Meteor.methods({
     
     // Make case-insensitive
     var buildingIdRegex = new RegExp('^'+buildingId+'$','i');
-    var date = new Date(date+'T'+'04:00:00-04:00');
+    var date = new Date(date+'T'+'00:00:00-04:00');
 
     // Check for duplicate buildingId-date pair
     var duplicateDeal = Deals.findOne({buildingId: buildingIdRegex, date: date});
