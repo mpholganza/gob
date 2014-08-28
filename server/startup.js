@@ -4,7 +4,11 @@ Meteor.startup(function () {
   SyncedCron.start();
 
   LoadTestData();
-  
+
+  Meteor.publish("publicBuildings", function() {
+    return Buildings.find();
+  });
+
   Meteor.publish("allDeals", function() {
     return Deals.find();
   });
@@ -16,10 +20,6 @@ Meteor.startup(function () {
   Meteor.publish("allPromos", function() {
     return Promos.find();
   });
-
-  Meteor.publish("publicBuildings", function() {
-    return Buildings.find();
-  });
 });
 
 function LoadTestData() {
@@ -29,6 +29,6 @@ function LoadTestData() {
     console.log(i);
   }*/
 	//Meteor.call('textSubscribers')
-  //Meteor.call('ensureOrder', 'MQNKzWSyLogTdpZwJ', 'ckFrQK6aRBPoyfutH', 'Cobb Salad w/ Chicken', 'Salad Days', '700');
- //Meteor.call('textCouriersOrderInfo');
+  //Meteor.call('ensureOrder', 'nx2hK9gM9PvAhTmp7', 'qzzpfmoD2pdo3NAsg', 'Cobb Salad w/ Chicken', 'Salad Days', '700');
+  //Meteor.call('textCouriersOrderInfo');
 }

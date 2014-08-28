@@ -52,12 +52,12 @@
 }
 
 #extendedSignupThankYou .text-center, #extendedSignupRequestBuilding .text-center {
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 @media(max-width: 767px) {
   #extendedSignupThankYou .text-center, #extendedSignupRequestBuilding .text-center  {
-    margin-top: 12px;
+    margin-top: 10px;
   }
 }
 
@@ -67,19 +67,30 @@
 
 .promo-true {
   color: #42dd45;
-  font-size: 16px;
+  font-size: 18px;
+  margin-bottom: 0px;
+  margin-top: 12px;
 }
 
 .promo-false {
   color: #e31e26;
-  font-size: 16px;
+  font-size: 18px;
+  margin-bottom: 0px;
+  margin-top: 12px;
+}
+
+@media(max-width: 767px) {
+  .promo-true,
+  .promo-false {
+    font-size: 16px;
+  }
 }
 
 #homeButton {
   width: 70%;
   height: auto;
   font-size: 18px;
-  margin-top: 40px;
+  margin-top: 30px;
   margin-left: auto;
   margin-right: auto;
   border-radius: 4px;
@@ -96,7 +107,12 @@
 
 @media(max-width: 500px) {
   #homeButton {
-    margin-top: 30px;
     width: 100%;
+  }
+}
+
+@media(max-width: 767px) {
+  #homeButton {
+    margin-top: 20px;
   }
 }
