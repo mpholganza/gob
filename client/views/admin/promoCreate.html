@@ -1,106 +1,110 @@
+<template name="adminPromoCreate">
+  {{#if isAdmin}}
+    {{> promoCreate}}
+  {{/if}}
+</template>
+
 <template name="promoCreate">
-  {{#if isAdmin}}  
-    <section class="admin">
-      <div class="admin-body">
-        <div class="container">
-          <div class="row">
-            <form role="form" id="promoCreate" class="admin-form">
-              <h1 class="admin-form-title">Add Promos</h1>
-              <div class="form-group col-xs-6 text-left">
-                <label for="dealId" class="">Deal ID:</label>
-                <input type="text" class="form-control margin-adjust-15" name="dealId" placeholder="Deal ID">
-              </div>
-              <div class="form-group col-xs-6 text-left">
-                <label for="promoCode" class="">Promo Code:</label>
-                <input type="text" class="form-control margin-adjust-15" name="promoCode" placeholder="Promo Code">
-              </div>
-              <div class="form-group col-xs-12 text-left">
-                <label for="promoName" class="">Promo Name:</label>
-                <input type="text" class="form-control margin-adjust-15" name="promoName" placeholder="Promo Name">
-              </div>
-              <div class="form-group col-xs-12 text-left">
-                <label for="promoDescription" class="">Promo Description:</label>
-                <input type="text" class="form-control margin-adjust-15" name="promoDescription" placeholder="Promo Description">
-              </div>
-              <div class="form-group col-xs-6 text-left">
-                <label for="startDate" class="">Start Date (YYYY-MM-DD):</label>
-                <input type="text" class="form-control margin-adjust-15" name="startDate" placeholder="YYYY-MM-DD">
-              </div>
-              <div class="form-group col-xs-6 text-left">
-                <label for="endDate" class="">End Date (YYYY-MM-DD):</label>
-                <input type="text" class="form-control margin-adjust-15" name="endDate" placeholder="YYYY-MM-DD">
-              </div>
-              <div class="form-group col-xs-6 text-left">
-                <label for="priceInCentsOff" class="">Price Off (¢):</label>
-                <input type="text" class="form-control margin-adjust-15" name="priceInCentsOff" placeholder="¢">
-              </div>
-              <div class="form-group col-xs-6 text-left">
-                <label for="maxPromos" class="">Max Promos:</label>
-                <input type="text" class="form-control margin-adjust-15" name="maxPromos" placeholder="0-99">
-              </div>
-              <div class="form-group col-xs-6">
-                <input type="button" class="btn btn-primary" value="Home" id="home">
-              </div>
-              <div class="form-group col-xs-6">
-                <input type="submit" value="Save" name="promoSubmit" id="promoSubmit" class="btn btn-primary">
-              </div>
-            </form>
-            <form role="form" id="promoOutput" class="admin-form">
-              <div class="form-group col-xs-2 text-left">
-                <label for="dealId" class="">Deal ID</label>
-                {{#each promos}}
-                  <input type="text" class="form-control" name="dealId" value={{dealId}}>
-                {{/each}}
-              </div>
-              <div class="form-group col-xs-2 text-left">
-                <label for="promoCode" class="">Promo Code</label>
-                {{#each promos}}
-                  <input type="text" class="form-control" name="promoCode" value={{promoCode}}>
-                {{/each}}
-              </div>
-              <div class="form-group col-xs-3 text-left">
-                <label for="promoName" class="">Promo Name</label>
-                {{#each promos}}
-                  <input type="text" class="form-control" name="promoName" value={{promoName}}>
-                {{/each}}
-              </div>
-              <div class="form-group col-xs-3 text-left">
-                <label for="promoDescription" class="">Promo Description</label>
-                {{#each promos}}
-                  <input type="text" class="form-control" name="promoDescription" value={{promoDescription}}>
-                {{/each}}
-              </div>
-              <div class="form-group col-xs-2 text-left">
-                <label for="startDate" class="">Start Date</label>
-                {{#each promos}}
-                  <input type="text" class="form-control" name="startDate" value={{startDate}}>
-                {{/each}}
-              </div>
-              <div class="form-group col-xs-2 text-left">
-                <label for="endDate" class="">End Date</label>
-                {{#each promos}}
-                  <input type="text" class="form-control" name="endDate" value={{endDate}}>
-                {{/each}}
-              </div>
-              <div class="form-group col-xs-2 text-left">
-                <label for="priceInCentsOff" class="">Price (¢)</label>
-                {{#each promos}}
-                  <input type="text" class="form-control" name="priceInCentsOff" value={{priceInCentsOff}}>
-                {{/each}}
-              </div>
-              <div class="form-group col-xs-2 text-left">
-                <label for="maxPromos" class="">Max Promos</label>
-                {{#each promos}}
-                  <input type="text" class="form-control" name="maxPromos" value={{maxPromos}}>
-                {{/each}}
-              </div>
-              <!--div class="form-group col-xs-12">
-                <input type="submit" value="Save" name="buildingEdit" id="buildingEdit" class="btn btn-primary">
-              </div-->
-            </form>
-          </div>
+  <section class="admin">
+    <div class="admin-body">
+      <div class="container">
+        <div class="row">
+          <form role="form" id="promoCreate" class="admin-form">
+            <h1 class="admin-form-title">Add Promos</h1>
+            <div class="form-group col-xs-6 text-left">
+              <label for="dealId" class="">Deal ID:</label>
+              <input type="text" class="form-control" name="dealId" placeholder="Deal ID">
+            </div>
+            <div class="form-group col-xs-6 text-left">
+              <label for="promoCode" class="">Promo Code:</label>
+              <input type="text" class="form-control" name="promoCode" placeholder="Promo Code">
+            </div>
+            <div class="form-group col-xs-12 text-left">
+              <label for="promoName" class="">Promo Name:</label>
+              <input type="text" class="form-control" name="promoName" placeholder="Promo Name">
+            </div>
+            <div class="form-group col-xs-12 text-left">
+              <label for="promoDescription" class="">Promo Description:</label>
+              <input type="text" class="form-control" name="promoDescription" placeholder="Promo Description">
+            </div>
+            <div class="form-group col-xs-6 text-left">
+              <label for="startDate" class="">Start Date (YYYY-MM-DD):</label>
+              <input type="text" class="form-control" name="startDate" placeholder="YYYY-MM-DD">
+            </div>
+            <div class="form-group col-xs-6 text-left">
+              <label for="endDate" class="">End Date (YYYY-MM-DD):</label>
+              <input type="text" class="form-control" name="endDate" placeholder="YYYY-MM-DD">
+            </div>
+            <div class="form-group col-xs-6 text-left">
+              <label for="priceInCentsOff" class="">Price Off (¢):</label>
+              <input type="text" class="form-control margin-adjust-15" name="priceInCentsOff" placeholder="¢">
+            </div>
+            <div class="form-group col-xs-6 text-left">
+              <label for="maxPromos" class="">Max Promos:</label>
+              <input type="text" class="form-control margin-adjust-15" name="maxPromos" placeholder="0-99">
+            </div>
+            <div class="form-group col-xs-6">
+              <input type="button" class="btn btn-primary" value="Home" id="home">
+            </div>
+            <div class="form-group col-xs-6">
+              <input type="submit" value="Save" name="promoSubmit" id="promoSubmit" class="btn btn-primary">
+            </div>
+          </form>
+          <form role="form" id="promoOutput" class="admin-form">
+            <div class="form-group col-xs-2 text-left">
+              <label for="dealId" class="">Deal ID</label>
+              {{#each promos}}
+                <input type="text" class="form-control" name="dealId" value={{dealId}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="promoCode" class="">Promo Code</label>
+              {{#each promos}}
+                <input type="text" class="form-control" name="promoCode" value={{promoCode}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-3 text-left">
+              <label for="promoName" class="">Promo Name</label>
+              {{#each promos}}
+                <input type="text" class="form-control" name="promoName" value={{promoName}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-3 text-left">
+              <label for="promoDescription" class="">Promo Description</label>
+              {{#each promos}}
+                <input type="text" class="form-control" name="promoDescription" value={{promoDescription}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="startDate" class="">Start Date</label>
+              {{#each promos}}
+                <input type="text" class="form-control" name="startDate" value={{startDate}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="endDate" class="">End Date</label>
+              {{#each promos}}
+                <input type="text" class="form-control" name="endDate" value={{endDate}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="priceInCentsOff" class="">Price (¢)</label>
+              {{#each promos}}
+                <input type="text" class="form-control" name="priceInCentsOff" value={{priceInCentsOff}}>
+              {{/each}}
+            </div>
+            <div class="form-group col-xs-2 text-left">
+              <label for="maxPromos" class="">Max Promos</label>
+              {{#each promos}}
+                <input type="text" class="form-control" name="maxPromos" value={{maxPromos}}>
+              {{/each}}
+            </div>
+            <!--div class="form-group col-xs-12">
+              <input type="submit" value="Save" name="buildingEdit" id="buildingEdit" class="btn btn-primary">
+            </div-->
+          </form>
         </div>
       </div>
-    </section>
-  {{/if}}
+    </div>
+  </section>
 </template>

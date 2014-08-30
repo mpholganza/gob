@@ -1,5 +1,6 @@
-Template.buildingCreate.isAdmin = function () {
-  return Meteor.user().profile.isAdmin;
+Template.adminBuildingCreate.isAdmin = function () {
+  var user = Meteor.user()
+  return user && user.profile.isAdmin;
   //return true;
 };
 
@@ -26,7 +27,6 @@ Template.buildingCreate.rendered = function() {
 
         Meteor.call('ensureBuilding', building.company, building.address, building.floor);
         
-        Router.go('buildingCreate');
       },
       fields: {
         company: {

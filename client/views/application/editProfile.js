@@ -1,6 +1,6 @@
 Template.editProfileForm.events({
   'change #request-building-select': function (e) {
-    if ("Request a Building" === e.target.value) {
+    if ("_Request a Building" === e.target.value) {
       $('#request-building').show();
     } else {
       $('#request-building').hide();

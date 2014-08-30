@@ -1,6 +1,6 @@
 Template.accountCreate.events({
   'change #requestBuildingSelect' : function (e) {
-    if ("Request a Building" === e.target.value) {
+    if ("_Request a Building" === e.target.value) {
       $('#requestBuilding').show();
     } else {
       $('#requestBuilding').hide();

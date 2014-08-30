@@ -38,7 +38,7 @@ Accounts.onCreateUser(function(options, user) {
   if (options.profile) {
     user.profile = options.profile;
     
-    if (options.profile.phoneNumber && options.profile.buildingId != "Request a Building") {
+    if (options.profile.phoneNumber && options.profile.building != "Request a Building") {
 
       // Validate promo code
       if (user.profile.promoCodes) {

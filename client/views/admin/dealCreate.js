@@ -1,5 +1,6 @@
-Template.dealCreate.isAdmin = function () {
-  return Meteor.user().profile.isAdmin;
+Template.adminDealCreate.isAdmin = function () {
+  var user = Meteor.user()
+  return user && user.profile.isAdmin;
   //return true;
 };
 
@@ -32,7 +33,6 @@ Template.dealCreate.rendered = function() {
 
         Meteor.call('ensureDeal', deal.buildingId, deal.date, deal.featuredDish, deal.restaurant, deal.description, deal.priceInCents, deal.maxOrders, deal.shortenedUrl, deal.fullUrl);
         
-        Router.go('dealCreate');
       },
 
       fields: {

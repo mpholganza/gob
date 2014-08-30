@@ -5,15 +5,6 @@ Meteor.startup(function () {
 
   LoadTestData();
 
-  Meteor.publish("userData", function() {
-    if (this.userId) {
-      return Meteor.users.find({_id: this.userId},
-        {fields: {'profile.isAdmin': 1}});
-    } else {
-      this.ready();
-    }
-  });
-
   Meteor.publish("publicBuildings", function() {
     return Buildings.find();
   });

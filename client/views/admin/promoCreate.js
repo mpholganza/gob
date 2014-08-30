@@ -1,5 +1,6 @@
-Template.promoCreate.isAdmin = function () {
-  return Meteor.user().profile.isAdmin;
+Template.adminPromoCreate.isAdmin = function () {
+  var user = Meteor.user()
+  return user && user.profile.isAdmin;
   //return true;
 };
 
@@ -32,8 +33,7 @@ Template.promoCreate.rendered = function() {
         Meteor.call('ensurePromo', 
           promo.dealId, promo.promoCode, promo.promoName, promo.promoDescription, promo.startDate, promo.endDate, 
           promo.priceInCentsOff, promo.maxPromos);
-        
-        Router.go('promoCreate');
+
       },
       fields: {
         dealId: {

@@ -8,7 +8,7 @@ Meteor.methods({
         console.log(order.userId);
         var user = Meteor.users.findOne(order.userId);
         var building = Buildings.findOne(user.profile.buildingId);
-        var text = user.profile.firstName + "... Your dish has arrived! Pickup at " + user.profile.building + " " + building.floor + ", front desk. How was our service? Tweet us @getgob or let us know on http://facebook.com/omgob";
+        var text = user.profile.firstName + ", your dish has arrived! Pickup at " + user.profile.building + " " + building.floor + ", front desk. How was our service? Tweet us @getgob or let us know on http://facebook.com/omgob";
         Texting.sendText(user.profile.phoneNumber, text);
       });
     });
